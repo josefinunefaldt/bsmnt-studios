@@ -1,9 +1,14 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
+import Location from "../../components/location";
 
-export const Route = createFileRoute('/archway')({
+export const Route = createFileRoute("/archway")({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
-  return <div>Hello "/archway"!</div>
+  return (
+    <div>
+      <Location />
+    </div>
+  );
 }

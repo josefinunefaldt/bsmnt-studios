@@ -1,9 +1,14 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
+import Location from "../../components/location";
 
-export const Route = createFileRoute('/leabridge')({
+export const Route = createFileRoute("/leabridge")({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
-  return <div>Hello "/leabridge"!</div>
+  return (
+    <div>
+      <Location />
+    </div>
+  );
 }
