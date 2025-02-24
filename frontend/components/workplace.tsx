@@ -1,3 +1,5 @@
+import React from "react";
+
 const Workplace = () => {
   return (
     <div className="w-full mx-auto p-6">

@@ -1,9 +1,14 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
+import StudioForm from "../../components/studioForm";
 
-export const Route = createFileRoute('/contact')({
+export const Route = createFileRoute("/contact")({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
-  return <div>Hello "/contact"!</div>
+  return (
+    <div>
+      <StudioForm />
+    </div>
+  );
 }

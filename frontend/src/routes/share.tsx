@@ -1,9 +1,14 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from "@tanstack/react-router";
+import StudioForm from "../../components/studioForm";
 
-export const Route = createFileRoute('/share')({
+export const Route = createFileRoute("/share")({
   component: RouteComponent,
-})
+});
 
 function RouteComponent() {
-  return <div>Hello "/share"!</div>
+  return (
+    <div>
+      <StudioForm />
+    </div>
+  );
 }
