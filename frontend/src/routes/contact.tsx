@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import StudioForm from "../../components/studioForm";
+import ContactForm from "../../components/contactForm";
+import LocationMap from "../../components/maps";
 
 export const Route = createFileRoute("/contact")({
   component: RouteComponent,
@@ -8,7 +9,8 @@ export const Route = createFileRoute("/contact")({
 function RouteComponent() {
   return (
     <div>
-      <StudioForm />
+      <ContactForm />
+      <LocationMap />
     </div>
   );
 }
