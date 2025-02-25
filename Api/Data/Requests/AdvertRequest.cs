@@ -9,5 +9,6 @@ namespace Api.Data.Requests
         public required string Description { get; set; }
         public DateTime DateCreated { get; set; }
         public Guid UserId { get; set; }
+        public User? User { get; set; }
     }
 }

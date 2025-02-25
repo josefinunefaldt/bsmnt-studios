@@ -1,32 +1,39 @@
 import { useState } from "react";
+import { createAdvert } from "../src/utils/advertFetch";
+import { components } from "../src/lib/api/v1";
+import { useRouter } from "@tanstack/react-router";
 
 export default function StudioForm() {
-  const [formData, setFormData] = useState<{
-    type: "offering" | "looking";
-    name: string;
-    email: string;
-    about: string;
-    description: string;
-    photo: File | null;
-  }>({
-    type: "offering",
-    name: "",
-    email: "",
-    about: "",
+  const router = useRouter();
+  const [formData, setFormData] = useState<
+    components["schemas"]["AdvertRequest"]
+  >({
+    offering: true,
     description: "",
-    photo: null,
+    imgUrls: [],
+    user: {
+      name: "",
+      email: "",
+      about: "",
+    },
   });
+
+  const [photo, setPhoto] = useState<File | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
 
-    if (type === "file") {
-      const fileInput = e.target as HTMLInputElement;
+    if (["name", "email", "about"].includes(name)) {
       setFormData((prev) => ({
         ...prev,
-        photo: fileInput.files ? fileInput.files[0] : null,
+        user: {
+          ...prev.user,
+          [name]: value,
+        },
       }));
     } else {
       setFormData((prev) => ({
@@ -36,9 +43,41 @@ export default function StudioForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setPhoto(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setLoading(true);
+    setError(null);
+
+    try {
+      const advertData: components["schemas"]["AdvertRequest"] = {
+        ...formData,
+        imgUrls: photo ? [URL.createObjectURL(photo)] : [],
+      };
+
+      await createAdvert(advertData);
+      alert("Advert created successfully!");
+      router.invalidate();
+      alert(advertData);
+
+      setFormData({
+        offering: true,
+        description: "",
+        imgUrls: [],
+        user: { name: "", email: "", about: "" },
+      });
+      setPhoto(null);
+    } catch (err) {
+      setError("Failed to create advert. Please try again.");
+      console.error("Error:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -53,22 +92,20 @@ export default function StudioForm() {
             <label className="flex items-center gap-2 cursor-pointer">
               <input
                 type="radio"
-                name="type"
-                value="offering"
+                name="offering"
                 className="radio radio-primary"
-                checked={formData.type === "offering"}
-                onChange={handleChange}
+                checked={formData.offering === true}
+                onChange={() => setFormData({ ...formData, offering: true })}
               />
               Offering Time in the Studio
             </label>
             <label className="flex items-center gap-2 cursor-pointer">
               <input
                 type="radio"
-                name="type"
-                value="looking"
+                name="offering"
                 className="radio radio-primary"
-                checked={formData.type === "looking"}
-                onChange={handleChange}
+                checked={formData.offering === false}
+                onChange={() => setFormData({ ...formData, offering: false })}
               />
               Looking for a Studio
             </label>
@@ -84,7 +121,7 @@ export default function StudioForm() {
               name="name"
               placeholder="Your Name"
               className="input input-bordered w-full"
-              value={formData.name}
+              value={formData.user!.name!}
               onChange={handleChange}
               required
             />
@@ -98,7 +135,7 @@ export default function StudioForm() {
               name="email"
               placeholder="Your Email"
               className="input input-bordered w-full"
-              value={formData.email}
+              value={formData.user!.email!}
               onChange={handleChange}
               required
             />
@@ -112,11 +149,10 @@ export default function StudioForm() {
             name="about"
             placeholder="Tell us about yourself..."
             className="textarea textarea-bordered w-full"
-            value={formData.about}
+            value={formData.user!.about!}
             onChange={handleChange}
           />
         </div>
-
         <div className="form-control">
           <label className="label">
             <span className="label-text">Description</span>
@@ -125,7 +161,7 @@ export default function StudioForm() {
             name="description"
             placeholder="Describe what you're looking for/offering..."
             className="textarea textarea-bordered w-full"
-            value={formData.description}
+            value={formData.description!}
             onChange={handleChange}
           />
         </div>
@@ -138,11 +174,16 @@ export default function StudioForm() {
             name="photo"
             className="file-input file-input-bordered w-full"
             accept="image/*"
-            onChange={handleChange}
+            onChange={handleFileChange}
           />
         </div>
-        <button type="submit" className="btn btn-primary w-full">
-          Submit
+        {error && <p className="text-red-500 text-center">{error}</p>}
+        <button
+          type="submit"
+          className="btn btn-primary w-full"
+          disabled={loading}
+        >
+          {loading ? "Submitting..." : "Submit"}
         </button>
       </form>
     </div>

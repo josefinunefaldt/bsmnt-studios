@@ -1,5 +1,5 @@
 import createClient from "openapi-fetch";
-import type { paths } from "../lib/api/v1";
+import type { components, paths } from "../lib/api/v1";
 
 const client = createClient<paths>({ baseUrl: import.meta.env.VITE_BASE_URL });
 
@@ -11,4 +11,19 @@ export const getAllAds = async () => {
   }
 
   return response.data;
+};
+
+export const createAdvert = async (
+  input: components["schemas"]["AdvertRequest"]
+) => {
+  try {
+    const response = await client.POST("/api/Adverts", {
+      query: undefined,
+      body: input,
+    });
+    return response;
+  } catch (error) {
+    console.error("Error create advert");
+    throw error;
+  }
 };

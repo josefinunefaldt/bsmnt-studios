@@ -162,6 +162,7 @@ export interface components {
             dateCreated?: string;
             /** Format: uuid */
             userId?: string;
+            user?: components["schemas"]["User"];
         };
         AdvertResponse: {
             /** Format: uuid */
@@ -174,8 +175,16 @@ export interface components {
             description?: string | null;
             /** Format: date-time */
             dateCreated?: string;
+            user?: components["schemas"]["UserResponse"];
         };
         User: {
+            /** Format: uuid */
+            id?: string;
+            name?: string | null;
+            email?: string | null;
+            about?: string | null;
+        };
+        UserResponse: {
             /** Format: uuid */
             id?: string;
             name?: string | null;

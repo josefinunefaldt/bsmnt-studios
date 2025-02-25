@@ -53,7 +53,19 @@ export const Navbar = () => {
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 flex items-center space-x-4">
+            <li className="flex items-center justify-center">
+              <Link
+                to="/"
+                className="no-underline hover:bg-transparent focus:bg-transparent"
+              >
+                <img
+                  src="./bsmnt.png"
+                  className="w-8"
+                  alt="Image Description"
+                />
+              </Link>
+            </li>
             <li>
               <Link to="/share" className="!hover:none !focus:none">
                 Studio share

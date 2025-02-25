@@ -16,10 +16,11 @@ namespace Api.Mapper
                 Description = advert.Description,
                 DateCreated = advert.DateCreated,
                 UserId = advert.UserId,
+                User = UserMapping.UserToUserResponse(advert.User!)
             };
         }
 
-        public static Advert AdvertRequestToAdvert(AdvertRequest request)
+        public static Advert AdvertRequestToAdvert(AdvertRequest request, User user)
         {
             return new Advert()
             {
@@ -29,6 +30,7 @@ namespace Api.Mapper
                 ImgUrls = request.ImgUrls,
                 Description = request.Description,
                 DateCreated = DateTime.UtcNow,
+                User = user
             };
         }
     }

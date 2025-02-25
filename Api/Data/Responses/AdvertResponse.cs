@@ -11,5 +11,6 @@ namespace Api.Data.Responses
         public List<string>? ImgUrls { get; set; }
         public required string Description { get; set; }
         public DateTime DateCreated { get; set; }
+        public UserResponse User { get; set; }
     }
 }
