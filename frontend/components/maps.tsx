@@ -39,11 +39,10 @@ export default function LocationsMap() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
-      <h2 className="text-3xl font-bold text-center mb-6">Our Locations</h2>
+    <div className="w-full mx-auto p-6 mt-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {locations.map((location, index) => (
-          <div key={index} className="bg-base-200 p-4 rounded-lg shadow-lg">
+          <div key={index} className="bg-base-200 p-4 rounded-sm shadow-sm">
             <h3 className="text-xl font-semibold text-center mb-2">
               {location.name}
             </h3>

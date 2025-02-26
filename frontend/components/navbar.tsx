@@ -53,7 +53,7 @@ export const Navbar = () => {
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 flex items-center space-x-4">
+          <ul className="menu menu-horizontal px-1 flex items-center ">
             <li className="flex items-center justify-center">
               <Link
                 to="/"
