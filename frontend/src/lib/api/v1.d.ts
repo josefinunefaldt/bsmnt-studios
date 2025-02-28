@@ -103,6 +103,45 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/Contact": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: {
+                content: {
+                    "application/json": components["schemas"]["ContactFormModel"];
+                    "text/json": components["schemas"]["ContactFormModel"];
+                    "application/*+json": components["schemas"]["ContactFormModel"];
+                };
+            };
+            responses: {
+                /** @description Success */
+                200: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content?: never;
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/Tests": {
         parameters: {
             query?: never;
@@ -176,6 +215,12 @@ export interface components {
             /** Format: date-time */
             dateCreated?: string;
             user?: components["schemas"]["UserResponse"];
+        };
+        ContactFormModel: {
+            name?: string | null;
+            email?: string | null;
+            subject?: string | null;
+            message?: string | null;
         };
         User: {
             /** Format: uuid */

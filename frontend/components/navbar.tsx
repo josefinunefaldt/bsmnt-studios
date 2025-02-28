@@ -67,11 +67,6 @@ export const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/share" className="!hover:none !focus:none">
-                Studio share
-              </Link>
-            </li>
-            <li>
               <details>
                 <summary>Available</summary>
                 <ul className="p-2">
@@ -87,6 +82,11 @@ export const Navbar = () => {
                   </li>
                 </ul>
               </details>
+            </li>
+            <li>
+              <Link to="/share" className="!hover:none !focus:none">
+                Studio share
+              </Link>
             </li>
             <li>
               <Link to="/contact" className="!hover:none !focus:none">

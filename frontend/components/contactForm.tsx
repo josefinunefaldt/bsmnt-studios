@@ -1,4 +1,8 @@
+import createClient from "openapi-fetch";
 import React, { useState } from "react";
+import { paths } from "../src/lib/api/v1";
+
+const client = createClient<paths>({ baseUrl: import.meta.env.VITE_BASE_URL });
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -9,35 +13,84 @@ export default function ContactForm() {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    success: boolean;
+    message: string;
+  } | null>(null);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    const contactData = {
+      name: `${formData.firstName} ${formData.lastName}`,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    };
+
+    try {
+      const response = await client.POST("/api/Contact", {
+        body: contactData,
+      });
+
+      if (response.error) {
+        throw new Error(response);
+      }
+
+      setSubmitStatus({
+        success: true,
+        message: "Your message has been sent successfully!",
+      });
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error sending contact form:", error);
+      setSubmitStatus({
+        success: false,
+        message: "An error occurred. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-6 m-auto text-center">
-      <div className="max-w-lg mx-auto p-4 bg-base-200 rounded-xl shadow-lg w-full lg:w-1/2 m-auto text-center">
-        <h2 className="text-2xl font-bold text-center mb-4">Contact</h2>
+    <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-6 text-center">
+      <div className="max-w-lg p-4 bg-base-200 rounded-xl shadow-lg w-full lg:w-1/2 text-center">
+        <h2 className="text-2xl font-bold mb-4">Contact</h2>
+
+        {submitStatus && (
+          <div
+            className={`alert ${
+              submitStatus.success ? "alert-success" : "alert-error"
+            } mb-4`}
+          >
+            <span>{submitStatus.message}</span>
+          </div>
+        )}
+
         <form onSubmit={handleSubmit} className="space-y-3">
           <div className="flex flex-col sm:flex-row gap-3">
             <div className="form-control w-full">
-              <label className="label text-sm">
-                <span className="label-text">First Name</span>
-              </label>
+              <label className="label text-sm">First Name</label>
               <input
                 type="text"
                 name="firstName"
-                placeholder="First Name"
                 className="input input-bordered w-full text-sm"
                 value={formData.firstName}
                 onChange={handleChange}
@@ -45,13 +98,10 @@ export default function ContactForm() {
               />
             </div>
             <div className="form-control w-full">
-              <label className="label text-sm">
-                <span className="label-text">Last Name</span>
-              </label>
+              <label className="label text-sm">Last Name</label>
               <input
                 type="text"
                 name="lastName"
-                placeholder="Last Name"
                 className="input input-bordered w-full text-sm"
                 value={formData.lastName}
                 onChange={handleChange}
@@ -60,13 +110,10 @@ export default function ContactForm() {
             </div>
           </div>
           <div className="form-control">
-            <label className="label text-sm">
-              <span className="label-text">Email Address</span>
-            </label>
+            <label className="label text-sm">Email Address</label>
             <input
               type="email"
               name="email"
-              placeholder="Your Email"
               className="input input-bordered w-full text-sm"
               value={formData.email}
               onChange={handleChange}
@@ -74,13 +121,10 @@ export default function ContactForm() {
             />
           </div>
           <div className="form-control">
-            <label className="label text-sm">
-              <span className="label-text">Subject</span>
-            </label>
+            <label className="label text-sm">Subject</label>
             <input
               type="text"
               name="subject"
-              placeholder="Subject"
               className="input input-bordered w-full text-sm"
               value={formData.subject}
               onChange={handleChange}
@@ -88,12 +132,9 @@ export default function ContactForm() {
             />
           </div>
           <div className="form-control">
-            <label className="label text-sm">
-              <span className="label-text">Message</span>
-            </label>
+            <label className="label text-sm">Message</label>
             <textarea
               name="message"
-              placeholder="Your message..."
               className="textarea textarea-bordered w-full text-sm"
               rows={3}
               value={formData.message}
@@ -101,12 +142,16 @@ export default function ContactForm() {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary w-full text-sm">
-            Send Message
+          <button
+            type="submit"
+            className="btn btn-primary w-full text-sm"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>
-      <div className="lg:w-1/2 m-auto text-center">
+      <div className="lg:w-1/2 flex flex-col justify-center text-center">
         <h3 className="text-xl font-bold mb-4">Get in Touch</h3>
         <div className="space-y-2">
           <p className="text-sm">
