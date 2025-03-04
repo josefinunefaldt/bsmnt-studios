@@ -1,6 +1,6 @@
 import createClient from "openapi-fetch";
 import React, { useState } from "react";
-import { paths } from "../src/lib/api/v1";
+import { paths } from "../lib/api/v1";
 
 const client = createClient<paths>({ baseUrl: import.meta.env.VITE_BASE_URL });
 export default function ContactForm() {

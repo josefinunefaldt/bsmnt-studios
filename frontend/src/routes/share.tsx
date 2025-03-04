@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getAllAds } from "../utils/advertFetch";
 import { components } from "../lib/api/v1";
-import AdsDisplay from "../../components/ads";
-import StudioForm from "../../components/studioForm";
+import AdsDisplay from "../components/ads";
+import StudioForm from "../components/studioForm";
 
 export const Route = createFileRoute("/share")({
   loader: async () => {

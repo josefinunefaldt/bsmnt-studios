@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Location from "../../components/location";
+import Location from "../components/location";
 
 export const Route = createFileRoute("/archway")({
   component: RouteComponent,

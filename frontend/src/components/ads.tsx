@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { components } from "../src/lib/api/v1";
+import { components } from "../lib/api/v1";
 import React from "react";
 
 const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
