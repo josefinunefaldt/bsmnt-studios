@@ -2,6 +2,7 @@ import { useState } from "react";
 import { createAdvert } from "../src/utils/advertFetch";
 import { components } from "../src/lib/api/v1";
 import { useRouter } from "@tanstack/react-router";
+import React from "react";
 
 export default function StudioForm() {
   const router = useRouter();

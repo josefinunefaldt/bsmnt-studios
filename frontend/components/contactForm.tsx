@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { paths } from "../src/lib/api/v1";
 
 const client = createClient<paths>({ baseUrl: import.meta.env.VITE_BASE_URL });
-
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     firstName: "",

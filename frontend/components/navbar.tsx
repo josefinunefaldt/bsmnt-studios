@@ -1,7 +1,25 @@
 import { Link } from "@tanstack/react-router";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 export const Navbar = () => {
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        detailsRef.current &&
+        !detailsRef.current.contains(event.target as Node)
+      ) {
+        detailsRef.current.removeAttribute("open");
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
     <header>
       <nav className="navbar bg-base-100">
@@ -28,7 +46,7 @@ export const Navbar = () => {
                 <Link to="/share">Studio share</Link>
               </li>
               <li>
-                <details>
+                <details ref={detailsRef}>
                   <summary>Available</summary>
                   <ul className="p-2">
                     <li>
@@ -67,7 +85,7 @@ export const Navbar = () => {
               </Link>
             </li>
             <li>
-              <details>
+              <details ref={detailsRef}>
                 <summary>Available</summary>
                 <ul className="p-2">
                   <li>
