@@ -1,5 +1,5 @@
 import createClient from "openapi-fetch";
-import type { components, paths } from "../lib/api/v1";
+import type { paths } from "../lib/api/v1";
 
 const client = createClient<paths>({ baseUrl: import.meta.env.VITE_BASE_URL });
 
@@ -13,17 +13,26 @@ export const getAllAds = async () => {
   return response.data;
 };
 
-export const createAdvert = async (
-  input: components["schemas"]["AdvertRequest"]
-) => {
+export async function submitData(submitFormData: FormData) {
   try {
-    const response = await client.POST("/api/Adverts", {
-      query: undefined,
-      body: input,
-    });
-    return response;
+    const response = await fetch(
+      `${import.meta.env.VITE_BASE_URL}api/adverts`,
+      {
+        method: "POST",
+        body: submitFormData,
+      }
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(
+        `Failed: ${response.status} ${response.statusText} - ${errorText}`
+      );
+    }
+
+    const result = await response.json();
+    console.log(result);
   } catch (error) {
-    console.error("Error create advert");
-    throw error;
+    console.error("Error submitting data:", error);
   }
-};
+}

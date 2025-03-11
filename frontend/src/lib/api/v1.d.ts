@@ -43,9 +43,21 @@ export interface paths {
             };
             requestBody?: {
                 content: {
-                    "application/json": components["schemas"]["AdvertRequest"];
-                    "text/json": components["schemas"]["AdvertRequest"];
-                    "application/*+json": components["schemas"]["AdvertRequest"];
+                    "multipart/form-data": {
+                        Offering?: boolean;
+                        Location?: string;
+                        Description?: string;
+                        /** Format: date-time */
+                        DateCreated?: string;
+                        /** Format: uuid */
+                        UserId?: string;
+                        /** Format: uuid */
+                        "User.Id"?: string;
+                        "User.Name"?: string;
+                        "User.Email"?: string;
+                        "User.About"?: string;
+                        Photos?: string[];
+                    };
                 };
             };
             responses: {
@@ -191,17 +203,6 @@ export interface components {
             description?: string | null;
             /** Format: date-time */
             dateCreated?: string;
-        };
-        AdvertRequest: {
-            offering?: boolean;
-            location?: string | null;
-            imgUrls?: string[] | null;
-            description?: string | null;
-            /** Format: date-time */
-            dateCreated?: string;
-            /** Format: uuid */
-            userId?: string;
-            user?: components["schemas"]["User"];
         };
         AdvertResponse: {
             /** Format: uuid */

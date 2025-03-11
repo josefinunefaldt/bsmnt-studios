@@ -1,17 +1,13 @@
 import { useState } from "react";
-import { createAdvert } from "../utils/advertFetch";
-import { components } from "../lib/api/v1";
 import { useRouter } from "@tanstack/react-router";
 import React from "react";
-
+import { submitData } from "../utils/advertFetch";
+import { AdvertRequest } from "./types/AdvertRequest";
 export default function StudioForm() {
   const router = useRouter();
-  const [formData, setFormData] = useState<
-    components["schemas"]["AdvertRequest"]
-  >({
+  const [formData, setFormData] = useState<AdvertRequest>({
     offering: true,
     description: "",
-    imgUrls: [],
     user: {
       name: "",
       email: "",
@@ -19,8 +15,8 @@ export default function StudioForm() {
     },
   });
 
-  const [photo, setPhoto] = useState<File | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [photo, setPhoto] = useState<File[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
@@ -46,7 +42,8 @@ export default function StudioForm() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
-      setPhoto(e.target.files[0]);
+      const files = Array.from(e.target.files);
+      setPhoto(files);
     }
   };
 
@@ -56,25 +53,34 @@ export default function StudioForm() {
     setError(null);
 
     try {
-      const advertData: components["schemas"]["AdvertRequest"] = {
-        ...formData,
-        imgUrls: photo ? [URL.createObjectURL(photo)] : [],
-      };
+      const submitFormData = new FormData();
+      submitFormData.append("offering", formData.offering!.toString());
+      submitFormData.append("description", formData.description || "");
+      submitFormData.append("user.name", formData.user?.name || "");
+      submitFormData.append("user.email", formData.user?.email || "");
+      submitFormData.append("user.about", formData.user?.about || "");
 
-      await createAdvert(advertData);
+      if (photo && photo.length > 0) {
+        photo.forEach((file) => {
+          submitFormData.append("Photos", file);
+        });
+      }
+
+      await submitData(submitFormData);
+
       alert("Advert created successfully!");
       router.invalidate();
-      alert(advertData);
 
       setFormData({
         offering: true,
         description: "",
-        imgUrls: [],
         user: { name: "", email: "", about: "" },
       });
       setPhoto(null);
     } catch (err) {
-      setError("Failed to create advert. Please try again.");
+      setError(
+        `Failed to create advert: ${err instanceof Error ? err.message : String(err)}`
+      );
       console.error("Error:", err);
     } finally {
       setLoading(false);
@@ -122,7 +128,7 @@ export default function StudioForm() {
               name="name"
               placeholder="Your Name"
               className="input input-bordered w-full"
-              value={formData.user!.name!}
+              value={formData.user?.name || ""}
               onChange={handleChange}
               required
             />
@@ -136,7 +142,7 @@ export default function StudioForm() {
               name="email"
               placeholder="Your Email"
               className="input input-bordered w-full"
-              value={formData.user!.email!}
+              value={formData.user?.email || ""}
               onChange={handleChange}
               required
             />
@@ -150,7 +156,7 @@ export default function StudioForm() {
             name="about"
             placeholder="Tell us about yourself..."
             className="textarea textarea-bordered w-full"
-            value={formData.user!.about!}
+            value={formData.user?.about || ""}
             onChange={handleChange}
           />
         </div>
@@ -162,7 +168,7 @@ export default function StudioForm() {
             name="description"
             placeholder="Describe what you're looking for/offering..."
             className="textarea textarea-bordered w-full"
-            value={formData.description!}
+            value={formData.description || ""}
             onChange={handleChange}
           />
         </div>
@@ -176,6 +182,7 @@ export default function StudioForm() {
             className="file-input file-input-bordered w-full"
             accept="image/*"
             onChange={handleFileChange}
+            multiple
           />
         </div>
         {error && <p className="text-red-500 text-center">{error}</p>}

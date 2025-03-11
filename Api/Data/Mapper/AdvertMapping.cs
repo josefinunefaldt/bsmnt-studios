@@ -27,11 +27,11 @@ namespace Api.Mapper
                 UserId = request.UserId,
                 Offering = request.Offering,
                 Location = request.Location,
-                ImgUrls = request.ImgUrls,
                 Description = request.Description,
                 DateCreated = DateTime.UtcNow,
                 User = user
             };
         }
+
     }
 }
