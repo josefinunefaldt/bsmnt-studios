@@ -12,7 +12,9 @@ namespace Api.Mapper
             {
                 Offering = advert.Offering,
                 Location = advert.Location,
-                ImgUrls = advert.ImgUrls,
+                ImgUrls = advert.ImgUrls?.Select(img =>
+            $"http://localhost:5210{img}"
+        ).ToList(),
                 Description = advert.Description,
                 DateCreated = advert.DateCreated,
                 UserId = advert.UserId,

@@ -28,6 +28,8 @@ app.UseCors(policy => policy.AllowAnyHeader()
 
 app.UseHttpsRedirection();
 
+app.UseStaticFiles();
+
 app.UseAuthorization();
 
 app.MapControllers();
