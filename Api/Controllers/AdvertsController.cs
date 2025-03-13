@@ -22,7 +22,7 @@ public class AdvertsController : ControllerBase
     {
         var adverts = await _context.Advert.Include(a => a.User).ToListAsync();
 
-        var advertResponse = adverts.Select(AdvertMapping.AdvertToAdvertResponse).ToList();
+        var advertResponse = adverts.Select(AdvertMapping.AdvertToAdvertResponse).ToList().OrderByDescending(m => m.DateCreated);
 
         return Ok(advertResponse);
     }
