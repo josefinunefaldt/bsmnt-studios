@@ -28,13 +28,14 @@ const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
               className="p-4 border rounded shadow bg-white cursor-pointer hover:shadow-lg transition-shadow"
               onClick={() => openModal(ad)}
             >
-              <h3 className="text-lg font-bold">
+              <h4 className="text-lg font-bold">
                 {" "}
                 {new Date(ad.dateCreated!).toLocaleDateString()}
-              </h3>
-              <h2 className="text-2xl font-bold">
+              </h4>
+              <h4 className="text-2xl font-bold">
                 {ad.offering ? "Offering" : "Looking"}
-              </h2>
+              </h4>
+              <h4 className="text-2xl font-bold">{ad.location}</h4>
 
               {ad.imgUrls && ad.imgUrls.length > 0 && (
                 <img

@@ -9,6 +9,7 @@ export default function StudioForm() {
   const [formData, setFormData] = useState<AdvertRequest>({
     offering: true,
     description: "",
+    location: "",
     user: {
       name: "",
       email: "",
@@ -63,6 +64,7 @@ export default function StudioForm() {
       submitFormData.append("user.name", formData.user?.name || "");
       submitFormData.append("user.email", formData.user?.email || "");
       submitFormData.append("user.about", formData.user?.about || "");
+      submitFormData.append("location", formData.location || "");
 
       if (photos.length > 0) {
         photos.forEach((file) => {
@@ -147,6 +149,20 @@ export default function StudioForm() {
               placeholder="Your Email"
               className="input input-bordered w-full"
               value={formData.user?.email || ""}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-control w-full">
+            <label className="label">
+              <span className="label-text">Location</span>
+            </label>
+            <input
+              type="text"
+              name="location"
+              placeholder="Location"
+              className="input input-bordered w-full"
+              value={formData.location || ""}
               onChange={handleChange}
               required
             />
