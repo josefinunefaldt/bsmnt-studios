@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useRouter } from "@tanstack/react-router";
 import React from "react";
 import { submitData } from "../utils/advertFetch";
-import { AdvertRequest } from "./types/AdvertRequest";
+import { AdvertRequest } from "../types/AdvertRequest";
+
 export default function StudioForm() {
   const router = useRouter();
   const [formData, setFormData] = useState<AdvertRequest>({
@@ -15,7 +16,7 @@ export default function StudioForm() {
     },
   });
 
-  const [photo, setPhoto] = useState<File[] | null>(null);
+  const [photos, setPhotos] = useState<File[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -41,10 +42,13 @@ export default function StudioForm() {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      const files = Array.from(e.target.files);
-      setPhoto(files);
+    if (e.target.files) {
+      const filesArray = Array.from(e.target.files);
+      setPhotos((prevPhotos) => [...prevPhotos, ...filesArray]);
     }
+  };
+  const handleRemovePhoto = (index: number) => {
+    setPhotos((prevPhotos) => prevPhotos.filter((_, i) => i !== index));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -60,8 +64,8 @@ export default function StudioForm() {
       submitFormData.append("user.email", formData.user?.email || "");
       submitFormData.append("user.about", formData.user?.about || "");
 
-      if (photo && photo.length > 0) {
-        photo.forEach((file) => {
+      if (photos.length > 0) {
+        photos.forEach((file) => {
           submitFormData.append("Photos", file);
         });
       }
@@ -76,7 +80,7 @@ export default function StudioForm() {
         description: "",
         user: { name: "", email: "", about: "" },
       });
-      setPhoto(null);
+      setPhotos([]);
     } catch (err) {
       setError(
         `Failed to create advert: ${err instanceof Error ? err.message : String(err)}`
@@ -174,7 +178,7 @@ export default function StudioForm() {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Upload a Photo</span>
+            <span className="label-text">Upload Photos</span>
           </label>
           <input
             type="file"
@@ -185,6 +189,27 @@ export default function StudioForm() {
             multiple
           />
         </div>
+
+        {photos.length > 0 && (
+          <div className="mt-4">
+            <h3 className="text-xl font-bold">Selected Photos:</h3>
+            <ul className="space-y-2">
+              {photos.map((photo, index) => (
+                <li key={index} className="flex items-center justify-between">
+                  <span>{photo.name}</span>
+                  <button
+                    type="button"
+                    className="btn btn-sm btn-error"
+                    onClick={() => handleRemovePhoto(index)}
+                  >
+                    Remove
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {error && <p className="text-red-500 text-center">{error}</p>}
         <button
           type="submit"
