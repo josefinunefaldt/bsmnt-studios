@@ -49,11 +49,25 @@ public class AdvertsController : ControllerBase
             await _context.SaveChangesAsync();
         }
 
+        var currentMonth = DateTime.UtcNow.Month;
+        var currentYear = DateTime.UtcNow.Year;
+
+        var hasAdThisMonth = await _context.Advert
+            .Where(a => a.UserId == user.Id
+                   && a.DateCreated.Month == currentMonth
+                   && a.DateCreated.Year == currentYear)
+            .AnyAsync();
+
+        if (hasAdThisMonth)
+        {
+            return BadRequest("You can only create one advertisement per month.");
+        }
+
         var advert = AdvertMapping.AdvertRequestToAdvert(request, user);
 
         if (Photos != null && Photos.Count > 0)
         {
-            System.Console.WriteLine(Photos.Count());
+
             var imageUrls = new List<string>();
             var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
 

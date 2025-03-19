@@ -73,8 +73,6 @@ export default function StudioForm() {
       }
 
       await submitData(submitFormData);
-
-      alert("Advert created successfully!");
       router.invalidate();
 
       setFormData({
