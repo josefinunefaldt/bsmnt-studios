@@ -17,14 +17,24 @@ public class AdvertsController : ControllerBase
         _context = context;
     }
 
+    // [HttpGet]
+    // public async Task<ActionResult<IEnumerable<AdvertResponse>>> GetAdverts()
+    // {
+    //     var adverts = await _context.Advert.Include(a => a.User).ToListAsync();
+
+    //     var advertResponse = adverts.Select(AdvertMapping.AdvertToAdvertResponse).ToList().OrderByDescending(m => m.DateCreated);
+
+    //     return Ok(advertResponse);
+    // }
+
+
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<AdvertResponse>>> GetAdverts()
+    public async Task<ActionResult<IEnumerable<Advert>>> GetAdverts()
     {
         var adverts = await _context.Advert.Include(a => a.User).ToListAsync();
 
-        var advertResponse = adverts.Select(AdvertMapping.AdvertToAdvertResponse).ToList().OrderByDescending(m => m.DateCreated);
 
-        return Ok(advertResponse);
+        return Ok(adverts);
     }
 
     [HttpPost]
