@@ -16,7 +16,7 @@ public class EmailService : IEmailService
     {
         var emailMessage = new MimeMessage();
         emailMessage.From.Add(new MailboxAddress(name, email));
-        emailMessage.To.Add(new MailboxAddress("bsmnt", _configuration["EmailSettings:Email"]));
+        emailMessage.To.Add(new MailboxAddress("jojo", _configuration["EmailSettings:Email"]));
         emailMessage.Subject = subject;
 
         var bodyBuilder = new BodyBuilder
