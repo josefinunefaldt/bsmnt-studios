@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export const Navbar = () => {
   const detailsRef = useRef<HTMLDetailsElement>(null);

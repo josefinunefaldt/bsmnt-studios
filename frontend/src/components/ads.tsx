@@ -1,6 +1,5 @@
 import { FC, useState } from "react";
 import { components } from "../lib/api/v1";
-import React from "react";
 
 const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
   ads,
