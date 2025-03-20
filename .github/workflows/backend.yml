@@ -31,6 +31,7 @@ jobs:
         env:
           EmailSettings__Email: ${{ secrets.EMAILSETTINGS_EMAIL }}
           EmailSettings__Password: "${{ secrets.EMAILSETTINGS_PASSWORD }}"
+          ConnectionsStrings__Default: ${{secrets.Default}}
 
         run: dotnet build --configuration Release
 

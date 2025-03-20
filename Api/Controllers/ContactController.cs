@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Api.Data.Models;
 using Api.Services;
@@ -13,7 +9,6 @@ namespace Api.Controllers
     public class ContactController : ControllerBase
     {
         private readonly IEmailService _emailService;
-
         public ContactController(IEmailService emailService)
         {
             _emailService = emailService;
@@ -38,6 +33,5 @@ namespace Api.Controllers
                 return BadRequest(new { success = false, message = ex.Message });
             }
         }
-
     }
 }
