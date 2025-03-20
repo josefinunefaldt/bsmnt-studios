@@ -27,14 +27,9 @@ jobs:
           dotnet-version: '8.x'
 
       - name: Build with dotnet
-        working-directory: ./Api/
-        env:
-          EmailSettings__Email: ${{ secrets.EMAILSETTINGS_EMAIL }}
-          EmailSettings__Password: "${{ secrets.EMAILSETTINGS_PASSWORD }}"
-          ConnectionsStrings__Default: ${{secrets.Default}}
-
+        working-directory: ./Api/  
         run: dotnet build --configuration Release
-
+        
       - name: dotnet publish
         working-directory: ./Api/
         run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
@@ -75,4 +70,8 @@ jobs:
           app-name: 'bsmntLtd'
           slot-name: 'Production'
           package: .
-          
+          env: |
+            EmailSettings__Email=${{ secrets.EMAILSETTINGS_EMAIL }}
+            EmailSettings__Password=${{ secrets.EMAILSETTINGS_PASSWORD }}
+            ConnectionsStrings__Default=${{secrets.Default}}  
+            
