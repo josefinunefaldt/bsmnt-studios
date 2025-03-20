@@ -28,6 +28,10 @@ jobs:
 
       - name: Build with dotnet
         working-directory: ./Api/
+        env:
+          EmailSettings__Email: ${{secrets.EMAILSETTINGS_EMAIL}}
+          EmailSettings__Password: ${{secrets.EMAILSETTINGS_PASSWORD}}
+
         run: dotnet build --configuration Release
 
       - name: dotnet publish
