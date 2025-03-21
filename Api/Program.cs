@@ -12,10 +12,18 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options
     .UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 
+
 builder.Services.AddScoped<IEmailService, EmailService>();
 
 var app = builder.Build();
 
+// Add this in your app initialization code
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<ApplicationDbContext>();
+    context.Database.Migrate();
+}
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
