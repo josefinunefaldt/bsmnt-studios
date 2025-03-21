@@ -31,10 +31,16 @@ public class AdvertsController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Advert>>> GetAdverts()
     {
-        var adverts = await _context.Advert.Include(a => a.User).ToListAsync();
+        try
+        {
+            var adverts = await _context.Advert.Include(a => a.User).ToListAsync();
+            return Ok(adverts);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
 
-
-        return Ok(adverts);
     }
 
     [HttpPost]
