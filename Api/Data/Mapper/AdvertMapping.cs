@@ -13,7 +13,7 @@ namespace Api.Mapper
                 Offering = advert.Offering,
                 Location = advert.Location,
                 ImgUrls = advert.ImgUrls?.Select(img =>
-            $"https://bsmntltd-efe5awdggsfvhkbk.westeurope-01.azurewebsites.net/api/adverts{img}"
+              $"https://bsmntltd-efe5awdggsfvhkbk.westeurope-01.azurewebsites.net/api/adverts{(img.StartsWith("/") ? img : "/" + img)}"
         ).ToList(),
                 Description = advert.Description,
                 DateCreated = advert.DateCreated,
