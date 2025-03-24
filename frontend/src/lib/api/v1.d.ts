@@ -56,7 +56,8 @@ export interface paths {
                         "User.Name"?: string;
                         "User.Email"?: string;
                         "User.About"?: string;
-                        Photos?: string[];
+                        /** Format: binary */
+                        Photo?: string;
                     };
                 };
             };
@@ -199,7 +200,7 @@ export interface components {
             user?: components["schemas"]["User"];
             offering?: boolean;
             location?: string | null;
-            imgUrls?: string[] | null;
+            imgUrl?: string | null;
             description?: string | null;
             /** Format: date-time */
             dateCreated?: string;
@@ -211,7 +212,7 @@ export interface components {
             userId?: string;
             offering?: boolean;
             location?: string | null;
-            imgUrls?: string[] | null;
+            imgUrl?: string | null;
             description?: string | null;
             /** Format: date-time */
             dateCreated?: string;

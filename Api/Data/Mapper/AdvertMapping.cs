@@ -12,9 +12,9 @@ namespace Api.Mapper
             {
                 Offering = advert.Offering,
                 Location = advert.Location,
-                ImgUrls = advert.ImgUrls?.Select(img =>
-             $"https://bsmntltd-efe5awdggsfvhkbk.westeurope-01.azurewebsites.net{img}"
-        ).ToList(),
+                ImgUrl = advert.ImgUrl != null
+    ? $"http://localhost:5210{advert.ImgUrl}"
+    : null,
                 Description = advert.Description,
                 DateCreated = advert.DateCreated,
                 UserId = advert.UserId,

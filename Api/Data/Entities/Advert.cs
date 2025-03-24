@@ -7,7 +7,7 @@ public class Advert
     public virtual User? User { get; set; }
     public bool Offering { get; set; }
     public string? Location { get; set; }
-    public List<string>? ImgUrls { get; set; }
+    public string? ImgUrl { get; set; }
 
     [RegularExpression(@"^[a-zA-Z\u00C0-\u00FF\-/ âêîôûŵŷ]{1,500}$", ErrorMessage = "Only letters allowed")]
     public required string Description { get; set; }

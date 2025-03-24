@@ -36,9 +36,9 @@ const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
               </h4>
               <h4 className="text-2xl font-bold">{ad.location}</h4>
 
-              {ad.imgUrls && ad.imgUrls.length > 0 && (
+              {ad.imgUrl && ad.imgUrl.length > 0 && (
                 <img
-                  src={ad.imgUrls[0]}
+                  src={ad.imgUrl}
                   alt={"ad thumbnail"}
                   className="mt-2 w-full h-32 object-cover rounded"
                 />
@@ -86,20 +86,7 @@ const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
                 </p>
                 <p className="text-lg">{selectedAd.description}</p>
               </div>
-              {selectedAd.imgUrls && selectedAd.imgUrls.length > 0 && (
-                <div className="mb-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {selectedAd.imgUrls.map((imgUrl, idx) => (
-                      <img
-                        key={idx}
-                        src={imgUrl}
-                        alt={`Ad image ${idx + 1}`}
-                        className="w-full h-48 object-cover rounded"
-                      />
-                    ))}
-                  </div>
-                </div>
-              )}
+
               <div className="mt-4">
                 <p>{selectedAd.description}</p>
                 <p>{selectedAd.location}</p>

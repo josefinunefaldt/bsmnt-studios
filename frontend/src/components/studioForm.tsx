@@ -17,7 +17,7 @@ export default function StudioForm() {
     },
   });
 
-  const [photos, setPhotos] = useState<File[]>([]);
+  const [photo, setPhoto] = useState<File | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -43,13 +43,13 @@ export default function StudioForm() {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const filesArray = Array.from(e.target.files);
-      setPhotos((prevPhotos) => [...prevPhotos, ...filesArray]);
+    if (e.target.files && e.target.files.length > 0) {
+      setPhoto(e.target.files[0]);
     }
   };
-  const handleRemovePhoto = (index: number) => {
-    setPhotos((prevPhotos) => prevPhotos.filter((_, i) => i !== index));
+
+  const handleRemovePhoto = () => {
+    setPhoto(null);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -66,10 +66,8 @@ export default function StudioForm() {
       submitFormData.append("user.about", formData.user?.about || "");
       submitFormData.append("location", formData.location || "");
 
-      if (photos.length > 0) {
-        photos.forEach((file) => {
-          submitFormData.append("Photos", file);
-        });
+      if (photo) {
+        submitFormData.append("Photo", photo);
       }
 
       await submitData(submitFormData);
@@ -80,7 +78,7 @@ export default function StudioForm() {
         description: "",
         user: { name: "", email: "", about: "" },
       });
-      setPhotos([]);
+      setPhoto(null);
     } catch (err) {
       setError(
         `Failed to create advert: ${err instanceof Error ? err.message : String(err)}`
@@ -192,7 +190,7 @@ export default function StudioForm() {
         </div>
         <div className="form-control">
           <label className="label">
-            <span className="label-text">Upload Photos</span>
+            <span className="label-text">Upload Photo</span>
           </label>
           <input
             type="file"
@@ -200,27 +198,22 @@ export default function StudioForm() {
             className="file-input file-input-bordered w-full"
             accept="image/*"
             onChange={handleFileChange}
-            multiple
           />
         </div>
 
-        {photos.length > 0 && (
+        {photo && (
           <div className="mt-4">
-            <h3 className="text-xl font-bold">Selected Photos:</h3>
-            <ul className="space-y-2">
-              {photos.map((photo, index) => (
-                <li key={index} className="flex items-center justify-between">
-                  <span>{photo.name}</span>
-                  <button
-                    type="button"
-                    className="btn btn-sm btn-error"
-                    onClick={() => handleRemovePhoto(index)}
-                  >
-                    Remove
-                  </button>
-                </li>
-              ))}
-            </ul>
+            <h3 className="text-xl font-bold">Selected Photo:</h3>
+            <div className="flex items-center justify-between">
+              <span>{photo.name}</span>
+              <button
+                type="button"
+                className="btn btn-sm btn-error"
+                onClick={handleRemovePhoto}
+              >
+                Remove
+              </button>
+            </div>
           </div>
         )}
 

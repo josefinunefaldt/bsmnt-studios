@@ -17,39 +17,36 @@ public class AdvertsController : ControllerBase
         _context = context;
     }
 
-    // [HttpGet]
-    // public async Task<ActionResult<IEnumerable<AdvertResponse>>> GetAdverts()
-    // {
-    //     var adverts = await _context.Advert.Include(a => a.User).ToListAsync();
-
-    //     var advertResponse = adverts.Select(AdvertMapping.AdvertToAdvertResponse).ToList().OrderByDescending(m => m.DateCreated);
-
-    //     return Ok(advertResponse);
-    // }
-
-
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Advert>>> GetAdverts()
+    public async Task<ActionResult<IEnumerable<AdvertResponse>>> GetAdverts()
     {
-        try
-        {
-            var adverts = await _context.Advert.Include(a => a.User).ToListAsync();
-            return Ok(adverts);
-        }
-        catch (Exception e)
-        {
-            return BadRequest(e.Message);
-        }
+        var adverts = await _context.Advert.Include(a => a.User).ToListAsync();
 
+        var advertResponse = adverts.Select(AdvertMapping.AdvertToAdvertResponse).ToList().OrderByDescending(m => m.DateCreated);
+
+        return Ok(advertResponse);
     }
 
+
+    // [HttpGet]
+    // public async Task<ActionResult<IEnumerable<Advert>>> GetAdverts()
+    // {
+    //     try
+    //     {
+    //         var adverts = await _context.Advert.Include(a => a.User).ToListAsync();
+    //         return Ok(adverts);
+    //     }
+    //     catch (Exception e)
+    //     {
+    //         return BadRequest(e.Message);
+    //     }
+
+    // }
     [HttpPost]
-    public async Task<IActionResult> CreateAdvert([FromForm] AdvertRequest request, List<IFormFile> Photos)
+    public async Task<IActionResult> CreateAdvert([FromForm] AdvertRequest request, IFormFile Photo)
     {
         try
         {
-
-
             if (string.IsNullOrWhiteSpace(request.User?.Email))
             {
                 throw new ArgumentException("User email is required.");
@@ -85,10 +82,8 @@ public class AdvertsController : ControllerBase
 
             var advert = AdvertMapping.AdvertRequestToAdvert(request, user);
 
-            if (Photos != null && Photos.Count > 0)
+            if (Photo != null)
             {
-
-                var imageUrls = new List<string>();
                 var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
 
                 if (!Directory.Exists(uploadsFolder))
@@ -96,21 +91,16 @@ public class AdvertsController : ControllerBase
                     Directory.CreateDirectory(uploadsFolder);
                 }
 
-                foreach (var photo in Photos)
+                var fileName = $"{Guid.NewGuid()}_{Photo.FileName}";
+                var filePath = Path.Combine(uploadsFolder, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    var fileName = $"{Guid.NewGuid()}_{photo.FileName}";
-                    var filePath = Path.Combine(uploadsFolder, fileName);
-
-                    using (var stream = new FileStream(filePath, FileMode.Create))
-                    {
-                        await photo.CopyToAsync(stream);
-                    }
-
-                    var imageUrl = $"/uploads/{fileName}";
-                    imageUrls.Add(imageUrl);
+                    await Photo.CopyToAsync(stream);
                 }
 
-                advert.ImgUrls = imageUrls;
+                var imageUrl = $"/uploads/{fileName}";
+                advert.ImgUrl = imageUrl;
             }
 
             await _context.Advert.AddAsync(advert);
