@@ -28,13 +28,13 @@ const LandingPage = () => {
 
       <div className="flex flex-col lg:flex-row gap-2 mt-2">
         <Link
-          to="/hornsey"
+          to="/finsbury"
           className="w-full lg:w-1/2 flex items-center justify-center min-h-[300px]"
         >
           <img
             src="./Finsbury.JPG"
             className="object-cover w-full h-full"
-            alt="Hornsey"
+            alt="finsbury"
           />
         </Link>
         <Link
@@ -50,13 +50,13 @@ const LandingPage = () => {
       </div>
       <div className="flex flex-col lg:flex-row gap-2 mt-2">
         <Link
-          to="/finsbury"
+          to="/hornsey"
           className="w-full lg:w-2/3 flex items-center justify-center  min-h-[300px]"
         >
           <img
             src="./Hornsey.jpg"
             className="object-cover w-full h-full"
-            alt="Finsbury"
+            alt="hornsey"
           />
         </Link>
         <Link
