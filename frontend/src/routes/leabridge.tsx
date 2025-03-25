@@ -10,10 +10,10 @@ function RouteComponent() {
     <div>
       <Location
         content={[
-          { type: "image", value: "/Lea/20250129_110025.jpg" },
+          { type: "image", value: "/Lea/lea8.jpg" },
           {
             type: "image",
-            value: "/Lea/324833379_662848798965449_6284775801982310488_n.jpg",
+            value: "/Lea/lea2.jpg",
           },
           {
             type: "text",
@@ -22,7 +22,7 @@ function RouteComponent() {
           },
           {
             type: "image",
-            value: "/Lea/333350476_1270992493519261_3404431499941457282_n.jpg",
+            value: "/Lea/lea5.jpg",
           },
           {
             type: "text",
@@ -31,11 +31,11 @@ function RouteComponent() {
           },
           {
             type: "image",
-            value: "/Lea/333552820_673470244582261_8978395648327850016_n.jpg",
+            value: "/Lea/lea7.jpg",
           },
           {
             type: "image",
-            value: "/Lea/DSC05705.JPG",
+            value: "/Lea/lea3.jpg",
           },
           {
             type: "text",
@@ -44,13 +44,13 @@ function RouteComponent() {
           },
           {
             type: "image",
-            value: "/Lea/image_50452993.JPG",
+            value: "/Lea/lea4.jpg",
           },
           {
             type: "image",
-            value: "/Lea/337633229_1173428556674963_8688632608748587675_n.jpg",
+            value: "/Lea/lea6.jpg",
           },
-          { type: "image", value: "/Lea/corridor.JPG" },
+          { type: "image", value: "/Lea/lea1.jpg" },
         ]}
       />
     </div>

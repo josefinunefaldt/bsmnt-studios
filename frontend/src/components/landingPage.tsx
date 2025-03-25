@@ -25,29 +25,6 @@ const LandingPage = () => {
           />
         </Link>
       </div>
-
-      <div className="flex flex-col lg:flex-row gap-2 mt-2">
-        <Link
-          to="/finsbury"
-          className="w-full lg:w-1/2 flex items-center justify-center min-h-[300px]"
-        >
-          <img
-            src="./Finsbury.JPG"
-            className="object-cover w-full h-full"
-            alt="finsbury"
-          />
-        </Link>
-        <Link
-          to="/hackney"
-          className="w-full lg:w-1/2 flex items-center justify-center  min-h-[300px]"
-        >
-          <img
-            src="./Hackney.jpg"
-            className="object-cover w-full h-full"
-            alt="Hackney"
-          />
-        </Link>
-      </div>
       <div className="flex flex-col lg:flex-row gap-2 mt-2">
         <Link
           to="/hornsey"
@@ -67,6 +44,28 @@ const LandingPage = () => {
             src="./Archway.JPG"
             className="object-cover w-full h-full"
             alt="Archway"
+          />
+        </Link>
+      </div>
+      <div className="flex flex-col lg:flex-row gap-2 mt-2">
+        <Link
+          to="/finsbury"
+          className="w-full lg:w-1/2 flex items-center justify-center min-h-[300px]"
+        >
+          <img
+            src="./Finsbury/finsbury3.jpg"
+            className="object-cover w-full h-full"
+            alt="finsbury"
+          />
+        </Link>
+        <Link
+          to="/hackney"
+          className="w-full lg:w-1/2 flex items-center justify-center  min-h-[300px]"
+        >
+          <img
+            src="./Hackney/hackney4.jpg"
+            className="object-cover w-full h-full"
+            alt="Hackney"
           />
         </Link>
       </div>
