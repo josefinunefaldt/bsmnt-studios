@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 
 const LandingPage = () => {
   return (
-    <div className="w-full mx-auto p-6">
+    <div className="w-full mx-auto p-6 ">
       <div className="flex flex-col lg:flex-row gap-2">
         <Link
           to="/argall"
@@ -70,7 +70,7 @@ const LandingPage = () => {
             alt="finsbury"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span className="landing-text">Finsbury</span>
+            <span className="landing-text">Finsbury Park</span>
           </div>
         </Link>
         <Link
