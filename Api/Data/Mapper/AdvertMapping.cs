@@ -13,8 +13,8 @@ namespace Api.Mapper
                 Offering = advert.Offering,
                 Location = advert.Location,
                 ImgUrl = advert.ImgUrl != null
-    ? $"http://localhost:5210{advert.ImgUrl}"
-    : null,
+            ? $"/uploads/{Path.GetFileName(advert.ImgUrl)}"
+            : null,
                 Description = advert.Description,
                 DateCreated = advert.DateCreated,
                 UserId = advert.UserId,
