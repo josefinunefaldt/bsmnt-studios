@@ -8,7 +8,10 @@ function RouteComponent() {
   return (
     <div className="flex justify-center items-center min-h-screen p-4">
       <video
-        controls
+        autoPlay
+        loop
+        muted
+        playsInline
         className="max-w-full max-h-screen rounded-lg shadow-lg"
         src="/argallvideo.mp4"
       >
