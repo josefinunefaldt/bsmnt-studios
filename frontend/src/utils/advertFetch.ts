@@ -30,8 +30,6 @@ export async function submitData(submitFormData: FormData) {
       );
     }
     alert("Advert created successfully!");
-    const result = await response.json();
-    console.log(result);
   } catch (error) {
     console.error("Error submitting data:", error);
   }
