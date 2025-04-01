@@ -44,7 +44,23 @@ export default function StudioForm() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
-      setPhoto(e.target.files[0]);
+      const file = e.target.files[0];
+      const allowedImageTypes = ["image/jpeg", "image/png", "image/jpg"];
+
+      if (!allowedImageTypes.includes(file.type)) {
+        setError("Please upload a valid image file (JPEG, PNG,JPG.");
+        setPhoto(null);
+        return;
+      }
+
+      const MAX_FILE_SIZE = 5 * 1024 * 1024;
+      if (file.size > MAX_FILE_SIZE) {
+        setError("File size exceeds the 5 MB limit!");
+        setPhoto(null);
+        return;
+      }
+      setPhoto(file);
+      setError(null);
     }
   };
 
