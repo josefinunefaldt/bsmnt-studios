@@ -12,9 +12,7 @@ namespace Api.Mapper
             {
                 Offering = advert.Offering,
                 Location = advert.Location,
-                ImgUrl = advert.ImgUrl != null
-            ? $"/uploads/{Path.GetFileName(advert.ImgUrl)}"
-            : null,
+                ImgUrl = advert.ImgUrl,
                 Description = advert.Description,
                 DateCreated = advert.DateCreated,
                 UserId = advert.UserId,

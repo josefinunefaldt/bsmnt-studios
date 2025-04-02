@@ -2,6 +2,7 @@ using Api.Data;
 using Api.Data.Requests;
 using Api.Data.Responses;
 using Api.Mapper;
+using Api.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,10 +12,12 @@ namespace Api.Controllers;
 public class AdvertsController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
+    private readonly IImageStorageService _imageStorageService;
 
-    public AdvertsController(ApplicationDbContext context)
+    public AdvertsController(ApplicationDbContext context, IImageStorageService imageStorageService)
     {
         _context = context;
+        _imageStorageService = imageStorageService;
     }
 
     [HttpGet]
@@ -70,23 +73,28 @@ public class AdvertsController : ControllerBase
 
             if (Photo != null)
             {
-                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
-
-                if (!Directory.Exists(uploadsFolder))
+                using (var stream = Photo.OpenReadStream())
                 {
-                    Directory.CreateDirectory(uploadsFolder);
+                    var url = await _imageStorageService.UploadImageAsync(stream, true);
+                    advert.ImgUrl = url;
                 }
+                // var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
 
-                var fileName = $"{Guid.NewGuid()}_{Photo.FileName}";
-                var filePath = Path.Combine(uploadsFolder, fileName);
+                // if (!Directory.Exists(uploadsFolder))
+                // {
+                //     Directory.CreateDirectory(uploadsFolder);
+                // }
 
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    await Photo.CopyToAsync(stream);
-                }
+                // var fileName = $"{Guid.NewGuid()}_{Photo.FileName}";
+                // var filePath = Path.Combine(uploadsFolder, fileName);
 
-                var imageUrl = $"/uploads/{fileName}";
-                advert.ImgUrl = imageUrl;
+                // using (var stream = new FileStream(filePath, FileMode.Create))
+                // {
+                //     await Photo.CopyToAsync(stream);
+                // }
+
+                // var imageUrl = $"/uploads/{fileName}";
+                // advert.ImgUrl = imageUrl;
             }
 
             await _context.Advert.AddAsync(advert);
