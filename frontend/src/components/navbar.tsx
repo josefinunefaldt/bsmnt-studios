@@ -87,7 +87,7 @@ export const Navbar = () => {
             <li>
               <details ref={detailsRef}>
                 <summary>Available</summary>
-                <ul className="p-2">
+                <ul className="p-2 z-10">
                   <li>
                     <Link to="/offices" className="!hover:none !focus:none">
                       Offices

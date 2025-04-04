@@ -21,8 +21,3 @@
   font-size: 48px;
   color: white;
 }
-
-.navbar {
-  position: fixed;
-  z-index: 50;
-}

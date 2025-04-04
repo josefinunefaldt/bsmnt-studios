@@ -69,7 +69,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-6 text-center">
+    <div className="max-w-7xl mt-4 mx-auto p-6 flex flex-col lg:flex-row gap-6 text-center">
       <div className="max-w-lg p-4 bg-base-200 rounded-xl shadow-lg w-full lg:w-1/2 text-center">
         <h2 className="text-2xl font-bold mb-4">Contact</h2>
 
