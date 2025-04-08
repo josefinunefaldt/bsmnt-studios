@@ -13,16 +13,16 @@ interface Location {
 const LandingPage2 = () => {
   const locations: Location[] = [
     {
-      name: "Argall",
-      path: "/argall",
-      info: "North london",
-      image: "./Argall.jpeg",
-    },
-    {
       name: "Lea bridge",
       path: "/leabridge",
       info: "East London",
       image: "./l.jpg",
+    },
+    {
+      name: "Argall",
+      path: "/argall",
+      info: "North london",
+      image: "./Argall.jpeg",
     },
     {
       name: "Hornsey",
