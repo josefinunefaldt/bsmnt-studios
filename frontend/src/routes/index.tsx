@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import LandingPage from "../components/landingPage";
-import Footer from "../components/footer";
+import LandingPage2 from "../components/landingPage2";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
@@ -9,8 +8,7 @@ export const Route = createFileRoute("/")({
 function RouteComponent() {
   return (
     <div>
-      <LandingPage />
-      <Footer />
+      <LandingPage2 />
     </div>
   );
 }

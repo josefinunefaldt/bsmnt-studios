@@ -8,7 +8,14 @@ export const Route = createFileRoute("/contact")({
 
 function RouteComponent() {
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url('/keyboard.jpg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "top left",
+        minHeight: "100vh",
+      }}
+    >
       <ContactForm />
       <LocationMap />
     </div>

@@ -1,5 +1,5 @@
 export interface ModalProps {
-  box: BoxData;
+  studios: BoxData;
   onClose: () => void;
 }
 export interface ImageWithDescription {

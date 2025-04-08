@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef } from "react";
+import { MdEmail } from "react-icons/md";
+import { AiFillInstagram } from "react-icons/ai";
 
 export const Navbar = () => {
   const detailsRef = useRef<HTMLDetailsElement>(null);
@@ -14,7 +16,6 @@ export const Navbar = () => {
       }
     };
     document.addEventListener("click", handleClickOutside);
-
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
@@ -22,10 +23,10 @@ export const Navbar = () => {
 
   return (
     <header>
-      <nav className="navbar bg-base-100">
+      <nav className="navbar bg-base-100 px-4">
         <div className="lg:hidden">
           <div className="dropdown">
-            <button className="btn btn-ghost !hover:none !focus:none">
+            <button className="btn btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -48,70 +49,76 @@ export const Navbar = () => {
               <li>
                 <details ref={detailsRef}>
                   <summary>Available</summary>
-                  <ul className="p-2">
+                  <ul className="p-2 libre-text">
                     <li>
-                      <Link to="/offices" className="!hover:none !focus:none">
-                        Offices
-                      </Link>
+                      <Link to="/offices">Offices</Link>
                     </li>
                     <li>
-                      <Link to="/studios" className="!hover:none !focus:none">
-                        Soundproofed studios
-                      </Link>
+                      <Link to="/studios">Soundproofed studios</Link>
                     </li>
                   </ul>
                 </details>
               </li>
               <li>
-                <Link to="/contact" className="!hover:none !focus:none">
-                  Contact
-                </Link>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 flex items-center ">
-            <li className="flex items-center justify-center">
+
+        <div className="navbar-center hidden lg:flex justify-between w-full items-center">
+          <ul className="menu menu-horizontal px-1 flex items-center space-x-4">
+            <li className="flex items-center flex-row">
               <Link
                 to="/"
-                className="no-underline hover:bg-transparent focus:bg-transparent"
+                className="no-underline hover:bg-transparent flex items-center"
               >
-                <img
-                  src="./bsmnt.png"
-                  className="w-8"
-                  alt="Image Description"
-                />
+                <img src="./bsmnt.png" className="w-8" alt="BSMNT Logo" />
+                <h1 className="title text-3xl ml-2 !text-black !no-underline">
+                  BSMNT
+                </h1>
               </Link>
             </li>
+
             <li>
               <details ref={detailsRef}>
-                <summary>Available</summary>
-                <ul className="p-2 z-10">
+                <summary className="cursor-pointer libre-text ">
+                  Available
+                </summary>
+                <ul className="p-2 z-10 libre-text">
                   <li>
-                    <Link to="/offices" className="!hover:none !focus:none">
-                      Offices
-                    </Link>
+                    <Link to="/offices">Offices</Link>
                   </li>
                   <li>
-                    <Link to="/studios" className="!hover:none !focus:none">
-                      Soundproofed studios
-                    </Link>
+                    <Link to="/studios">Soundproofed studios</Link>
                   </li>
                 </ul>
               </details>
             </li>
-            <li>
-              <Link to="/share" className="!hover:none !focus:none">
-                Studio share
-              </Link>
+            <li className="libre-text">
+              <Link to="/share">Studio share</Link>
             </li>
-            <li>
-              <Link to="/contact" className="!hover:none !focus:none">
-                Contact
-              </Link>
+            <li className="libre-text">
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
+
+          <div className="flex items-center space-x-3 pr-4">
+            <a
+              href="mailto:info@bsmnt.net"
+              className="text-2xl text-gray-600 hover:text-[#ed8857]"
+            >
+              <MdEmail />
+            </a>
+            <a
+              href="https://www.instagram.com/bsmntstudios/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl text-gray-600 hover:text-[#ed8857]"
+            >
+              <AiFillInstagram />
+            </a>
+          </div>
         </div>
       </nav>
     </header>

@@ -10,7 +10,7 @@ const LandingPage = () => {
         >
           <img
             src="./Argall.jpeg"
-            className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300 ease-in-out"
+            className="object-cover w-full h-full group-hover:grayscale transition-all duration-300 ease-in-out"
             alt="Argall"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -23,7 +23,7 @@ const LandingPage = () => {
         >
           <img
             src="./Lea.jpg"
-            className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300 ease-in-out"
+            className="object-cover w-full h-full group-hover:grayscale transition-all duration-300 ease-in-out"
             alt="Lea Bridge"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -38,7 +38,7 @@ const LandingPage = () => {
         >
           <img
             src="./Hornsey.jpg"
-            className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300 ease-in-out"
+            className="object-cover w-full h-full group-hover:grayscale transition-all duration-300 ease-in-out"
             alt="hornsey"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -51,7 +51,7 @@ const LandingPage = () => {
         >
           <img
             src="./Archway.JPG"
-            className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300 ease-in-out"
+            className="object-cover w-full h-full group-hover:grayscale transition-all duration-300 ease-in-out"
             alt="Archway"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -66,7 +66,7 @@ const LandingPage = () => {
         >
           <img
             src="./Finsbury/finsbury3.jpg"
-            className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300 ease-in-out"
+            className="object-cover w-full h-full group-hover:grayscale transition-all duration-300 ease-in-out"
             alt="finsbury"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -79,7 +79,7 @@ const LandingPage = () => {
         >
           <img
             src="./Hackney/hackney4.jpg"
-            className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-300 ease-in-out"
+            className="object-cover w-full h-full group-hover:grayscale transition-all duration-300 ease-in-out"
             alt="Hackney"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

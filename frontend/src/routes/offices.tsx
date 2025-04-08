@@ -11,7 +11,7 @@ function RouteComponent() {
   const availableStudios = [ad1, ad1, ad2];
   return (
     <div>
-      <Workplace boxes={availableStudios} />;
+      <Workplace studios={availableStudios} />;
     </div>
   );
 }

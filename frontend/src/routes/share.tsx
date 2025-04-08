@@ -14,10 +14,18 @@ export const Route = createFileRoute("/share")({
 
 function RouteComponent() {
   const ads = Route.useLoaderData() || [];
+
   return (
-    <>
+    <div
+      style={{
+        backgroundImage: `url('/keyboard.jpg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "top left",
+        minHeight: "100vh",
+      }}
+    >
       <StudioForm />
       <AdsDisplay ads={ads} />
-    </>
+    </div>
   );
 }

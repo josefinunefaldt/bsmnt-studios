@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Location from "../components/location";
+import Location2 from "../components/location2";
 
 export const Route = createFileRoute("/leabridge")({
   component: RouteComponent,
@@ -8,7 +8,7 @@ export const Route = createFileRoute("/leabridge")({
 function RouteComponent() {
   return (
     <div>
-      <Location
+      <Location2
         content={[
           { type: "image", value: "/Lea/lea8.jpg" },
           {

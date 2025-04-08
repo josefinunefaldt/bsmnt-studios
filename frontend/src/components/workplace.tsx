@@ -1,12 +1,13 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 import { BoxData, ModalProps } from "../types/workPlace";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
-const WorkPlace: React.FC<{ boxes: BoxData[] }> = ({ boxes }) => {
+const WorkPlace: React.FC<{ studios: BoxData[] }> = ({ studios }) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [selectedBox, setSelectedBox] = useState<BoxData | null>(null);
 
-  const openModal = (box: BoxData): void => {
-    setSelectedBox(box);
+  const openModal = (studios: BoxData): void => {
+    setSelectedBox(studios);
     setModalOpen(true);
   };
 
@@ -15,20 +16,21 @@ const WorkPlace: React.FC<{ boxes: BoxData[] }> = ({ boxes }) => {
     setSelectedBox(null);
   };
 
-  const Modal: React.FC<ModalProps> = ({ box, onClose }) => {
+  const Modal: React.FC<ModalProps> = ({ studios, onClose }) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const modalContentRef = useRef<HTMLDivElement>(null);
 
     const goToNext = useCallback(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === box.images.length - 1 ? 0 : prevIndex + 1
+        prevIndex === studios.images.length - 1 ? 0 : prevIndex + 1
       );
-    }, [box.images.length]);
+    }, [studios.images.length]);
 
     const goToPrevious = useCallback(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === 0 ? box.images.length - 1 : prevIndex - 1
+        prevIndex === 0 ? studios.images.length - 1 : prevIndex - 1
       );
-    }, [box.images.length]);
+    }, [studios.images.length]);
 
     useEffect(() => {
       const handleKeyDown = (event: KeyboardEvent) => {
@@ -41,64 +43,66 @@ const WorkPlace: React.FC<{ boxes: BoxData[] }> = ({ boxes }) => {
       return () => window.removeEventListener("keydown", handleKeyDown);
     }, [goToNext, goToPrevious, onClose]);
 
+    const handleBackdropClick = (e: React.MouseEvent) => {
+      if (
+        modalContentRef.current &&
+        !modalContentRef.current.contains(e.target as Node)
+      ) {
+        onClose();
+      }
+    };
+
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div className="bg-white w-full max-w-4xl p-6 rounded-lg max-h-screen overflow-y-auto">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-bold">{box.title}</h2>
+      <div
+        className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+        onClick={handleBackdropClick}
+      >
+        <div
+          ref={modalContentRef}
+          className="w-full max-w-2xl mx-auto flex flex-col relative"
+        >
+          <div className="relative w-full">
             <button
               onClick={onClose}
-              className="text-gray-600 hover:text-gray-900 text-2xl font-bold"
+              className="absolute top-4 right-4 z-20 text-white hover:text-gray-300 text-3xl font-bold rounded-full h-10 w-10 flex items-center justify-center"
             >
               ×
             </button>
+
+            <div className="flex items-center justify-center h-full">
+              <img
+                src={studios.images[currentIndex]?.src}
+                alt={`${studios.title} - Image ${currentIndex + 1}`}
+                className="max-h-[70vh] object-contain w-full"
+              />
+
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToPrevious();
+                }}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 hover:bg-opacity-70 text-white p-3 rounded-full"
+                aria-label="Previous image"
+              >
+                <MdKeyboardArrowLeft className="text-2xl" />
+              </button>
+
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToNext();
+                }}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 hover:bg-opacity-70 text-white p-3 rounded-full"
+                aria-label="Next image"
+              >
+                <MdKeyboardArrowRight className="text-2xl" />
+              </button>
+            </div>
           </div>
 
-          <div className="relative">
-            <div className="flex flex-col md:flex-row gap-6">
-              <div className="w-full">
-                <div className="border border-black h-64 flex items-center justify-center bg-gray-200">
-                  <img
-                    src={box.images[currentIndex]?.src}
-                    alt={`${box.title} - Image ${currentIndex + 1}`}
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-                <p className="mt-4">{box.images[currentIndex]?.description}</p>
-              </div>
-            </div>
-            <div className="relative py-4">
-              <div className="flex justify-center items-center">
-                <span className="px-4 py-2 bg-gray-100 rounded-full">
-                  {currentIndex + 1} / {box.images.length}
-                </span>
-              </div>
-              <button
-                onClick={goToPrevious}
-                className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg"
-              >
-                ← Previous
-              </button>
-
-              <button
-                onClick={goToNext}
-                className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg"
-              >
-                Next →
-              </button>
-            </div>
-            <div className="flex justify-center m-auto mt-4 gap-2">
-              {box.images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`h-3 w-3 rounded-full ${
-                    currentIndex === index ? "bg-blue-500" : "bg-gray-300"
-                  }`}
-                  aria-label={`Go to image ${index + 1}`}
-                />
-              ))}
-            </div>
+          <div className="bg-white p-6 w-full">
+            <h2 className="text-xl font-bold mb-4">{studios.title}</h2>
+            <p className="mb-4">{studios.images[currentIndex]?.description}</p>
           </div>
         </div>
       </div>
@@ -107,29 +111,45 @@ const WorkPlace: React.FC<{ boxes: BoxData[] }> = ({ boxes }) => {
 
   return (
     <div className="w-full mx-auto p-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-        {boxes.map((box) => (
+      <h1 className="text-3xl font-bold mb-8 pb-2 border-b border-gray-300">
+        London
+      </h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {studios.map((studios) => (
           <div
-            key={box.id}
-            className="flex flex-col items-center cursor-pointer"
-            onClick={() => openModal(box)}
+            key={studios.id}
+            className="flex flex-col cursor-pointer mb-8"
+            onClick={() => openModal(studios)}
           >
-            <div className="w-full flex flex-col items-center justify-center bg-gray-300 border border-black p-6 min-h-[300px] hover:bg-gray-200">
-              {box.images.length > 0 && (
+            <div className="text-sm text-gray-500 mb-2">North London</div>
+
+            <div
+              className="w-full bg-gray-200 mb-2 overflow-hidden"
+              style={{ aspectRatio: "4 / 3" }}
+            >
+              {studios.images.length > 0 && (
                 <img
-                  src={box.images[0]?.src}
-                  alt={box.title}
-                  className="max-h-40 max-w-full object-cover mb-2"
+                  src={studios.images[0]?.src}
+                  alt={studios.title}
+                  className="w-full h-full object-cover"
                 />
               )}
-              <p className="text-center font-semibold">{box.title}</p>
             </div>
+
+            <div className="mt-2">
+              <h3 className="font-bold text-lg">{studios.title}</h3>
+              <p className="text-sm text-gray-700">Workplace</p>
+              <p className="text-sm mt-2">info info</p>
+            </div>
+
+            <div className="mt-4 border-t border-gray-300 pt-2"></div>
           </div>
         ))}
       </div>
 
       {modalOpen && selectedBox && (
-        <Modal box={selectedBox} onClose={closeModal} />
+        <Modal studios={selectedBox} onClose={closeModal} />
       )}
     </div>
   );
