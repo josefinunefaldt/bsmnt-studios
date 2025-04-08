@@ -64,7 +64,7 @@ const LandingPage2 = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 40000);
+    }, 4000);
     return () => clearInterval(interval);
   }, [nextSlide]);
 
