@@ -69,7 +69,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="max-w-7xl mt-4 mx-auto p-6 flex flex-col  text-center text-gray-600 border-black">
+    <div className="max-w-7xl mt-4 mx-auto p-6 flex flex-col  text-center text-gray-600">
       <div className="max-w-lg mx-auto w-full bg-[#fef880]  -mb-3 rounded-t-xl p-10 flex flex-col sm:flex-row text-left libre-text ">
         <h3 className="text-4xl font-bold sm:w-1/3 text-left">
           GET IN
@@ -95,7 +95,7 @@ export default function ContactForm() {
           </p>
         </div>
       </div>
-      <div className="max-w-lg mx-auto rounded-2xl bg-white shadow-lg w-full text-center  border-black border-2">
+      <div className="max-w-lg mx-auto rounded-2xl bg-white shadow-lg w-full text-center ">
         <div className="p-6 space-y-4">
           {submitStatus && (
             <div

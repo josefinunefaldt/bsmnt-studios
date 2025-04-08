@@ -16,10 +16,12 @@ const Location2: React.FC<LocationProps> = ({ content }) => {
         {content.slice(0, 2).map((item, index) => (
           <div
             key={index}
-            className="w-full lg:w-1/2 relative flex items-center justify-center min-h-[300px]"
+            className="w-full lg:w-1/2 relative flex items-center justify-center h-[400px]"
           >
             {item.type === "text" ? (
-              <div className="p-3 bg-[#fef880]">{item.value}</div>
+              <div className="p-3 bg-[#fef880] h-full flex items-center justify-center">
+                {item.value}
+              </div>
             ) : item.type === "image" ? (
               <img
                 src={item.value}
@@ -35,10 +37,10 @@ const Location2: React.FC<LocationProps> = ({ content }) => {
         {content.slice(2, 4).map((item, index) => (
           <div
             key={index + 2}
-            className={`w-full ${index === 0 ? "lg:w-2/3" : "lg:w-1/3"} relative flex items-center justify-center min-h-[300px]`}
+            className={`w-full ${index === 0 ? "lg:w-2/3" : "lg:w-1/3"} relative flex items-center justify-center h-[400px]`}
           >
             {item.type === "text" ? (
-              <div className="p-6 bg-[#fef880] text-center m-auto flex items-center justify-center w-full h-full ">
+              <div className="p-6 bg-[#fef880] text-center w-full h-full flex items-center justify-center">
                 {item.value}
               </div>
             ) : item.type === "image" ? (
@@ -56,10 +58,10 @@ const Location2: React.FC<LocationProps> = ({ content }) => {
         {content.slice(4, 6).map((item, index) => (
           <div
             key={index + 4}
-            className="w-full lg:w-1/2 relative flex items-center justify-center min-h-[300px]"
+            className="w-full lg:w-1/2 relative flex items-center justify-center h-[300px]"
           >
             {item.type === "text" ? (
-              <div className="p-3">{item.value}</div>
+              <div className="p-3 h-full">{item.value}</div>
             ) : item.type === "image" ? (
               <img
                 src={item.value}
@@ -70,12 +72,14 @@ const Location2: React.FC<LocationProps> = ({ content }) => {
           </div>
         ))}
       </div>
+
+      {/* For longer content slices */}
       {content.length > 6 && (
         <div className="flex flex-col lg:flex-row gap-2 mt-2">
           {content.slice(6, 9).map((item, index) => (
             <div
               key={index + 6}
-              className="w-full lg:w-1/3 relative flex items-center justify-center min-h-[300px]"
+              className="w-full lg:w-1/3 relative flex items-center justify-center h-[400px]"
             >
               {item.type === "text" ? (
                 <div className="p-3">{item.value}</div>
@@ -90,12 +94,13 @@ const Location2: React.FC<LocationProps> = ({ content }) => {
           ))}
         </div>
       )}
+
       {content.length > 9 && (
         <div className="flex flex-col lg:flex-row gap-2 mt-2">
           {content.slice(9).map((item, index) => (
             <div
               key={index + 9}
-              className="w-full lg:w-1/3 relative flex items-center justify-center min-h-[300px]"
+              className="w-full lg:w-1/3 relative flex items-center justify-center h-[400px]"
             >
               {item.type === "text" ? (
                 <div className="p-3">{item.value}</div>

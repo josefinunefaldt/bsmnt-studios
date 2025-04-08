@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "@tanstack/react-router";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
@@ -22,7 +22,7 @@ const LandingPage2 = () => {
       name: "Lea bridge",
       path: "/leabridge",
       info: "East London",
-      image: "./Lea.jpg",
+      image: "./l.jpg",
     },
     {
       name: "Hornsey",
@@ -46,27 +46,27 @@ const LandingPage2 = () => {
       name: "Hackney",
       path: "/hackney",
       info: "East London",
-      image: "./Hackney/hackney4.jpg",
+      image: "./hackneey.jpg",
     },
   ];
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (!isTransitioning) {
       setIsTransitioning(true);
       setCurrentIndex((prevIndex) => (prevIndex + 1) % locations.length);
       setTimeout(() => setIsTransitioning(false), 300);
     }
-  };
+  }, [isTransitioning, locations.length]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
 
   const prevSlide = () => {
     if (!isTransitioning) {
