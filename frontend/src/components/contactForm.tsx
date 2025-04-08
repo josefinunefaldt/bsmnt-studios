@@ -69,7 +69,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="max-w-7xl mt-4 mx-auto p-6 flex flex-col  text-center text-gray-600">
+    <div className="max-w-7xl mx-auto p-6 flex flex-col  text-center text-gray-600">
       <div className="max-w-lg mx-auto w-full bg-[#fef880]  -mb-3 rounded-t-xl p-10 flex flex-col sm:flex-row text-left libre-text ">
         <h3 className="text-4xl font-bold sm:w-1/3 text-left">
           GET IN
