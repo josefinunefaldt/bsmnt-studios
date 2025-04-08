@@ -23,7 +23,7 @@ export const Navbar = () => {
 
   return (
     <header>
-      <nav className="navbar bg-base-100 px-4">
+      <nav className="navbar bg-white px-4">
         <div className="lg:hidden">
           <div className="dropdown">
             <button className="btn btn-ghost">
@@ -66,7 +66,7 @@ export const Navbar = () => {
           </div>
         </div>
 
-        <div className="navbar-center hidden lg:flex justify-between w-full items-center">
+        <div className="navbar-center hidden bg-white lg:flex justify-between w-full items-center">
           <ul className="menu menu-horizontal px-1 flex items-center space-x-4">
             <li className="flex items-center flex-row">
               <Link
