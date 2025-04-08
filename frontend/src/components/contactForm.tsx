@@ -95,7 +95,7 @@ export default function ContactForm() {
           </p>
         </div>
       </div>
-      <div className="max-w-lg mx-auto rounded-2xl bg-white shadow-lg w-full text-center ">
+      <div className="max-w-lg mx-auto rounded-2xl bg-white shadow-lg w-full text-center  ">
         <div className="p-6 space-y-4">
           {submitStatus && (
             <div
@@ -114,7 +114,7 @@ export default function ContactForm() {
                 <input
                   type="text"
                   name="firstName"
-                  className="input input-bordered w-full text-sm  border-black border-2"
+                  className="input input-bordered w-full text-sm bg-white border-black border-2"
                   value={formData.firstName}
                   onChange={handleChange}
                   required
@@ -125,7 +125,7 @@ export default function ContactForm() {
                 <input
                   type="text"
                   name="lastName"
-                  className="input input-bordered w-full text-sm  border-black border-2"
+                  className="input input-bordered w-full text-sm bg-white  border-black border-2"
                   value={formData.lastName}
                   onChange={handleChange}
                   required
@@ -137,7 +137,7 @@ export default function ContactForm() {
               <input
                 type="email"
                 name="email"
-                className="input input-bordered w-full text-sm  border-black border-2"
+                className="input input-bordered w-full text-sm bg-white  border-black border-2"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -148,7 +148,7 @@ export default function ContactForm() {
               <input
                 type="text"
                 name="subject"
-                className="input input-bordered w-full text-sm  border-black border-2"
+                className="input input-bordered w-full text-sm bg-white  border-black border-2"
                 value={formData.subject}
                 onChange={handleChange}
                 required
@@ -158,7 +158,7 @@ export default function ContactForm() {
               <label className="label text-sm">Message</label>
               <textarea
                 name="message"
-                className="textarea textarea-bordered w-full text-sm  border-black border-2"
+                className="textarea textarea-bordered w-full text-sm bg-white  border-black border-2"
                 rows={3}
                 value={formData.message}
                 onChange={handleChange}
