@@ -1,14 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import LandingPage2 from "../components/landingPage2";
+import { Video } from "../components/landingpagevideo";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  return (
-    <div>
-      <LandingPage2 />
-    </div>
-  );
+  return <Video />;
 }
+
+export default RouteComponent;

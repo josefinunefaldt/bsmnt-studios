@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Location2 from "../components/location2";
+import { Navbar } from "../components/navbar";
 
 export const Route = createFileRoute("/hackney")({
   component: RouteComponent,
@@ -8,6 +9,7 @@ export const Route = createFileRoute("/hackney")({
 function RouteComponent() {
   return (
     <div>
+      <Navbar />
       <Location2
         content={[
           { type: "image", value: "/Hackney/hackney6.jpg" },

@@ -4,28 +4,57 @@ import { MdEmail } from "react-icons/md";
 import { AiFillInstagram } from "react-icons/ai";
 
 export const Navbar = () => {
-  const detailsRef = useRef<HTMLDetailsElement>(null);
+  const availableDetailsRef = useRef<HTMLDetailsElement>(null);
+  const locationsDetailsRef = useRef<HTMLDetailsElement>(null);
+  const mobileDropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        detailsRef.current &&
-        !detailsRef.current.contains(event.target as Node)
+        availableDetailsRef.current &&
+        !availableDetailsRef.current.contains(event.target as Node)
       ) {
-        detailsRef.current.removeAttribute("open");
+        availableDetailsRef.current.removeAttribute("open");
+      }
+
+      if (
+        locationsDetailsRef.current &&
+        !locationsDetailsRef.current.contains(event.target as Node)
+      ) {
+        locationsDetailsRef.current.removeAttribute("open");
+      }
+
+      if (
+        mobileDropdownRef.current &&
+        !mobileDropdownRef.current.contains(event.target as Node)
+      ) {
+        const button = mobileDropdownRef.current.querySelector("button");
+        if (button && button.getAttribute("aria-expanded") === "true") {
+          button.click();
+        }
       }
     };
+
     document.addEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
+  const handleMenuItemClick = () => {
+    if (availableDetailsRef.current) {
+      availableDetailsRef.current.removeAttribute("open");
+    }
+    if (locationsDetailsRef.current) {
+      locationsDetailsRef.current.removeAttribute("open");
+    }
+  };
+
   return (
-    <header className="h-full bg-white">
-      <nav className="navbar  px-4">
+    <header className="relative z-20">
+      <nav className="navbar px-4">
         <div className="lg:hidden">
-          <div className="dropdown">
+          <div className="dropdown" ref={mobileDropdownRef}>
             <button className="btn btn-ghost">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -43,31 +72,61 @@ export const Navbar = () => {
               </svg>
             </button>
             <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-              <li>
+              <li onClick={handleMenuItemClick}>
                 <Link to="/share">Studio share</Link>
               </li>
               <li>
-                <details ref={detailsRef}>
+                <details>
                   <summary>Available</summary>
                   <ul className="p-2 libre-text">
-                    <li>
+                    <li onClick={handleMenuItemClick}>
                       <Link to="/offices">Offices</Link>
                     </li>
-                    <li>
+                    <li onClick={handleMenuItemClick}>
                       <Link to="/studios">Soundproofed studios</Link>
                     </li>
                   </ul>
                 </details>
               </li>
               <li>
+                <details ref={locationsDetailsRef}>
+                  <summary className="cursor-pointer libre-text">
+                    <Link to="/locations" onClick={handleMenuItemClick}>
+                      Locations
+                    </Link>
+                  </summary>
+                  <ul className="p-2 z-10 libre-text">
+                    <li onClick={handleMenuItemClick}>
+                      <Link to="/argall">Argall</Link>
+                    </li>
+                    <li onClick={handleMenuItemClick}>
+                      <Link to="/leabridge">Lea Bridge</Link>
+                    </li>
+                    <li onClick={handleMenuItemClick}>
+                      <Link to="/archway">Archway</Link>
+                    </li>
+                    <li onClick={handleMenuItemClick}>
+                      <Link to="/finsbury">Finsbury Park</Link>
+                    </li>
+                    <li onClick={handleMenuItemClick}>
+                      <Link to="/hornsey">Hornsey</Link>
+                    </li>
+                    <li onClick={handleMenuItemClick}>
+                      <Link to="/hackney">Hackney</Link>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+
+              <li onClick={handleMenuItemClick}>
                 <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="navbar-center hidden bg-white lg:flex justify-between  w-full items-center">
-          <ul className="menu menu-horizontal  flex items-center space-x-4">
+        <div className="navbar-center bg-white lg:flex justify-between items-center w-full fixed top-0 left-0 z-50">
+          <ul className="menu menu-horizontal flex items-center space-x-4">
             <li className="flex items-center flex-row">
               <Link
                 to="/"
@@ -81,24 +140,55 @@ export const Navbar = () => {
             </li>
 
             <li>
-              <details ref={detailsRef}>
-                <summary className="cursor-pointer libre-text ">
+              <details ref={availableDetailsRef}>
+                <summary className="cursor-pointer libre-text">
                   Available
                 </summary>
                 <ul className="p-2 z-10 libre-text">
-                  <li>
+                  <li onClick={handleMenuItemClick}>
                     <Link to="/offices">Offices</Link>
                   </li>
-                  <li>
+                  <li onClick={handleMenuItemClick}>
                     <Link to="/studios">Soundproofed studios</Link>
                   </li>
                 </ul>
               </details>
             </li>
-            <li className="libre-text">
+
+            <li>
+              <details ref={locationsDetailsRef}>
+                <summary className="cursor-pointer libre-text">
+                  <Link to="/locations" onClick={handleMenuItemClick}>
+                    Locations
+                  </Link>
+                </summary>
+                <ul className="p-4 z-10 libre-text">
+                  <li onClick={handleMenuItemClick}>
+                    <Link to="/argall">Argall</Link>
+                  </li>
+                  <li onClick={handleMenuItemClick}>
+                    <Link to="/leabridge">Lea Bridge</Link>
+                  </li>
+                  <li onClick={handleMenuItemClick}>
+                    <Link to="/archway">Archway</Link>
+                  </li>
+                  <li onClick={handleMenuItemClick}>
+                    <Link to="/finsbury">Finsbury Park</Link>
+                  </li>
+                  <li onClick={handleMenuItemClick}>
+                    <Link to="/hornsey">Hornsey</Link>
+                  </li>
+                  <li onClick={handleMenuItemClick}>
+                    <Link to="/hackney">Hackney</Link>
+                  </li>
+                </ul>
+              </details>
+            </li>
+
+            <li className="libre-text" onClick={handleMenuItemClick}>
               <Link to="/share">Studio share</Link>
             </li>
-            <li className="libre-text">
+            <li className="libre-text" onClick={handleMenuItemClick}>
               <Link to="/contact">Contact</Link>
             </li>
           </ul>

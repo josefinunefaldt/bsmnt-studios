@@ -3,6 +3,7 @@ import { getAllAds } from "../utils/advertFetch";
 import { components } from "../lib/api/v1";
 import AdsDisplay from "../components/ads";
 import StudioForm from "../components/studioForm";
+import { Navbar } from "../components/navbar";
 
 export const Route = createFileRoute("/share")({
   loader: async () => {
@@ -24,6 +25,7 @@ function RouteComponent() {
         minHeight: "100vh",
       }}
     >
+      <Navbar />
       <StudioForm />
       <AdsDisplay ads={ads} />
     </div>
