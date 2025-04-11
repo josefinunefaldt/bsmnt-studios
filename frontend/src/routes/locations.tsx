@@ -8,7 +8,7 @@ export const Route = createFileRoute("/locations")({
 
 function RouteComponent() {
   return (
-    <div>
+    <div className="bg-white">
       <Navbar />
       <LocationCarousel />{" "}
     </div>

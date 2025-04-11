@@ -158,7 +158,7 @@ export default function ContactForm() {
               <label className="label text-sm">Message</label>
               <textarea
                 name="message"
-                className="textarea textarea-bordered w-full text-sm bg-white  border-black border-2"
+                className="textarea textarea-bordered w-full text-sm bg-white mb-6  border-black border-2"
                 rows={3}
                 value={formData.message}
                 onChange={handleChange}
