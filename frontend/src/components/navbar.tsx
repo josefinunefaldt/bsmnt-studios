@@ -196,7 +196,7 @@ export const Navbar = () => {
           <div className="flex items-center space-x-3 pr-4">
             <a
               href="mailto:info@bsmnt.net"
-              className="text-2xl text-gray-600 hover:text-[#ed8857]"
+              className="text-2xl text-gray-600 hover:text-[#fef880]"
             >
               <MdEmail />
             </a>
@@ -204,7 +204,7 @@ export const Navbar = () => {
               href="https://www.instagram.com/bsmntstudios/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl text-gray-600 hover:text-[#ed8857]"
+              className="text-2xl text-gray-600 hover:text-[#fef880]"
             >
               <AiFillInstagram />
             </a>

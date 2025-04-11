@@ -212,7 +212,7 @@ export const NavbarArgall = () => {
           <div className="flex items-center space-x-3 pr-4">
             <a
               href="mailto:info@bsmnt.net"
-              className="text-2xl text-white hover:text-[#ed8857]"
+              className="text-2xl text-white hover:text-[#fef880]"
             >
               <MdEmail />
             </a>
@@ -220,7 +220,7 @@ export const NavbarArgall = () => {
               href="https://www.instagram.com/bsmntstudios/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl text-white hover:text-[#ed8857]"
+              className="text-2xl text-white hover:text-[#fef880]"
             >
               <AiFillInstagram />
             </a>

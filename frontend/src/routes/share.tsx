@@ -19,9 +19,10 @@ function RouteComponent() {
   return (
     <div
       style={{
-        backgroundImage: `url('/keyboard.jpg')`,
+        backgroundImage: `url('/back.JPG')`,
         backgroundSize: "cover",
-        backgroundPosition: "top left",
+        backgroundPosition: "80% center",
+
         minHeight: "100vh",
       }}
     >

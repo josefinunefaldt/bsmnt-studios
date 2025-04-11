@@ -138,25 +138,22 @@ const LocationCarousel = () => {
 
         <Link
           to={currentLocation.path}
-          className="hidden sm:block w-full md:w-1/4 h-[85vh] bg-[#fef880] text-gray-600 transition-all duration-500"
+          className="hidden sm:block w-full md:w-1/4 h-[85vh] bg-[#fef880]  text-[rgb(67,67,67)] transition-all duration-500"
         >
-          <div className="flex flex-col ml-3 m-auto mt-36 p-4 space-y-2">
+          <div className="flex flex-col ml-7 m-auto mt-36 p-4 space-y-2">
             <div className="text-4xl font-bold title ">
               {currentLocation.name}
             </div>
 
-            <div className="text-base text-gray-600 font-libre">
+            <div className="text-base text-[rgb(67,67,67)] font-libre">
               {currentLocation.info}
             </div>
             <br />
             <br />
             <br />
-            <div className="font-libre text-gray-600">Read more</div>
-            <div className="flex items-center">
-              <span>
-                {"—".repeat(10)}
-                {`>`}
-              </span>
+            <div className="font-libre text-[rgb(67,67,67)]">Read more</div>
+            <div className="left-0">
+              <img className="left-0 w-48" src="/Pil.png"></img>
             </div>
           </div>
         </Link>

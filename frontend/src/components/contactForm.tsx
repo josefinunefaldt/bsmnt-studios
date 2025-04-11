@@ -78,20 +78,20 @@ export default function ContactForm() {
         </h3>
         <div className="space-y-2 text-sm sm:w-2/3 ml-5 ">
           <p>
-            <span className="font-semibold">Studio Enquiries: </span>
+            <span className="font-semibold">availability: </span>
             <a href="mailto:enquiries@bsmnt.net">enquiries@bsmnt.net</a>
           </p>
           <p>
-            <span className="font-semibold">General Enquiries: </span>
+            <span className="font-semibold">everything else: </span>
             <a href="mailto:info@bsmnt.net">info@bsmnt.net</a>
           </p>
           <p>
-            <span className="font-semibold">Mobile S.: </span>
-            <a href="tel:+447543421595">075 4342 1595</a>
+            <span className="font-semibold">Simona: </span>
+            <a href="tel:+447543421595">+4475 4342 1595</a>
           </p>
           <p>
-            <span className="font-semibold">Mobile T.: </span>
-            <a href="tel:+447930188967">079 3018 8967</a>
+            <span className="font-semibold">Tomas: </span>
+            <a href="tel:+447930188967">+4479 3018 8967</a>
           </p>
         </div>
       </div>
@@ -170,7 +170,7 @@ export default function ContactForm() {
               className="btn btn-primary w-full text-sm hover:text-[#fef880] text-black hover:bg-gray-600 bg-[#fef880] border-0"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? "Sending..." : "Send"}
             </button>
           </form>
         </div>

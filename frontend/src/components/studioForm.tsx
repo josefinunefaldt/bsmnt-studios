@@ -106,10 +106,8 @@ export default function StudioForm() {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-base-200 rounded-xl shadow-lg">
-      <h2 className="text-2xl font-bold text-center mb-4">
-        Studio Inquiry Form
-      </h2>
+    <div className="max-w-lg mx-auto mt-5 p-6 bg-white rounded-xl shadow-lg">
+      <h2 className="text-2xl font-bold text-center mb-4">Studio share</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="form-control">
           <label className="label">What are you looking for?</label>
@@ -118,7 +116,7 @@ export default function StudioForm() {
               <input
                 type="radio"
                 name="offering"
-                className="radio radio-primary"
+                className="radio radio-primary "
                 checked={formData.offering === true}
                 onChange={() => setFormData({ ...formData, offering: true })}
               />
@@ -144,8 +142,7 @@ export default function StudioForm() {
             <input
               type="text"
               name="name"
-              placeholder="Your Name"
-              className="input input-bordered w-full"
+              className="input w-full border-2 border-black"
               value={formData.user?.name || ""}
               onChange={handleChange}
               required
@@ -158,8 +155,7 @@ export default function StudioForm() {
             <input
               type="email"
               name="email"
-              placeholder="Your Email"
-              className="input input-bordered w-full"
+              className="input border-2 border-black w-full"
               value={formData.user?.email || ""}
               onChange={handleChange}
               required
@@ -172,8 +168,7 @@ export default function StudioForm() {
             <input
               type="text"
               name="location"
-              placeholder="Location"
-              className="input input-bordered w-full"
+              className="input border-2 border-black w-full"
               value={formData.location || ""}
               onChange={handleChange}
               required
@@ -186,8 +181,7 @@ export default function StudioForm() {
           </label>
           <textarea
             name="about"
-            placeholder="Tell us about yourself..."
-            className="textarea textarea-bordered w-full"
+            className="textarea border-2 border-black w-full"
             value={formData.user?.about || ""}
             onChange={handleChange}
           />
@@ -198,8 +192,7 @@ export default function StudioForm() {
           </label>
           <textarea
             name="description"
-            placeholder="Describe what you're looking for/offering..."
-            className="textarea textarea-bordered w-full"
+            className="textarea border-2 border-black w-full"
             value={formData.description || ""}
             onChange={handleChange}
           />
@@ -211,7 +204,7 @@ export default function StudioForm() {
           <input
             type="file"
             name="photo"
-            className="file-input file-input-bordered w-full"
+            className="file-input border-2 border-black w-full mb-6"
             accept="image/*"
             onChange={handleFileChange}
           />
@@ -232,11 +225,10 @@ export default function StudioForm() {
             </div>
           </div>
         )}
-
         {error && <p className="text-red-500 text-center">{error}</p>}
         <button
           type="submit"
-          className="btn btn-primary w-full"
+          className="btn  bg-[#fef880] w-full"
           disabled={loading}
         >
           {loading ? "Submitting..." : "Submit"}
