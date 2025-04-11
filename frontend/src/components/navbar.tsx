@@ -90,12 +90,12 @@ export const Navbar = () => {
               </li>
               <li>
                 <details ref={locationsDetailsRef}>
-                  <summary className="cursor-pointer libre-text">
+                  <summary className="cursor-pointer libre-text ">
                     <Link to="/locations" onClick={handleMenuItemClick}>
                       Locations
                     </Link>
                   </summary>
-                  <ul className="p-2 z-10 libre-text">
+                  <ul className="p-2 z-10 libre-text  bg-white text-black">
                     <li onClick={handleMenuItemClick}>
                       <Link to="/argall">Argall</Link>
                     </li>
@@ -144,7 +144,7 @@ export const Navbar = () => {
                 <summary className="cursor-pointer libre-text">
                   Available
                 </summary>
-                <ul className="p-2 z-10 libre-text">
+                <ul className="p-2 z-10 libre-text  bg-white text-black">
                   <li onClick={handleMenuItemClick}>
                     <Link to="/offices">Offices</Link>
                   </li>
@@ -162,7 +162,7 @@ export const Navbar = () => {
                     Locations
                   </Link>
                 </summary>
-                <ul className="p-4 z-10 libre-text">
+                <ul className="p-4 z-10 libre-text  bg-white text-black">
                   <li onClick={handleMenuItemClick}>
                     <Link to="/argall">Argall</Link>
                   </li>

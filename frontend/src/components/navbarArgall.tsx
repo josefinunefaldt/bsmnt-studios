@@ -78,7 +78,7 @@ export const NavbarArgall = () => {
               <li>
                 <details>
                   <summary>Available</summary>
-                  <ul className="p-2 libre-text">
+                  <ul className="p-2 libre-text  bg-white text-black">
                     <li onClick={handleMenuItemClick}>
                       <Link to="/offices">Offices</Link>
                     </li>
@@ -95,7 +95,7 @@ export const NavbarArgall = () => {
                       Locations
                     </Link>
                   </summary>
-                  <ul className="p-2 z-10 libre-text">
+                  <ul className="p-2 z-10 libre-text  bg-white text-black">
                     <li onClick={handleMenuItemClick}>
                       <Link to="/argall">Argall</Link>
                     </li>
@@ -144,7 +144,7 @@ export const NavbarArgall = () => {
                 <summary className="cursor-pointer libre-text text-white">
                   Available
                 </summary>
-                <ul className="p-2 z-10 libre-text">
+                <ul className="p-2 z-10 libre-text  bg-white text-black">
                   <li onClick={handleMenuItemClick}>
                     <Link to="/offices" className="text-black">
                       Offices
@@ -166,7 +166,7 @@ export const NavbarArgall = () => {
                     Locations
                   </Link>
                 </summary>
-                <ul className="p-4 z-10 libre-text">
+                <ul className="p-4 z-10 libre-text  bg-white text-black">
                   <li onClick={handleMenuItemClick}>
                     <Link to="/argall" className=" text-black">
                       Argall

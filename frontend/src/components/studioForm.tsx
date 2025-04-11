@@ -142,7 +142,7 @@ export default function StudioForm() {
             <input
               type="text"
               name="name"
-              className="input w-full border-2 border-black"
+              className="input w-full border-2 border-black bg-white"
               value={formData.user?.name || ""}
               onChange={handleChange}
               required
@@ -155,7 +155,7 @@ export default function StudioForm() {
             <input
               type="email"
               name="email"
-              className="input border-2 border-black w-full"
+              className="input border-2 border-black w-full  bg-white"
               value={formData.user?.email || ""}
               onChange={handleChange}
               required
@@ -168,7 +168,7 @@ export default function StudioForm() {
             <input
               type="text"
               name="location"
-              className="input border-2 border-black w-full"
+              className="input border-2 border-black w-full  bg-white"
               value={formData.location || ""}
               onChange={handleChange}
               required
@@ -181,7 +181,7 @@ export default function StudioForm() {
           </label>
           <textarea
             name="about"
-            className="textarea border-2 border-black w-full"
+            className="textarea border-2 border-black w-full  bg-white"
             value={formData.user?.about || ""}
             onChange={handleChange}
           />
@@ -192,7 +192,7 @@ export default function StudioForm() {
           </label>
           <textarea
             name="description"
-            className="textarea border-2 border-black w-full"
+            className="textarea border-2 border-black w-full  bg-white"
             value={formData.description || ""}
             onChange={handleChange}
           />
@@ -204,7 +204,7 @@ export default function StudioForm() {
           <input
             type="file"
             name="photo"
-            className="file-input border-2 border-black w-full mb-6"
+            className="file-input border-2 border-black w-full mb-6  bg-white"
             accept="image/*"
             onChange={handleFileChange}
           />

@@ -19,7 +19,7 @@ function RouteComponent() {
   return (
     <div
       style={{
-        backgroundImage: `url('/back.JPG')`,
+        backgroundImage: `url('/detailss.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "80% center",
 
