@@ -2,6 +2,7 @@ using Api.Data;
 using Api.Data.Requests;
 using Api.Data.Responses;
 using Api.Mapper;
+using Api.Mapper.Api.Mapper;
 using Api.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,10 +25,12 @@ public class AdvertsController : ControllerBase
     public async Task<ActionResult<IEnumerable<AdvertResponse>>> GetAdverts()
     {
         var adverts = await _context.Advert.Include(a => a.User).ToListAsync();
+        var advertResponses = adverts
+                .Select(advert => advert.ToAdvertResponse())
+                .OrderByDescending(m => m.DateCreated)
+                .ToList();
 
-        var advertResponse = adverts.Select(AdvertMapping.AdvertToAdvertResponse).ToList().OrderByDescending(m => m.DateCreated);
-
-        return Ok(advertResponse);
+        return Ok(advertResponses);
     }
 
 
@@ -69,7 +72,7 @@ public class AdvertsController : ControllerBase
                 return BadRequest("You can only create one advertisement per month.");
             }
 
-            var advert = AdvertMapping.AdvertRequestToAdvert(request, user);
+            var advert = request.ToAdvert(user);
 
             if (Photo != null)
             {
@@ -100,7 +103,7 @@ public class AdvertsController : ControllerBase
             await _context.Advert.AddAsync(advert);
             await _context.SaveChangesAsync();
 
-            var response = AdvertMapping.AdvertToAdvertResponse(advert);
+            var response = advert.ToAdvertResponse();
             return CreatedAtAction(nameof(GetAdvert), new { Id = advert.id }, response);
         }
         catch (Exception e)
@@ -122,6 +125,6 @@ public class AdvertsController : ControllerBase
             return NotFound();
         }
 
-        return Ok(AdvertMapping.AdvertToAdvertResponse(advert));
+        return Ok(advert.ToAdvertResponse());
     }
 }

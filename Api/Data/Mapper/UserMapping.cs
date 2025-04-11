@@ -9,7 +9,7 @@ using Api.Data.Responses;
 namespace Api.Mapper;
 public static class UserMapping
 {
-    public static UserResponse UserToUserResponse(User user)
+    public static UserResponse UserToUserResponse(this User user)
     {
         return new UserResponse()
         {

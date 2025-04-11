@@ -4,34 +4,37 @@ using Api.Data.Requests;
 
 namespace Api.Mapper
 {
-    public static class AdvertMapping
+    namespace Api.Mapper
     {
-        public static AdvertResponse AdvertToAdvertResponse(Advert advert)
+        public static class AdvertMapping
         {
-            return new AdvertResponse()
+            public static AdvertResponse ToAdvertResponse(this Advert advert)
             {
-                Offering = advert.Offering,
-                Location = advert.Location,
-                ImgUrl = advert.ImgUrl,
-                Description = advert.Description,
-                DateCreated = advert.DateCreated,
-                UserId = advert.UserId,
-                User = UserMapping.UserToUserResponse(advert.User!)
-            };
-        }
+                return new AdvertResponse()
+                {
+                    Offering = advert.Offering,
+                    Location = advert.Location,
+                    ImgUrl = advert.ImgUrl,
+                    Description = advert.Description,
+                    DateCreated = advert.DateCreated,
+                    UserId = advert.UserId,
+                    User = advert.User!.UserToUserResponse()
+                };
+            }
 
-        public static Advert AdvertRequestToAdvert(AdvertRequest request, User user)
-        {
-            return new Advert()
+            public static Advert ToAdvert(this AdvertRequest request, User user)
             {
-                UserId = request.UserId,
-                Offering = request.Offering,
-                Location = request.Location,
-                Description = request.Description,
-                DateCreated = DateTime.UtcNow,
-                User = user
-            };
+                return new Advert()
+                {
+                    UserId = request.UserId,
+                    Offering = request.Offering,
+                    Location = request.Location,
+                    Description = request.Description,
+                    DateCreated = DateTime.UtcNow,
+                    User = user
+                };
+            }
         }
-
     }
+
 }
