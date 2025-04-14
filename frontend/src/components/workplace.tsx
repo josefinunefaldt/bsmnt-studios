@@ -64,7 +64,7 @@ const WorkPlace: React.FC<{ studios: BoxData[] }> = ({ studios }) => {
           <div className="relative w-full">
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 z-20 text-white hover:text-gray-300 text-3xl font-bold rounded-full h-10 w-10 flex items-center justify-center"
+              className="absolute top-4 right-4 z-20 text-white hover:text-[rgb(67,67,67)] text-3xl font-bold rounded-full h-10 w-10 flex items-center justify-center"
             >
               ×
             </button>
@@ -111,7 +111,7 @@ const WorkPlace: React.FC<{ studios: BoxData[] }> = ({ studios }) => {
 
   return (
     <div className="w-full mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-8 pb-2 border-b border-gray-300">
+      <h1 className="text-3xl font-bold mb-8 pb-2 border-b border-gray-300 text-[rgb(67,67,67)]">
         London
       </h1>
 
@@ -122,7 +122,9 @@ const WorkPlace: React.FC<{ studios: BoxData[] }> = ({ studios }) => {
             className="flex flex-col cursor-pointer mb-8"
             onClick={() => openModal(studios)}
           >
-            <div className="text-sm text-gray-500 mb-2">North London</div>
+            <div className="text-sm text-[rgb(67,67,67)] mb-2">
+              North London
+            </div>
 
             <div
               className="w-full bg-gray-200 mb-2 overflow-hidden"
@@ -138,8 +140,10 @@ const WorkPlace: React.FC<{ studios: BoxData[] }> = ({ studios }) => {
             </div>
 
             <div className="mt-2">
-              <h3 className="font-bold text-lg">{studios.title}</h3>
-              <p className="text-sm text-gray-700">Workplace</p>
+              <h3 className="font-bold text-lg text-[rgb(67,67,67)]">
+                {studios.title}
+              </h3>
+              <p className="text-sm text-[rgb(67,67,67)]">Workplace</p>
               <p className="text-sm mt-2">info info</p>
             </div>
 

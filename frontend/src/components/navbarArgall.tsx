@@ -126,14 +126,14 @@ export const NavbarArgall = () => {
         </div>
 
         <div className="navbar-center hidden lg:flex justify-between w-full items-center ">
-          <ul className="menu menu-horizontal flex items-center space-x-4">
+          <ul className="menu menu-horizontal flex items-center  space-x-12">
             <li className="flex items-center flex-row">
               <Link
                 to="/"
                 className="no-underline hover:bg-transparent flex items-center"
               >
                 <img src="./bsmnt.png" className="w-8" alt="BSMNT Logo" />
-                <h1 className="title text-3xl ml-2 !text-white !no-underline">
+                <h1 className="title text-3xl ml-2 !text-white !no-underline -mr-5">
                   BSMNT
                 </h1>
               </Link>
@@ -166,14 +166,17 @@ export const NavbarArgall = () => {
                     Locations
                   </Link>
                 </summary>
-                <ul className="p-4 z-10 libre-text  bg-white text-black">
+                <ul className="p-2 z-10 libre-text  bg-white text-black">
                   <li onClick={handleMenuItemClick}>
                     <Link to="/argall" className=" text-black">
                       Argall
                     </Link>
                   </li>
                   <li onClick={handleMenuItemClick}>
-                    <Link to="/leabridge" className=" text-black">
+                    <Link
+                      to="/leabridge"
+                      className=" text-black whitespace-nowrap"
+                    >
                       Lea Bridge
                     </Link>
                   </li>
@@ -183,7 +186,10 @@ export const NavbarArgall = () => {
                     </Link>
                   </li>
                   <li onClick={handleMenuItemClick}>
-                    <Link to="/finsbury" className=" text-black">
+                    <Link
+                      to="/finsbury"
+                      className=" text-black whitespace-nowrap"
+                    >
                       Finsbury Park
                     </Link>
                   </li>

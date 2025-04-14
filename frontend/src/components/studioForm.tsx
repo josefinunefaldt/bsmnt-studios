@@ -204,7 +204,7 @@ export default function StudioForm() {
           <input
             type="file"
             name="photo"
-            className="file-input border-2 border-black w-full mb-6  bg-white"
+            className="file-input border-2 border-black w-full mb-6 [&::file-selector-button]:bg-[rgb(67,67,67)]  bg-white"
             accept="image/*"
             onChange={handleFileChange}
           />
@@ -228,7 +228,7 @@ export default function StudioForm() {
         {error && <p className="text-red-500 text-center">{error}</p>}
         <button
           type="submit"
-          className="btn  bg-[#fef880] w-full"
+          className="btn  w-full hover:text-[#fef880] text-[rgb(67,67,67)] hover:bg-[rgb(67,67,67)] bg-[#fef880] border-0"
           disabled={loading}
         >
           {loading ? "Submitting..." : "Submit"}

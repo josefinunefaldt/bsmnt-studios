@@ -126,14 +126,14 @@ export const Navbar = () => {
         </div>
 
         <div className="navbar-center bg-white lg:flex justify-between items-center w-full fixed top-0 left-0 z-50">
-          <ul className="menu menu-horizontal flex items-center space-x-4">
+          <ul className="menu menu-horizontal flex items-center space-x-12 ">
             <li className="flex items-center flex-row">
               <Link
                 to="/"
                 className="no-underline hover:bg-transparent flex items-center"
               >
                 <img src="./bsmnt.png" className="w-8" alt="BSMNT Logo" />
-                <h1 className="title text-3xl ml-2 !text-black !no-underline">
+                <h1 className="title text-3xl ml-2 !text-black !no-underline -mr-5">
                   BSMNT
                 </h1>
               </Link>
@@ -144,7 +144,7 @@ export const Navbar = () => {
                 <summary className="cursor-pointer libre-text">
                   Available
                 </summary>
-                <ul className="p-2 z-10 libre-text  bg-white text-black">
+                <ul className="p-2 z-10 libre-text bg-white text-black rounded-b-lg rounded-t-none">
                   <li onClick={handleMenuItemClick}>
                     <Link to="/offices">Offices</Link>
                   </li>
@@ -154,26 +154,29 @@ export const Navbar = () => {
                 </ul>
               </details>
             </li>
-
             <li>
               <details ref={locationsDetailsRef}>
-                <summary className="cursor-pointer libre-text">
+                <summary className="cursor-pointer libre-text ">
                   <Link to="/locations" onClick={handleMenuItemClick}>
                     Locations
                   </Link>
                 </summary>
-                <ul className="p-4 z-10 libre-text  bg-white text-black">
+                <ul className=" p-2 z-10 libre-text  bg-white text-black rounded-b-lg rounded-t-none">
                   <li onClick={handleMenuItemClick}>
                     <Link to="/argall">Argall</Link>
                   </li>
                   <li onClick={handleMenuItemClick}>
-                    <Link to="/leabridge">Lea Bridge</Link>
+                    <Link to="/leabridge" className="whitespace-nowrap">
+                      Lea Bridge
+                    </Link>
                   </li>
                   <li onClick={handleMenuItemClick}>
                     <Link to="/archway">Archway</Link>
                   </li>
                   <li onClick={handleMenuItemClick}>
-                    <Link to="/finsbury">Finsbury Park</Link>
+                    <Link className="whitespace-nowrap" to="/finsbury">
+                      Finsbury Park
+                    </Link>
                   </li>
                   <li onClick={handleMenuItemClick}>
                     <Link to="/hornsey">Hornsey</Link>
