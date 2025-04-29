@@ -8,6 +8,7 @@ interface Location {
   path: string;
   image: string;
   info: string;
+  location: string;
 }
 
 const LocationCarousel = () => {
@@ -15,37 +16,43 @@ const LocationCarousel = () => {
     {
       name: "Lea bridge",
       path: "/leabridge",
-      info: "East London",
+      location: "East London",
+      info: "blabla",
       image: "./l.jpg",
     },
     {
       name: "Argall",
       path: "/argall",
-      info: "North london",
+      location: "East London",
+      info: "blabla",
       image: "./Argall.jpeg",
     },
     {
       name: "Hornsey",
-      info: "North London",
+      location: "North London",
+      info: "blabla",
       path: "/hornsey",
       image: "./Hornsey.jpg",
     },
     {
       name: "Archway",
       path: "/archway",
-      info: "North London",
+      location: "North London",
+      info: "Our original Archway BSMNT studios, nestled just steps away from Archway’s vibrant high street within a historic former WWII shelter, offer nine comfy, soundproofed production suites alongside a convenient break-out space with kitchenette and a private outdoor terrace.",
       image: "./Archway.JPG",
     },
     {
       name: "Finsbury park",
       path: "/finsbury",
-      info: "North London",
+      location: "North London",
+      info: "Finsbury Park BSMNT, once a textile factory, now warmly blends industrial charm with modern comfort, creating a friendly vibe and welcoming creative community known for its laid-back social gatherings—just the place to feel right at home.",
       image: "./Finsbury/finsbury3.jpg",
     },
     {
       name: "Hackney",
       path: "/hackney",
-      info: "East London",
+      location: "East London",
+      info: "blabla",
       image: "./hackneey.jpg",
     },
   ];
@@ -64,7 +71,7 @@ const LocationCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 4000);
+    }, 8000);
     return () => clearInterval(interval);
   }, [nextSlide]);
 
