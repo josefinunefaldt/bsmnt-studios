@@ -1,10 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Location2 from "../components/location2";
+import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/navbar";
 
 export const Route = createFileRoute("/archway")({
   component: RouteComponent,
 });
+
+<Helmet>
+  <title>Soundproofed Music Studios | London</title>
+  <meta
+    name="description"
+    content="Professionally soundproofed studios for hire in London"
+  />
+</Helmet>;
 
 function RouteComponent() {
   return (
