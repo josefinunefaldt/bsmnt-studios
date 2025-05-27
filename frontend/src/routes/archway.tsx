@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import Location2 from "../components/location2";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/navbar";
+import { isArchwayPortrait } from "../utils/imagePortraits";
 
 export const Route = createFileRoute("/archway")({
   component: RouteComponent,
@@ -20,6 +21,7 @@ function RouteComponent() {
     <div>
       <Navbar />
       <Location2
+        isPortrait={isArchwayPortrait}
         content={[
           { type: "image", value: "/Archway/archway1.jpg" },
           { type: "image", value: "/Archway/archway7.jpg" },

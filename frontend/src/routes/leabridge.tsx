@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Location2 from "../components/location2";
 import { Navbar } from "../components/navbar";
+import { isLeaPortrait } from "../utils/imagePortraits";
 
 export const Route = createFileRoute("/leabridge")({
   component: RouteComponent,
@@ -11,6 +12,7 @@ function RouteComponent() {
     <div>
       <Navbar />
       <Location2
+        isPortrait={isLeaPortrait}
         content={[
           { type: "image", value: "/Lea/lea8.jpg" },
           {
