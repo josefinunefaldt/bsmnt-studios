@@ -1,120 +1,34 @@
 import React from "react";
+import { LocationProps } from "../types/locationProps";
+import { ImageWrapper } from "./imageWrapper";
+import { TextWrapper } from "./textWrapper";
 
-type ContentItem = {
-  type: "text" | "image";
-  value: string;
-};
-
-type LocationProps = {
-  content: ContentItem[];
-};
-
-const Location2: React.FC<LocationProps> = ({ content }) => {
+const Location2: React.FC<LocationProps> = ({ content, isPortrait }) => {
   return (
-    <div className="w-full mx-auto p-6">
-      <div className="flex flex-col lg:flex-row gap-2">
-        {content.slice(0, 2).map((item, index) => (
-          <div
-            key={index}
-            className="w-full lg:w-1/2 relative flex items-center justify-center h-[400px]"
-          >
-            {item.type === "text" ? (
-              <div className="p-3 bg-[#fef880] h-full flex items-center justify-center">
-                {item.value}
-              </div>
-            ) : item.type === "image" ? (
-              <img
-                src={item.value}
-                alt={`Image ${index}`}
-                className="object-cover w-full h-full"
-              />
-            ) : null}
-          </div>
-        ))}
-      </div>
+    <div className="w-full max-w-8xl mx-auto px-4 py-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {content.map((item, index) => {
+          const isLandscapeImage =
+            item.type === "image" && !isPortrait(item.value);
+          const colSpanClass = isLandscapeImage
+            ? "lg:col-span-2"
+            : "lg:col-span-1";
 
-      <div className="flex flex-col lg:flex-row gap-2 mt-2">
-        {content.slice(2, 4).map((item, index) => (
-          <div
-            key={index + 2}
-            className={`w-full ${index === 0 ? "lg:w-2/3" : "lg:w-1/3"} relative flex items-center justify-center h-[400px]`}
-          >
-            {item.type === "text" ? (
-              <div className="p-6 bg-[#fef880] text-center w-full h-full flex items-center justify-center">
-                {item.value}
-              </div>
-            ) : item.type === "image" ? (
-              <img
-                src={item.value}
-                alt={`Image ${index + 2}`}
-                className="object-cover w-full h-full"
-              />
-            ) : null}
-          </div>
-        ))}
-      </div>
-
-      <div className="flex flex-col lg:flex-row gap-2 mt-2">
-        {content.slice(4, 6).map((item, index) => (
-          <div
-            key={index + 4}
-            className="w-full lg:w-1/2 relative flex items-center justify-center h-[300px]"
-          >
-            {item.type === "text" ? (
-              <div className="p-3 h-full">{item.value}</div>
-            ) : item.type === "image" ? (
-              <img
-                src={item.value}
-                alt={`Image ${index + 4}`}
-                className="object-cover w-full h-full"
-              />
-            ) : null}
-          </div>
-        ))}
-      </div>
-
-      {/* For longer content slices */}
-      {content.length > 6 && (
-        <div className="flex flex-col lg:flex-row gap-2 mt-2">
-          {content.slice(6, 9).map((item, index) => (
-            <div
-              key={index + 6}
-              className="w-full lg:w-1/3 relative flex items-center justify-center h-[400px]"
-            >
+          return (
+            <div key={index} className={colSpanClass}>
               {item.type === "text" ? (
-                <div className="p-3">{item.value}</div>
-              ) : item.type === "image" ? (
-                <img
+                <TextWrapper>{item.value}</TextWrapper>
+              ) : (
+                <ImageWrapper
                   src={item.value}
-                  alt={`Image ${index + 6}`}
-                  className="object-cover w-full h-full"
+                  alt={`Image ${index}`}
+                  isPortrait={isPortrait}
                 />
-              ) : null}
+              )}
             </div>
-          ))}
-        </div>
-      )}
-
-      {content.length > 9 && (
-        <div className="flex flex-col lg:flex-row gap-2 mt-2">
-          {content.slice(9).map((item, index) => (
-            <div
-              key={index + 9}
-              className="w-full lg:w-1/3 relative flex items-center justify-center h-[400px]"
-            >
-              {item.type === "text" ? (
-                <div className="p-3">{item.value}</div>
-              ) : item.type === "image" ? (
-                <img
-                  src={item.value}
-                  alt={`Image ${index + 9}`}
-                  className="object-cover w-full h-full"
-                />
-              ) : null}
-            </div>
-          ))}
-        </div>
-      )}
+          );
+        })}
+      </div>
     </div>
   );
 };
