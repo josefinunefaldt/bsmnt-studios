@@ -21,7 +21,5 @@ export const isArchwayPortrait = (src: string): boolean => {
 };
 
 export const isFinsburyPortrait = (src: string): boolean => {
-  return ["finsbury1", "finsbury2", "finsbury3", "finsbury4"].some((k) =>
-    src.includes(k)
-  );
+  return ["finsbury5", "finsbury6", "finsbury7"].some((k) => src.includes(k));
 };
