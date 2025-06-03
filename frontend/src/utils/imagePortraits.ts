@@ -15,8 +15,8 @@ export const isLeaPortrait = (src: string): boolean => {
 };
 
 export const isArchwayPortrait = (src: string): boolean => {
-  return ["archway6", "archway2", "archway3", "archway4"].some((k) =>
-    src.includes(k)
+  return ["archway1", "archway2", "archway3", "archway7", "archway10"].some(
+    (k) => src.includes(k)
   );
 };
 
