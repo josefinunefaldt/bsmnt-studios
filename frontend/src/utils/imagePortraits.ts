@@ -9,7 +9,7 @@ export const isHackneyPortrait = (src: string): boolean => {
 };
 
 export const isLeaPortrait = (src: string): boolean => {
-  return ["lea6", "lea1", "lea3", "lea2"].some((k) => src.includes(k));
+  return ["lea4", "lea5"].some((k) => src.includes(k));
 };
 
 export const isArchwayPortrait = (src: string): boolean => {

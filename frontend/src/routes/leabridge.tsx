@@ -26,7 +26,7 @@ function RouteComponent() {
           },
           {
             type: "image",
-            value: "/Lea/lea5.jpg",
+            value: "/Lea/lea5.jpeg",
           },
           {
             type: "text",
@@ -35,11 +35,11 @@ function RouteComponent() {
           },
           {
             type: "image",
-            value: "/Lea/lea7.jpg",
+            value: "/Lea/lea7.jpeg",
           },
           {
             type: "image",
-            value: "/Lea/lea3.jpg",
+            value: "/Lea/lea3.jpeg",
           },
           {
             type: "text",
@@ -48,13 +48,13 @@ function RouteComponent() {
           },
           {
             type: "image",
-            value: "/Lea/lea4.jpg",
+            value: "/Lea/lea4.jpeg",
           },
           {
             type: "image",
-            value: "/Lea/lea6.jpg",
+            value: "/Lea/lea6.jpeg",
           },
-          { type: "image", value: "/Lea/lea1.jpg" },
+          { type: "image", value: "/Lea/lea1.jpeg" },
         ]}
       />
     </div>
