@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Location2 from "../components/location2";
-import { Navbar } from "../components/navbar";
+
 import { isFinsburyPortrait } from "../utils/imagePortraits";
 
 export const Route = createFileRoute("/finsbury")({
@@ -10,7 +10,6 @@ export const Route = createFileRoute("/finsbury")({
 function RouteComponent() {
   return (
     <div>
-      <Navbar />
       <Location2
         isPortrait={isFinsburyPortrait}
         content={[

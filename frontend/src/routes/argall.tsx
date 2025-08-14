@@ -6,5 +6,9 @@ export const Route = createFileRoute("/argall")({
 });
 
 function RouteComponent() {
-  return <Video />;
+  return (
+    <div className="relative z-0">
+      <Video />
+    </div>
+  );
 }
