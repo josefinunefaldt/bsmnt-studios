@@ -6,38 +6,64 @@ import { AiFillInstagram } from "react-icons/ai";
 export const Navbar = () => {
   const availableDetailsRef = useRef<HTMLDetailsElement>(null);
   const locationsDetailsRef = useRef<HTMLDetailsElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+
       if (
         availableDetailsRef.current &&
-        !availableDetailsRef.current.contains(event.target as Node)
+        !availableDetailsRef.current.contains(target)
       ) {
         availableDetailsRef.current.removeAttribute("open");
       }
 
       if (
         locationsDetailsRef.current &&
-        !locationsDetailsRef.current.contains(event.target as Node)
+        !locationsDetailsRef.current.contains(target)
       ) {
         locationsDetailsRef.current.removeAttribute("open");
+      }
+
+      if (
+        isMobileMenuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(target) &&
+        !(target as HTMLElement).closest("button")
+      ) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        availableDetailsRef.current?.removeAttribute("open");
+        locationsDetailsRef.current?.removeAttribute("open");
+        setIsMobileMenuOpen(false);
       }
     };
 
     document.addEventListener("click", handleClickOutside);
+    document.addEventListener("keydown", handleEsc);
+
     return () => {
       document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("keydown", handleEsc);
     };
-  }, []);
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      const details = menuRef.current?.querySelectorAll("details");
+      details?.forEach((d) => d.removeAttribute("open"));
+    }
+  }, [isMobileMenuOpen]);
 
   const handleMenuItemClick = () => {
-    if (availableDetailsRef.current) {
-      availableDetailsRef.current.removeAttribute("open");
-    }
-    if (locationsDetailsRef.current) {
-      locationsDetailsRef.current.removeAttribute("open");
-    }
+    availableDetailsRef.current?.removeAttribute("open");
+    locationsDetailsRef.current?.removeAttribute("open");
     setIsMobileMenuOpen(false);
   };
 
@@ -81,9 +107,9 @@ export const Navbar = () => {
             </h1>
           </Link>
         </div>
-        {/* Desktop Navigation */}
+
         <div className="navbar-center hidden lg:flex flex-1 justify-center">
-          <ul className="menu menu-horizontal flex items-center gap-6">
+          <ul className="menu menu-horizontal flex items-center gap-12">
             <li>
               <details ref={availableDetailsRef}>
                 <summary className="cursor-pointer libre-text">
@@ -163,7 +189,8 @@ export const Navbar = () => {
         </div>
 
         <div
-          className={`lg:hidden absolute top-full left-0 w-full bg-white shadow-lg transition-all duration-300 ${
+          ref={menuRef}
+          className={`lg:hidden absolute top-full left-0 w-60 bg-white shadow-lg transition-all duration-300 ${
             isMobileMenuOpen
               ? "opacity-100 translate-y-0"
               : "opacity-0 -translate-y-2 pointer-events-none"
