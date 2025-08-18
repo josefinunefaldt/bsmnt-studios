@@ -101,7 +101,7 @@ export const NavbarArgall = () => {
         <div className="navbar-center lg:navbar-start">
           <Link
             to="/"
-            className="no-underline hover:bg-transparent flex items-center"
+            className="no-underline hover:bg-transparent flex items-center ml-auto lg:ml-0"
           >
             <img src="./bsmnt.png" className="w-8" alt="BSMNT Logo" />
             <h1 className="title text-3xl ml-2 !text-white !no-underline">

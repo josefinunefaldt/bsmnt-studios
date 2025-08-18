@@ -22,12 +22,13 @@ function RouteComponent() {
         backgroundImage: `url('/music.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-
         minHeight: "100vh",
       }}
     >
       <Navbar />
-      <StudioForm />
+      <div className="flex justify-center items-start sm:items-center pt-20 sm:pt-24 md:pt-28 px-4">
+        <StudioForm />
+      </div>
       <AdsDisplay ads={ads} />
     </div>
   );

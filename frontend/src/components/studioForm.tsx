@@ -106,8 +106,9 @@ export default function StudioForm() {
   };
 
   return (
-    <div className="max-w-lg mx-auto mt-5 p-6 bg-white rounded-xl shadow-lg">
-      <h2 className="text-2xl font-bold text-center mb-4">Studio share</h2>
+    <div className="max-w-lg mx-auto p-6 bg-white rounded-xl shadow-lg">
+      <h2 className="text-2xl font-bold text-center mt-6 ">Studio share</h2>
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="form-control">
           <label className="label">What are you looking for?</label>
