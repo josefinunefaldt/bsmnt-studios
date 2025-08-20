@@ -88,8 +88,8 @@ const LocationCarousel = () => {
 
   return (
     <div className="w-full mx-auto relative bg-white">
-      <div className="flex flex-col lg:flex-row">
-        <div className="w-full lg:w-3/4 aspect-[16/9] relative">
+      <div className="flex flex-col lg:flex-row h-screen">
+        <div className="w-full lg:w-3/4 h-screen relative">
           <Link
             to={currentLocation.path}
             className="block w-full h-full relative"
@@ -126,7 +126,7 @@ const LocationCarousel = () => {
 
         <Link
           to={currentLocation.path}
-          className="hidden lg:flex w-full lg:w-1/4 flex-col bg-[#fef880] text-[rgb(67,67,67)] transition-all duration-500"
+          className="hidden lg:flex w-full lg:w-1/4 flex-col bg-[#fef880] text-[rgb(67,67,67)] h-screen transition-all duration-500"
         >
           <div className="flex flex-col h-full justify-center px-7 py-8 space-y-4 flex-1">
             <div className="text-3xl font-bold title">
@@ -147,7 +147,7 @@ const LocationCarousel = () => {
 
       <Link
         to={currentLocation.path}
-        className="block lg:hidden w-full bg-[#fef880] text-[rgb(67,67,67)] transition-all duration-500 min-h-[calc(100vh-9/16*100vw)]"
+        className="block lg:hidden w-full bg-[#fef880] text-[rgb(67,67,67)] transition-all duration-500 min-h-screen"
       >
         <div className="flex flex-col px-7 py-6 space-y-4 h-full">
           <div className="text-2xl font-bold title">{currentLocation.name}</div>
