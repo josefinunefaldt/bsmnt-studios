@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import Location2 from "../components/location2";
 
 import { isHackneyPortrait } from "../utils/imagePortraits";
@@ -19,14 +19,27 @@ function RouteComponent() {
             type: "text",
             value: (
               <div className="flex flex-col">
-                <h2 className="text-2xl font-bold mb-2">Hackney</h2>
+                <h1 className="text-2xl font-bold mb-2">
+                  {" "}
+                  <Link to="/hackney">HACKNEY</Link>
+                </h1>
 
                 <p>
-                  Located in an old textile factory, Hackney BSMNT music studios
-                  combine tons of natural daylight, high ceilings, and a
-                  genuinely friendly, tight-knit creative community, just steps
-                  away from Hackney Downs park and some of the area’s best cafés
-                  and bars.
+                  Hackney BSMNT opened in 2019 on the ground floor of a historic
+                  textile factory, featuring 11 purpose built, high spec music
+                  production suites ranging from 120 to 300 square feet. Each
+                  studio benefits from high ceilings and plenty of natural
+                  light, making them ideal for producers, programmers,
+                  songwriters, and artists seeking a bright, spacious
+                  environment to personalize with their own equipment. The
+                  premises have 24/7 access and are equipped with high speed
+                  fiberoptic broadband, CCTV, fresh air circulation system,
+                  secure off street parking, a smart intercom, and a kitchen
+                  area. When residents need a break, the open green spaces of
+                  Hackney Downs are just a three minute walk away, along with a
+                  variety of coffee shops, restaurants, and bars for added
+                  convenience. See all{" "}
+                  <Link to="/studios">music studios available in London.</Link>
                 </p>
               </div>
             ),

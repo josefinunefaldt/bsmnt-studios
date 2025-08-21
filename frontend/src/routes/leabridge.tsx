@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import Location2 from "../components/location2";
 
 import { isLeaPortrait } from "../utils/imagePortraits";
@@ -23,14 +23,31 @@ function RouteComponent() {
             type: "text",
             value: (
               <div className="flex flex-col">
-                <h2 className="text-2xl font-bold mb-2">LEA BRIDGE</h2>
-
+                <h1 className="text-2xl font-bold mb-2">
+                  {" "}
+                  <Link to="/leabridge">LEA BRIDGE</Link>
+                </h1>
                 <p>
-                  Lea Bridge BSMNT, located in a landmark building by Lea Bridge
-                  Station, provides offices filled with natural light, spacious,
-                  inviting communal areas, and high-spec music studios with
-                  floor-to-ceiling windows for East London's
-                  creative professionals
+                  In 2022, we completed a full fit-out on the ground floor of a
+                  landmark development directly across from Lea Bridge Station
+                  in East London. Lea Bridge BSMNT features 14 high-spec music
+                  production studios and workspaces, each uniquely sized and
+                  designed to capture abundant natural light, with mechanical
+                  ventilation and air conditioning throughout. The building is
+                  equipped with hyper-optic broadband, CCTV, 24/7 access and a
+                  smart intercom system. A spacious, light-filled communal area
+                  provides the ideal setting for team meetings, relaxation, and
+                  connecting with fellow creatives. Designed by an award-winning
+                  architecture firm, Lea Bridge BSMNT offers a functional,
+                  inspiring space for music makers and creatives alike. See all
+                  <Link to="/studios">
+                    music studios available in London.
+                  </Link>{" "}
+                  <Link to="/offices">music studios available in London.</Link>{" "}
+                  See all{" "}
+                  <Link to="/offices">
+                    creative offices available in London.
+                  </Link>
                 </p>
               </div>
             ),

@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import Location2 from "../components/location2";
 
 import { isHornseyPortrait } from "../utils/imagePortraits";
@@ -19,13 +19,26 @@ function RouteComponent() {
             type: "text",
             value: (
               <div className="flex flex-col">
-                <h2 className="text-2xl font-bold mb-2">HORNSEY</h2>
+                <h1 className="text-2xl font-bold mb-2">
+                  {" "}
+                  <Link to="/hornsey">HORNSEY</Link>
+                </h1>
 
                 <p>
-                  Hornsey BSMNT provides spacious, welcoming studios flooded
-                  with natural light, alongside modern facilities and a relaxed
-                  vibe—set within a vibrant creative community close to local
-                  bars, cafés, restaurants and excellent transport links.
+                  In 2020, we were thrilled to take over a long established
+                  studio complex in Hornsey. Spanning two floors, Hornsey BSMNT
+                  offers 18 high spec recording studios, live rooms, and
+                  programming suites, each uniquely sized and shaped but all
+                  benefiting from natural light, air conditioning, and secure
+                  private storage. The building is equipped with fiberoptic
+                  broadband, CCTV, a smart intercom system, a monitored alarm,
+                  24/7 access along with parking and a spacious communal lounge
+                  and kitchen area. This vibrant creative community has fostered
+                  a thriving environment for collaboration and networking among
+                  residents. Situated in an excellent location with superb
+                  transport links, Hornsey BSMNT is just steps away from a
+                  variety of restaurants and bars. See all{" "}
+                  <Link to="/studios">music studios available in London.</Link>
                 </p>
               </div>
             ),

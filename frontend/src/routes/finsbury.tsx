@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import Location2 from "../components/location2";
 
 import { isFinsburyPortrait } from "../utils/imagePortraits";
@@ -21,13 +21,28 @@ function RouteComponent() {
             type: "text",
             value: (
               <div className="flex flex-col">
-                <h2 className="text-2xl font-bold mb-2">FINSBURY PARK</h2>
+                <h1 className="text-2xl font-bold mb-2">
+                  {" "}
+                  <Link to="/finsbury">FINSBURY PARK</Link>
+                </h1>
 
                 <p>
-                  Finsbury Park BSMNT, once a textile factory, now warmly blends
-                  industrial charm with modern comfort, creating a friendly vibe
-                  and welcoming creative community known for its laid-back
-                  social gatherings—just the place to feel right at home.
+                  Once a textile factory, the warehouse was completely
+                  reimagined in 2017 as a purpose built complex featuring
+                  multiple production studios, live rooms, and a welcoming
+                  communal area. All studios have high ceilings, high speed
+                  fiberoptic broadband, 24/7 access, and a fresh air circulation
+                  system. Added amenities include secure off street parking, a
+                  smart intercom system, CCTV, and a comfortable kitchen-lounge
+                  area. Spread across two units, the complex houses 18 studios
+                  available for long term hire, ranging from compact 120 square
+                  foot programming rooms to expansive 400+ square foot recording
+                  studios complete with isolated live rooms. Now home to an
+                  inspiring community of record producers and songwriters,
+                  Finsbury Park BSMNT offers a professional yet relaxed vibe,
+                  with regular gatherings for drinks and barbecues in the front
+                  yard. See all{" "}
+                  <Link to="/studios">music studios available in London</Link>
                 </p>
               </div>
             ),

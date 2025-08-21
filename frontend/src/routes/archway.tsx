@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import Location2 from "../components/location2";
 import { Helmet } from "react-helmet-async";
 
@@ -28,13 +28,27 @@ function RouteComponent() {
             type: "text",
             value: (
               <div className="flex flex-col">
-                <h2 className="text-2xl font-bold mb-2">ARCHWAY</h2>
+                <h1 className="text-2xl font-bold mb-2 mt-12">
+                  {" "}
+                  <Link to="/archway">ARCHWAY</Link>
+                </h1>
 
                 <p>
-                  Our original Archway BSMNT studios, nestled just steps away
-                  from Archway’s vibrant high street within a historic former
-                  WWII shelter, offer nine comfy, soundproofed music production
-                  suites with a private outdoor terrace.
+                  Nestled in the basement of a historic, listed building once
+                  used as a World War II bomb shelter, Archway BSMNT is our very
+                  first, original location. Opened in 2016, it features nine
+                  purpose built, professionally soundproofed music production
+                  and programming suites. Amenities include high speed
+                  fiberoptic broadband, 24/7 access, CCTV, and a fresh air
+                  circulation system throughout the premises. The space also
+                  includes an indoor kitchen-lounge and a private outdoor
+                  terrace, perfect for breaks or informal meetups. Studios range
+                  in size from 110 to 200 square feet, accommodating a variety
+                  of creative needs. Located just off the bustling high street,
+                  Archway BSMNT is surrounded by a vibrant selection of coffee
+                  shops, restaurants, and pubs - all within a two minute walk.
+                  See all{" "}
+                  <Link to="/studios">music studios available in London</Link>
                 </p>
               </div>
             ),
