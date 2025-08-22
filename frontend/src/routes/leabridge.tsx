@@ -17,7 +17,7 @@ function RouteComponent() {
         content={[
           {
             type: "image",
-            value: "/Lea/lea2.jpg",
+            value: "/Lea/Music_studio_Leyton_02.jpg",
           },
           {
             type: "text",
@@ -54,7 +54,7 @@ function RouteComponent() {
           },
           {
             type: "image",
-            value: "/Lea/lea4.jpeg",
+            value: "/Lea/Music_studio_Leyton_04.jpeg",
           },
           {
             type: "text",
@@ -63,18 +63,18 @@ function RouteComponent() {
           },
           {
             type: "image",
-            value: "/Lea/lea5.jpeg",
+            value: "/Lea/Music_studio_Leyton_05.jpeg",
           },
           {
             type: "text",
             value:
               "Lorem ipsum dolor sit amet, consectetunsectetur adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor Pellentesque vehicula risus at elit dignissim, a auctor augue auctor. Mauris nec risus nec odio fringilla aliquet. Nulla facilisi. Curabitur dictum malesuada augue, id consectetur felis vulputate a. Fusce in urna a libero dapibus lacinia. Duis varius suscipit risus, nec auctor nulla tincidunt eget. Vestibulum pharetra, nisl in efficitur pharetra, elit elit vestibulum nulla, ut accumsan purus ligula nec erat. Donec non facilisis justo. Sed a magna",
           },
-          { type: "image", value: "/Lea/lea8.jpg" },
+          { type: "image", value: "/Lea/Music_studio_Leyton_08.jpg" },
 
           {
             type: "image",
-            value: "/Lea/lea6.jpeg",
+            value: "/Lea/Music_studio_Leyton_06.jpeg",
           },
           {
             type: "text",

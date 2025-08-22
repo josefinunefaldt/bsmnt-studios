@@ -17,7 +17,7 @@ const LocationCarousel = () => {
       path: "/leabridge",
       location: "East London",
       info: "Located in a landmark building by Lea Bridge Station, provides offices filled with natural light, spacious, inviting communal areas, and high-spec music studios with floor-to-ceiling windows for East London's creative professionals.",
-      image: "./Lea/lea.jpeg",
+      image: "./Lea/Music_studio_Leyton.jpeg",
     },
     {
       name: "Argall",
@@ -31,28 +31,28 @@ const LocationCarousel = () => {
       location: "North London",
       info: "Provides spacious, welcoming studios flooded with natural light, alongside modern facilities and a relaxed vibe—set within a vibrant creative community close to local bars, cafés, restaurants and excellent transport links.",
       path: "/hornsey",
-      image: "./Hornsey/hornsey1.jpg",
+      image: "./Hornsey/Music_studio_Hornsey_01.jpg",
     },
     {
       name: "Archway",
       path: "/archway",
       location: "North London",
       info: "Our original studios, nestled just steps away from Archway's vibrant high street within a historic former WWII shelter, offer nine comfy, soundproofed production suites alongside a convenient break-out space with kitchenette and a private outdoor terrace.",
-      image: "./Archway/archway8.jpg",
+      image: "./Archway/Music_studio_Archway_08.jpg",
     },
     {
       name: "Finsbury park",
       path: "/finsbury",
       location: "North London",
       info: "Once a textile factory, now warmly blends industrial charm with modern comfort, creating a friendly vibe and welcoming creative community known for its laid-back social gatherings—just the place to feel right at home.",
-      image: "./Finsbury/finsbury1.jpg",
+      image: "./Finsbury/Music_studio_Finsbury_01.jpg",
     },
     {
       name: "Hackney",
       path: "/hackney",
       location: "East London",
       info: "Located in an old textile factory, Hackney BSMNT music studios combine tons of natural daylight, high ceilings, and a genuinely friendly, tight-knit creative community, just steps away from Hackney Downs park and some of the area's best cafés and bars.",
-      image: "./Hackney/hackney15.jpg",
+      image: "./Hackney/Music_studio_Hackney_15.jpg",
     },
   ];
 

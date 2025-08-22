@@ -14,7 +14,7 @@ function RouteComponent() {
       <Location2
         isPortrait={isHornseyPortrait}
         content={[
-          { type: "image", value: "/Hornsey/hornsey5.jpg" },
+          { type: "image", value: "/Hornsey/Music_studio_Hornsey_05.jpg" },
           {
             type: "text",
             value: (
@@ -44,29 +44,29 @@ function RouteComponent() {
             ),
           },
 
-          { type: "image", value: "/Hornsey/hornsey2.jpg" },
+          { type: "image", value: "/Hornsey/Music_studio_Hornsey_02.jpg" },
           {
             type: "text",
             value:
               "Lorem ipsum dolor sit amet, consectetunsectetur adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor Pellentesque vehicula risus at elit dignissim, a auctor augue auctor. Mauris nec risus nec odio fringilla aliquet. Nulla facilisi. Curabitur dictum malesuada augue, id consectetur felis vulputate a. Fusce in urna a libero dapibus lacinia. Duis varius suscipit risus, nec auctor nulla tincidunt eget. Vestibulum pharetra, nisl in efficitur pharetra, elit elit vestibulum nulla, ut accumsan purus ligula nec erat. Donec non facilisis justo. Sed a magna",
           },
 
-          { type: "image", value: "/Hornsey/hornsey4.jpg" },
+          { type: "image", value: "/Hornsey/Music_studio_Hornsey_04.jpg" },
 
           {
             type: "text",
             value:
               "Lo, a auctscing elit. Pellentesque Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor risus at elit dignissim, a auctor vehicula risus at elit dignissim, a auctor Pellentesque vehicula risus at elit dignissim, a auctor adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor augue auctor. Mauris nec risus nec odio fringilla aliquet. Nulla facilisi. Curabitur dictum malesuada augue, id consectetur felis vulputate a. Fusce in urna a libero dapibus lacinia. Duis varius suscipit risus, nec auctor nulla tincidunt eget. Vestibulum pharetra, nisl in efficitur pharetra, elit elit vestibulum nulla, ut accumsan purus ligula nec erat. Donec non facilisis justo. Sed a magna",
           },
-          { type: "image", value: "/Hornsey/hornsey1.jpg" },
+          { type: "image", value: "/Hornsey/Music_studio_Hornsey_01.jpg" },
 
-          { type: "image", value: "/Hornsey/hornsey6.jpg" },
+          { type: "image", value: "/Hornsey/Music_studio_Hornsey_06.jpg" },
           {
             type: "text",
             value:
               "Lorem ipsum dolor sit amet, consectetunsectetur adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor Pellentesque vehicula risus at elit dignissim, a auctor augue auctor. Mauris nec risus nec odio fringilla aliquet. Nulla facilisi. Curabitur dictum malesuada augue, id consectetur felis vulputate a. Fusce in urna a libero dapibus lacinia. Duis varius suscipit risus, nec auctor nulla tincidunt eget. Vestibulum pharetra, nisl in efficitur pharetra, elit elit vestibulum nulla, ut accumsan purus ligula nec erat. Donec non facilisis justo. Sed a magna",
           },
-          { type: "image", value: "/Hornsey/hornsey3.jpg" },
+          { type: "image", value: "/Hornsey/Music_studio_Hornsey_03.jpg" },
         ]}
       />
     </div>
