@@ -3,6 +3,7 @@ import Location2 from "../components/location2";
 
 import { isHornseyPortrait } from "../utils/imagePortraits";
 import { Navbar } from "../components/navbar";
+import GenericMap from "../components/genericMap";
 export const Route = createFileRoute("/hornsey")({
   component: RouteComponent,
 });
@@ -46,9 +47,14 @@ function RouteComponent() {
 
           { type: "image", value: "/Hornsey/Music_studio_Hornsey_02.jpg" },
           {
-            type: "text",
-            value:
-              "Lorem ipsum dolor sit amet, consectetunsectetur adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor Pellentesque vehicula risus at elit dignissim, a auctor augue auctor. Mauris nec risus nec odio fringilla aliquet. Nulla facilisi. Curabitur dictum malesuada augue, id consectetur felis vulputate a. Fusce in urna a libero dapibus lacinia. Duis varius suscipit risus, nec auctor nulla tincidunt eget. Vestibulum pharetra, nisl in efficitur pharetra, elit elit vestibulum nulla, ut accumsan purus ligula nec erat. Donec non facilisis justo. Sed a magna",
+            type: "component",
+            value: (
+              <GenericMap
+                embedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1988.4292686791467!2d-0.1206574!3d51.5874198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b1b9cb8b3db%3A0x903857fcdbd6dd85!2s7%20Cross%20Ln%2C%20Hornsey%2C%20London%20N8%207SA%2C%20UK!5e0!3m2!1sen!2sus!4v1644707593292"
+                name="Hornsey"
+                address="7 Cross Lane, London N8 7SA"
+              />
+            ),
           },
 
           { type: "image", value: "/Hornsey/Music_studio_Hornsey_04.jpg" },

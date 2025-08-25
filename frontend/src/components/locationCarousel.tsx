@@ -87,7 +87,7 @@ const LocationCarousel = () => {
   const currentLocation = locations[currentIndex];
 
   return (
-    <div className="w-full mx-auto relative bg-white">
+    <div className="w-full mx-auto relative bg-white text-[rgb(67,67,67)]">
       <div className="flex flex-col lg:flex-row h-screen">
         <div className="w-full lg:w-3/4 h-screen relative">
           <Link

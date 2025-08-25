@@ -5,4 +5,5 @@ export type LocationProps = {
 
 type ContentItem =
   | { type: "text"; value: string | React.ReactNode }
-  | { type: "image"; value: string };
+  | { type: "image"; value: string }
+  | { type: "component"; value: React.ReactNode };
