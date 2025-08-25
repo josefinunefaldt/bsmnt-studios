@@ -17,90 +17,98 @@ const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
   };
 
   return (
-    <div className="p-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="w-full mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-8 pb-2 border-b border-gray-300 text-[rgb(67,67,67)]">
+        ads
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white ">
         {ads.length > 0 ? (
           ads.map((ad, index) => (
             <div
               key={index}
-              className="p-4 border rounded shadow bg-white cursor-pointer hover:shadow-lg transition-shadow"
+              className="flex flex-col cursor-pointer mb-8"
               onClick={() => openModal(ad)}
             >
-              <h4 className="text-lg font-bold">
-                {" "}
+              <div className="text-sm  mb-2">
                 {new Date(ad.dateCreated!).toLocaleDateString()}
-              </h4>
-              <h4 className="text-2xl font-bold">
-                {ad.offering ? "Offering" : "Looking"}
-              </h4>
-              <h4 className="text-2xl font-bold">{ad.location}</h4>
+              </div>
 
-              {ad.imgUrl && ad.imgUrl.length > 0 && (
-                <img
-                  src={ad.imgUrl}
-                  alt={"ad thumbnail"}
-                  className="mt-2 w-full h-32 object-cover rounded"
-                />
-              )}
+              <div
+                className="w-full bg-gray-200 mb-2 overflow-hidden"
+                style={{ aspectRatio: "4 / 3" }}
+              >
+                {ad.imgUrl && (
+                  <img
+                    src={ad.imgUrl}
+                    alt="ad thumbnail"
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </div>
+
+              <div className="mt-2">
+                <h3 className="font-bold text-lg ">
+                  {ad.offering ? "Offering a studio" : "Looking for a studio"}
+                </h3>
+                <p className="text-sm "> Location: {ad.location}</p>
+                <p className="text-sm mt-2 line-clamp-2">
+                  {" "}
+                  Description: {ad.description}
+                </p>
+              </div>
+
+              <div className="mt-4 border-t border-gray-300 pt-2"></div>
             </div>
           ))
         ) : (
           <div className="col-span-3 text-center">No ads available.</div>
         )}
       </div>
-
       {selectedAd && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-screen overflow-y-auto">
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold">
-                  {selectedAd.offering ? "Offering" : "Looking"}
-                </h2>
-                <button
-                  onClick={closeModal}
-                  className="text-gray-500 hover:text-gray-700"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
+          <div className="relative bg-white w-full max-w-2xl rounded-lg overflow-hidden shadow-lg">
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 text-gray-700 text-2xl font-bold z-10"
+            >
+              ✕
+            </button>
 
-              <div className="mb-4">
-                <p className="text-sm text-gray-600 mb-2">
-                  Posted on:{" "}
-                  {new Date(selectedAd.dateCreated!).toLocaleDateString()}
-                </p>
-                <p className="text-lg">{selectedAd.description}</p>
+            {selectedAd.imgUrl && (
+              <div className="w-full flex justify-center bg-gray-100">
+                <img
+                  src={selectedAd.imgUrl}
+                  alt="ad image"
+                  className="w-full h-auto max-h-[75vh] object-contain"
+                />
               </div>
+            )}
 
-              <div className="mt-4">
-                <p>{selectedAd.description}</p>
-                <p>{selectedAd.location}</p>
-                <p>{selectedAd.offering}</p>
-                <p>{new Date(selectedAd.dateCreated!).toLocaleDateString()}</p>
-              </div>
-            </div>
-
-            <div className="mt-6 text-right">
-              <button
-                onClick={closeModal}
-                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
-              >
-                Close
-              </button>
+            <div className="p-4">
+              <h2 className="text-lg font-bold text-[rgb(67,67,67)] mb-1">
+                {selectedAd.offering
+                  ? "Offering a studio"
+                  : "Looking for a studio"}
+              </h2>
+              <p className="text-xs text-gray-600 mb-1">
+                Posted on:{" "}
+                {new Date(selectedAd.dateCreated!).toLocaleDateString()}
+              </p>
+              <p className="text-sm text-[rgb(67,67,67)] mb-1">
+                Description: {selectedAd.description}
+              </p>
+              <p className="text-sm text-[rgb(67,67,67)] mb-1">
+                Location: {selectedAd.location}
+              </p>
+              <p className="text-sm text-[rgb(67,67,67)] mb-1">
+                About: {selectedAd.user?.about}
+              </p>
+              <p className="text-sm text-[rgb(67,67,67)] mb-1">
+                Email: {selectedAd.user?.email}
+              </p>
+              <p className="text-sm text-[rgb(67,67,67)] mb-1">
+                Name: {selectedAd.user?.name}
+              </p>
             </div>
           </div>
         </div>

@@ -156,7 +156,7 @@ export default function StudioForm() {
             <input
               type="email"
               name="email"
-              className="input border-2 border-black w-full  bg-white"
+              className="input border-2 border-black w-full bg-white"
               value={formData.user?.email || ""}
               onChange={handleChange}
               required
