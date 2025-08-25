@@ -69,110 +69,112 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-6 flex flex-col  text-center text-[rgb(67,67,67)] mt-15">
-      <div className="max-w-lg mx-auto w-full bg-[#fef880]  -mb-3 rounded-t-xl p-10 flex flex-col sm:flex-row text-left libre-text">
-        <h3 className="text-4xl font-bold sm:w-1/3 text-left">
-          GET IN
-          <br />
-          TOUCH
-        </h3>
-        <div className="space-y-2 text-sm sm:w-2/3 ml-5 ">
-          <p>
-            <span className="font-semibold">availability: </span>
-            <a href="mailto:enquiries@bsmnt.net">enquiries@bsmnt.net</a>
-          </p>
-          <p>
-            <span className="font-semibold">everything else: </span>
-            <a href="mailto:info@bsmnt.net">info@bsmnt.net</a>
-          </p>
-          <p>
-            <span className="font-semibold">Simona: </span>
-            <a href="tel:+447543421595">+4475 4342 1595</a>
-          </p>
-          <p>
-            <span className="font-semibold">Tomas: </span>
-            <a href="tel:+447930188967">+4479 3018 8967</a>
-          </p>
+    <div className=" pt-20 pb-20">
+      <div className="max-w-7xl mx-auto p-6 flex flex-col  text-center text-[rgb(67,67,67)] mt-15">
+        <div className="max-w-lg mx-auto w-full bg-[#fef880]  -mb-3 rounded-t-xl p-10 flex flex-col sm:flex-row text-left libre-text">
+          <h3 className="text-4xl font-bold sm:w-1/3 text-left">
+            GET IN
+            <br />
+            TOUCH
+          </h3>
+          <div className="space-y-2 text-sm sm:w-2/3 ml-5 ">
+            <p>
+              <span className="font-semibold">availability: </span>
+              <a href="mailto:enquiries@bsmnt.net">enquiries@bsmnt.net</a>
+            </p>
+            <p>
+              <span className="font-semibold">everything else: </span>
+              <a href="mailto:info@bsmnt.net">info@bsmnt.net</a>
+            </p>
+            <p>
+              <span className="font-semibold">Simona: </span>
+              <a href="tel:+447543421595">+4475 4342 1595</a>
+            </p>
+            <p>
+              <span className="font-semibold">Tomas: </span>
+              <a href="tel:+447930188967">+4479 3018 8967</a>
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="max-w-lg mx-auto rounded-2xl bg-white shadow-lg w-full text-center  ">
-        <div className="p-6 space-y-4">
-          {submitStatus && (
-            <div
-              className={`alert ${
-                submitStatus.success ? "alert-success" : "alert-error"
-              } mb-4`}
-            >
-              <span>{submitStatus.message}</span>
-            </div>
-          )}
+        <div className="max-w-lg mx-auto rounded-2xl bg-white shadow-lg w-full text-center  ">
+          <div className="p-6 space-y-4">
+            {submitStatus && (
+              <div
+                className={`alert ${
+                  submitStatus.success ? "alert-success" : "alert-error"
+                } mb-4`}
+              >
+                <span>{submitStatus.message}</span>
+              </div>
+            )}
 
-          <form onSubmit={handleSubmit} className="space-y-3  ">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <div className="form-control w-full">
-                <label className="label text-sm">First Name</label>
-                <input
-                  type="text"
-                  name="firstName"
-                  className="input input-bordered w-full text-sm bg-white border-black border-2"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  required
-                />
+            <form onSubmit={handleSubmit} className="space-y-3  ">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <div className="form-control w-full">
+                  <label className="label text-sm">First Name</label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    className="input input-bordered w-full text-sm bg-white border-black border-2"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-control w-full">
+                  <label className="label text-sm">Last Name</label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    className="input input-bordered w-full text-sm bg-white  border-black border-2"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
               </div>
-              <div className="form-control w-full">
-                <label className="label text-sm">Last Name</label>
+              <div className="form-control">
+                <label className="label text-sm">Email Address</label>
                 <input
-                  type="text"
-                  name="lastName"
+                  type="email"
+                  name="email"
                   className="input input-bordered w-full text-sm bg-white  border-black border-2"
-                  value={formData.lastName}
+                  value={formData.email}
                   onChange={handleChange}
                   required
                 />
               </div>
-            </div>
-            <div className="form-control">
-              <label className="label text-sm">Email Address</label>
-              <input
-                type="email"
-                name="email"
-                className="input input-bordered w-full text-sm bg-white  border-black border-2"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label text-sm">Subject</label>
-              <input
-                type="text"
-                name="subject"
-                className="input input-bordered w-full text-sm bg-white  border-black border-2"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label text-sm">Message</label>
-              <textarea
-                name="message"
-                className="textarea textarea-bordered w-full text-sm bg-white mb-6  border-black border-2"
-                rows={3}
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className="btn btn-primary w-full text-sm hover:text-[#fef880] text-[rgb(67,67,67)] hover:bg-[rgb(67,67,67)] bg-[#fef880] border-0"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Sending..." : "Send"}
-            </button>
-          </form>
+              <div className="form-control">
+                <label className="label text-sm">Subject</label>
+                <input
+                  type="text"
+                  name="subject"
+                  className="input input-bordered w-full text-sm bg-white  border-black border-2"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label text-sm">Message</label>
+                <textarea
+                  name="message"
+                  className="textarea textarea-bordered w-full text-sm bg-white mb-6  border-black border-2"
+                  rows={3}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="btn btn-primary w-full text-sm hover:text-[#fef880] text-[rgb(67,67,67)] hover:bg-[rgb(67,67,67)] bg-[#fef880] border-0"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Send"}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
