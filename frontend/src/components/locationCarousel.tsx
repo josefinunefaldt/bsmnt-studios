@@ -23,7 +23,7 @@ const LocationCarousel = () => {
       name: "Argall",
       path: "/argall",
       location: "East London",
-      info: "blabla",
+      info: "Located in a landmark building by Lea Bridge Station, provides offices filled with natural light, spacious, inviting communal areas, and high-spec music studios with floor-to-ceiling windows for East London's creative professionals.",
       image: "./Argl.JPG",
     },
     {
@@ -87,9 +87,9 @@ const LocationCarousel = () => {
   const currentLocation = locations[currentIndex];
 
   return (
-    <div className="w-full mx-auto relative bg-white text-[rgb(67,67,67)]">
-      <div className="flex flex-col lg:flex-row h-screen">
-        <div className="w-full lg:w-3/4 h-screen relative">
+    <div className="w-full mx-auto relative bg-white text-[rgb(67,67,67)] ">
+      <div className="flex flex-col lg:flex-row h-screen ">
+        <div className="w-full lg:w-3/4 h-screen relative ">
           <Link
             to={currentLocation.path}
             className="block w-full h-full relative"
@@ -128,18 +128,18 @@ const LocationCarousel = () => {
           to={currentLocation.path}
           className="hidden lg:flex w-full lg:w-1/4 flex-col bg-[#fef880] text-[rgb(67,67,67)] h-screen transition-all duration-500"
         >
-          <div className="flex flex-col h-full justify-center px-7 py-8 space-y-4 flex-1">
-            <div className="text-3xl font-bold title">
-              {currentLocation.name}
+          <div className="flex flex-col h-full p-12 pt-48 relative">
+            <div className="space-y-6 max-w-md text-left">
+              <div className="text-3xl  title_loc ">{currentLocation.name}</div>
+              <div className="text-sm font-libre leading-relaxed">
+                {currentLocation.info}
+              </div>
             </div>
-            <div className="text-sm text-[rgb(67,67,67)] font-libre leading-relaxed">
-              {currentLocation.info}
-            </div>
-            <div className="font-libre text-[rgb(67,67,67)] mt-auto">
-              Read more
-            </div>
-            <div className="flex justify-start">
-              <img className="w-32" src="/Pil.png" alt="Arrow" />
+            <div className="absolute bottom-36 left-12">
+              <div className="font-libre text-[rgb(67,67,67)]">Read more</div>
+              <div className="flex justify-start mt-2">
+                <img className="w-32" src="/Pil.png" alt="Arrow" />
+              </div>
             </div>
           </div>
         </Link>
@@ -149,8 +149,8 @@ const LocationCarousel = () => {
         to={currentLocation.path}
         className="block lg:hidden w-full bg-[#fef880] text-[rgb(67,67,67)] transition-all duration-500 min-h-screen"
       >
-        <div className="flex flex-col px-7 py-6 space-y-4 h-full">
-          <div className="text-2xl font-bold title">{currentLocation.name}</div>
+        <div className="flex flex-col p-4 space-y-4 h-full">
+          <div className="text-2xl  title_loc">{currentLocation.name}</div>
           <div className="text-sm text-[rgb(67,67,67)] font-libre leading-relaxed">
             {currentLocation.info}
           </div>
