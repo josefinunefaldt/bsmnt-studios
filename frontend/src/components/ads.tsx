@@ -75,11 +75,11 @@ const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
             </button>
 
             {selectedAd.imgUrl && (
-              <div className="w-full flex justify-center bg-gray-100">
+              <div className="w-full flex justify-center items-center bg-gray-100">
                 <img
                   src={selectedAd.imgUrl}
                   alt="ad image"
-                  className="w-full h-auto max-h-[75vh] object-contain"
+                  className="max-w-full max-h-[75vh] object-contain"
                 />
               </div>
             )}
