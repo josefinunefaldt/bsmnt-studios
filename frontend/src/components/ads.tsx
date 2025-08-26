@@ -65,8 +65,14 @@ const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
         )}
       </div>
       {selectedAd && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
-          <div className="relative bg-white rounded-lg overflow-hidden shadow-lg max-w-[90vw] max-h-[90vh]">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
+          onClick={closeModal}
+        >
+          <div
+            className="relative bg-white rounded-lg overflow-hidden shadow-lg max-w-[90vw] max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               onClick={closeModal}
               className="absolute top-2 right-2 text-gray-700 text-2xl font-bold z-10"
