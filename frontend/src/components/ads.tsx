@@ -66,7 +66,7 @@ const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
       </div>
       {selectedAd && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
-          <div className="relative bg-white w-full max-w-2xl rounded-lg overflow-hidden shadow-lg">
+          <div className="relative bg-white rounded-lg overflow-hidden shadow-lg max-w-[90vw] max-h-[90vh]">
             <button
               onClick={closeModal}
               className="absolute top-2 right-2 text-gray-700 text-2xl font-bold z-10"
@@ -75,16 +75,16 @@ const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
             </button>
 
             {selectedAd.imgUrl && (
-              <div className="w-full flex justify-center items-center bg-gray-100">
+              <div className="flex justify-center items-center bg-gray-100 max-h-[70vh]">
                 <img
                   src={selectedAd.imgUrl}
                   alt="ad image"
-                  className="max-w-full max-h-[75vh] object-contain"
+                  className="max-w-full max-h-[70vh] object-contain"
                 />
               </div>
             )}
 
-            <div className="p-4">
+            <div className="p-4 overflow-y-auto max-h-[30vh]">
               <h2 className="text-lg font-bold text-[rgb(67,67,67)] mb-1">
                 {selectedAd.offering
                   ? "Offering a studio"
