@@ -3,13 +3,14 @@ import Location2 from "../components/location2";
 
 import { isLeaPortrait } from "../utils/imagePortraits";
 import { Navbar } from "../components/navbar";
-// import GenericMap from "../components/genericMap";
+
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import GenericMap from "../components/genericMap";
 
 export const Route = createFileRoute("/leabridge")({
   component: RouteComponent,
 });
-
+const id = import.meta.env.VITE_LEA_ID;
 function RouteComponent() {
   return (
     <div>
@@ -70,16 +71,10 @@ function RouteComponent() {
             type: "image",
             value: "/Lea/Music_studio_Leyton_04.jpeg",
           },
-          // {
-          //   type: "component",
-          //   value: (
-          //     <GenericMap
-          //       embedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1986.827805705571!2d-0.0287854!3d51.5740989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761c3ebd8e2b55%3A0x8c4f0e2b39d15b6a!2s159%20Lea%20Bridge%20Rd%2C%20London%20E10%207PN%2C%20UK!5e0!3m2!1sen!2sus!4v1644707762872"
-          //       name="Lea Bridge"
-          //       address="159 Lea Bridge Road, London E10 7PN"
-          //     />
-          //   ),
-          // },
+          {
+            type: "component",
+            value: <GenericMap id={id} />,
+          },
           {
             type: "image",
             value: "/Lea/Music_studio_Leyton_05.jpeg",

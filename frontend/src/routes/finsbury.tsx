@@ -3,12 +3,15 @@ import Location2 from "../components/location2";
 
 import { isFinsburyPortrait } from "../utils/imagePortraits";
 import { Navbar } from "../components/navbar";
-// import GenericMap from "../components/genericMap";
+
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import GenericMap from "../components/genericMap";
 
 export const Route = createFileRoute("/finsbury")({
   component: RouteComponent,
 });
+
+const id = import.meta.env.VITE_FINSBURY_ID;
 
 function RouteComponent() {
   return (
@@ -63,16 +66,10 @@ function RouteComponent() {
           },
           { type: "image", value: "/Finsbury/Music_studio_Finsbury_05.jpg" },
 
-          // {
-          //   type: "component",
-          //   value: (
-          //     <GenericMap
-          //       embedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1986.7641831076996!2d-0.1083534!3d51.5701575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761a4c34288b5d%3A0x6a9e5f3fd117a1c6!2sLeeds%20Pl%2C%20Finsbury%20Park%2C%20London%20N4%203RF%2C%20UK!5e0!3m2!1sen!2sus!4v1644707500321"
-          //       name="Finsbury Park"
-          //       address="Units 5 & 6, Leeds Place, London N4 3RF"
-          //     />
-          //   ),
-          // },
+          {
+            type: "component",
+            value: <GenericMap id={id} />,
+          },
           { type: "image", value: "/Finsbury/Music_studio_Finsbury_07.jpg" },
           {
             type: "text",
