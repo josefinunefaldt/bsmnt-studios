@@ -3,6 +3,7 @@ import Workplace from "../components/workplace";
 import ad1 from "../components/ad1";
 import ad2 from "../components/ad2";
 import { Navbar } from "../components/navbar";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const Route = createFileRoute("/studios")({
   component: RouteComponent,
@@ -12,6 +13,18 @@ function RouteComponent() {
   const availableStudios = [ad1, ad1, ad2];
   return (
     <div>
+      <HelmetProvider>
+        <Helmet>
+          <title>
+            {" "}
+            Long-Term Soundproof Music Studios to Rent in London | BSMNT
+          </title>
+          <meta
+            name="description"
+            content="  Soundproof music studios for long-term rent in North & East London, including Archway, Finsbury Park, Hackney, and Hornsey. Perfect for recording, mixing, and production."
+          />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <h1 className="mt-20">
         Available Music Studios for Long-Term Rent in London

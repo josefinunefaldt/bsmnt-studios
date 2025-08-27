@@ -4,6 +4,7 @@ import { components } from "../lib/api/v1";
 import AdsDisplay from "../components/ads";
 import StudioForm from "../components/studioForm";
 import { Navbar } from "../components/navbar";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const Route = createFileRoute("/share")({
   loader: async () => {
@@ -25,6 +26,19 @@ function RouteComponent() {
         minHeight: "100vh",
       }}
     >
+      <HelmetProvider>
+        <Helmet>
+          <title>
+            {" "}
+            Affordable Shared Music Studio Space in London | BSMNT{" "}
+          </title>
+          <meta
+            name="description"
+            content=" Studio Share gives you affordable access to a professional music studio in London. Enjoy 24/7 access, flexible scheduling, and a fully equipped creative environment.
+"
+          />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <div className="flex justify-center flex-col items-start sm:items-center pt-20 sm:pt-24 md:pt-28 px-4">
         <h1 className="text-white">

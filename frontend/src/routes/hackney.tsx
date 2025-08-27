@@ -4,6 +4,7 @@ import Location2 from "../components/location2";
 import { isHackneyPortrait } from "../utils/imagePortraits";
 import { Navbar } from "../components/navbar";
 import GenericMap from "../components/genericMap";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const Route = createFileRoute("/hackney")({
   component: RouteComponent,
@@ -12,6 +13,15 @@ export const Route = createFileRoute("/hackney")({
 function RouteComponent() {
   return (
     <div>
+      <HelmetProvider>
+        <Helmet>
+          <title> Music & Recording Studios in Hackney E5 | BSMNT </title>
+          <meta
+            name="description"
+            content=" Hackney BSMNT offers 11 modern music and recording studios with natural light. 24/7 access, high-speed internet, and secure off-street parking in East London."
+          />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <Location2
         isPortrait={isHackneyPortrait}

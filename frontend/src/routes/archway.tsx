@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import Location2 from "../components/location2";
 import { Helmet } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
 
 import { isArchwayPortrait } from "../utils/imagePortraits";
 import { Navbar } from "../components/navbar";
@@ -10,17 +11,23 @@ export const Route = createFileRoute("/archway")({
   component: RouteComponent,
 });
 
-<Helmet>
-  <title>Soundproofed Music Studios | London</title>
-  <meta
-    name="description"
-    content="Professionally soundproofed studios for hire in London"
-  />
-</Helmet>;
-
 function RouteComponent() {
   return (
     <div>
+      <HelmetProvider>
+        <Helmet>
+          <title>
+            {" "}
+            Long-Term Soundproof Music Studios in Archway N19 | BSMNT
+          </title>
+          <meta
+            name="description"
+            content="Archway BSMNT offers nine purpose-built, soundproof music studios in North London. 24/7 access, high-speed internet, and a communal lounge for creatives.
+"
+          />
+        </Helmet>
+      </HelmetProvider>
+
       <Navbar />
       <Location2
         isPortrait={isArchwayPortrait}

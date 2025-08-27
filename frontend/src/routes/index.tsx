@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Video } from "../components/landingpagevideo";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
@@ -8,6 +9,18 @@ export const Route = createFileRoute("/")({
 function RouteComponent() {
   return (
     <div className="flex flex-col">
+      <HelmetProvider>
+        <Helmet>
+          <title>
+            {" "}
+            Long-Term Soundproof Music Studios to Rent in London | BSMNT
+          </title>
+          <meta
+            name="description"
+            content=" Long-term soundproof music studios and creative office spaces across North & East London. 24/7 access, high-speed internet, and a thriving community of creatives."
+          />
+        </Helmet>
+      </HelmetProvider>
       <section className="relative min-h-screen w-full">
         <Video />
       </section>

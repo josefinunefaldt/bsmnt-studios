@@ -3,6 +3,7 @@ import Workplace from "../components/workplace";
 import ad1 from "../components/ad1";
 import ad2 from "../components/ad2";
 import { Navbar } from "../components/navbar";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const Route = createFileRoute("/offices")({
   component: RouteComponent,
@@ -12,6 +13,19 @@ function RouteComponent() {
   const availableStudios = [ad1, ad1, ad2];
   return (
     <div>
+      <HelmetProvider>
+        <Helmet>
+          <title>
+            {" "}
+            Creative Office Space to Rent in East London (Clapton & Leyton E10)
+            | BSMNT
+          </title>
+          <meta
+            name="description"
+            content=" Light-filled, secure creative office space to rent in Clapton and Leyton, East London (E10). Flexible long-term leases, high-speed internet, and a vibrant community."
+          />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <h1 className="mt-20">
         Light-Filled Creative Offices to Rent in East London (E10)

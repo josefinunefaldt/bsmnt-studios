@@ -4,6 +4,7 @@ import Location2 from "../components/location2";
 import { isHornseyPortrait } from "../utils/imagePortraits";
 import { Navbar } from "../components/navbar";
 import GenericMap from "../components/genericMap";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 export const Route = createFileRoute("/hornsey")({
   component: RouteComponent,
 });
@@ -11,6 +12,15 @@ export const Route = createFileRoute("/hornsey")({
 function RouteComponent() {
   return (
     <div>
+      <HelmetProvider>
+        <Helmet>
+          <title> Recording Studios for Rent in Hornsey N8 | BSMNT </title>
+          <meta
+            name="description"
+            content=" Hornsey BSMNT offers 18 high-spec music studios with natural light and air conditioning. Features fiber-optic broadband, 24/7 CCTV, and on-site parking."
+          />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <Location2
         isPortrait={isHornseyPortrait}

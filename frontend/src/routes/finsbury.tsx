@@ -4,6 +4,7 @@ import Location2 from "../components/location2";
 import { isFinsburyPortrait } from "../utils/imagePortraits";
 import { Navbar } from "../components/navbar";
 import GenericMap from "../components/genericMap";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const Route = createFileRoute("/finsbury")({
   component: RouteComponent,
@@ -12,6 +13,18 @@ export const Route = createFileRoute("/finsbury")({
 function RouteComponent() {
   return (
     <div>
+      <HelmetProvider>
+        <Helmet>
+          <title>
+            {" "}
+            Recording & Music Studios in Finsbury Park, N4 | BSMNT{" "}
+          </title>
+          <meta
+            name="description"
+            content=" Finsbury Park BSMNT houses 18 high-spec recording and music studios with high ceilings. 24/7 access, fiber-optic internet, on-site parking, and a friendly creative community."
+          />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <Location2
         isPortrait={isFinsburyPortrait}

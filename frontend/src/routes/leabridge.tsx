@@ -4,6 +4,7 @@ import Location2 from "../components/location2";
 import { isLeaPortrait } from "../utils/imagePortraits";
 import { Navbar } from "../components/navbar";
 import GenericMap from "../components/genericMap";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const Route = createFileRoute("/leabridge")({
   component: RouteComponent,
@@ -12,6 +13,18 @@ export const Route = createFileRoute("/leabridge")({
 function RouteComponent() {
   return (
     <div>
+      <HelmetProvider>
+        <Helmet>
+          <title>
+            {" "}
+            Music Studios & Office Space in Leyton / Clapton E10 | BSMNT
+          </title>
+          <meta
+            name="description"
+            content=" Music Studios & Office Space in Leyton / Clapton E10 | BSMNT Argall BSMNT in Leyton (E10) offers music studios and office space with natural light, high-speed internet, and 24/7 access in a thriving East London hub."
+          />
+        </Helmet>
+      </HelmetProvider>
       <Navbar />
       <Location2
         isPortrait={isLeaPortrait}
