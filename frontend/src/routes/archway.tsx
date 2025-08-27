@@ -11,6 +11,7 @@ export const Route = createFileRoute("/archway")({
   component: RouteComponent,
 });
 
+const id = import.meta.env.VITE_ARCHWAY_ID;
 function RouteComponent() {
   return (
     <div>
@@ -29,6 +30,7 @@ function RouteComponent() {
       </HelmetProvider>
 
       <Navbar />
+
       <Location2
         isPortrait={isArchwayPortrait}
         content={[
@@ -70,13 +72,7 @@ function RouteComponent() {
 
           {
             type: "component",
-            value: (
-              <GenericMap
-                embedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1986.2339296899413!2d-0.13847668407313932!3d51.56469607964724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761af21f2d2e23%3A0x9fdbf3f964abc8b7!2s32%20Junction%20Rd%2C%20London%20N19%205RE%2C%20UK!5e0!3m2!1sen!2sus!4v1644707417642"
-                name="Archway"
-                address="32 Junction Road, London N19 5RE"
-              />
-            ),
+            value: <GenericMap id={id} />,
           },
 
           { type: "image", value: "/Archway/Music_studio_Archway_07.jpg" },

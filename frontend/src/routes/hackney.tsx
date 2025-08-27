@@ -3,7 +3,7 @@ import Location2 from "../components/location2";
 
 import { isHackneyPortrait } from "../utils/imagePortraits";
 import { Navbar } from "../components/navbar";
-import GenericMap from "../components/genericMap";
+// import GenericMap from "../components/genericMap";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const Route = createFileRoute("/hackney")({
@@ -59,16 +59,16 @@ function RouteComponent() {
           { type: "image", value: "/Hackney/Music_studio_Hackney_05.jpg" },
 
           { type: "image", value: "/Hackney/Music_studio_Hackney_09.jpg" },
-          {
-            type: "component",
-            value: (
-              <GenericMap
-                embedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1985.7613687593715!2d-0.0570157!3d51.5523594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761c876497c10b%3A0x7fbff6fd0c4ea8bc!2sRendlesham%20Rd%2C%20London%20E5%208QB%2C%20UK!5e0!3m2!1sen!2sus!4v1644707682149"
-                name="Hackney"
-                address="13-17 Rendlesham Road, London E5 8QB"
-              />
-            ),
-          },
+          // {
+          //   type: "component",
+          //   value: (
+          //     <GenericMap
+          //       embedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1985.7613687593715!2d-0.0570157!3d51.5523594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761c876497c10b%3A0x7fbff6fd0c4ea8bc!2sRendlesham%20Rd%2C%20London%20E5%208QB%2C%20UK!5e0!3m2!1sen!2sus!4v1644707682149"
+          //       name="Hackney"
+          //       address="13-17 Rendlesham Road, London E5 8QB"
+          //     />
+          //   ),
+          // },
           { type: "image", value: "/Hackney/Music_studio_Hackney_07.jpg" },
           {
             type: "text",

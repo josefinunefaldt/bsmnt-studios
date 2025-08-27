@@ -1,22 +1,23 @@
 import React from "react";
 
 export type GenericMapProps = {
-  name: string;
-  address: string;
-  embedUrl: string;
+  id: string;
 };
 
-const GenericMap: React.FC<GenericMapProps> = ({ name, address, embedUrl }) => {
+const key = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+const GenericMap: React.FC<GenericMapProps> = ({ id }) => {
+  const src = `https://www.google.com/maps/embed/v1/place?key=${key}&q=place_id:${id}`;
   return (
     <div className="w-full h-full">
-      <h3 className="text-xl font-semibold text-center mb-2">{name}</h3>
-      <p className="text-sm text-center mb-3">{address}</p>
       <iframe
-        src={embedUrl}
-        className="w-full h-64 rounded-lg border border-gray-300"
-        allowFullScreen
+        src={src}
+        width="100%"
+        height="550"
+        style={{ border: 0 }}
         loading="lazy"
-      ></iframe>
+        allowFullScreen
+        referrerPolicy="no-referrer-when-downgrade"
+      />
     </div>
   );
 };
