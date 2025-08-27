@@ -1,6 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Video } from "../components/landingpagevideo";
+import { createFileRoute, Link } from "@tanstack/react-router";
+
 import { Helmet, HelmetProvider } from "react-helmet-async";
+
+import { isLeaPortrait } from "../utils/imagePortraits";
+import Location2 from "../components/location2";
+import { Navbar } from "../components/navbar";
 
 export const Route = createFileRoute("/argall")({
   component: RouteComponent,
@@ -9,7 +13,6 @@ export const Route = createFileRoute("/argall")({
 function RouteComponent() {
   return (
     <div className="relative z-0">
-      <Video />
       <HelmetProvider>
         <Helmet>
           <title>
@@ -22,6 +25,28 @@ function RouteComponent() {
           />
         </Helmet>
       </HelmetProvider>
+      <Navbar />
+      <Location2
+        isPortrait={isLeaPortrait}
+        content={[
+          {
+            type: "image",
+            value: "/Argl.JPG",
+          },
+          {
+            type: "text",
+            value: (
+              <div className="flex flex-col">
+                <h1 className="text-2xl font-bold mb-2">
+                  {" "}
+                  <Link to="/leabridge">Argall Way</Link>
+                </h1>
+                <p>blablabla argall</p>
+              </div>
+            ),
+          },
+        ]}
+      />
     </div>
   );
 }

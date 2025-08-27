@@ -21,7 +21,7 @@ function RouteComponent() {
           </title>
           <meta
             name="description"
-            content=" Music Studios & Office Space in Leyton / Clapton E10 | BSMNT Argall BSMNT in Leyton (E10) offers music studios and office space with natural light, high-speed internet, and 24/7 access in a thriving East London hub."
+            content=" Lea Bridge BSMNT offers 14 high-spec recording studios with natural light and air conditioning in East London. Features fast internet, 24/7 access, CCTV, and a welcoming creative community."
           />
         </Helmet>
       </HelmetProvider>
