@@ -4,13 +4,36 @@ export type GenericMapProps = {
   id: string;
 };
 
-const key = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 const GenericMap: React.FC<GenericMapProps> = ({ id }) => {
-  const src = `https://www.google.com/maps/embed/v1/place?key=${key}&q=place_id:${id}`;
+  const [mapUrl, setMapUrl] = React.useState<string>("");
+
+  React.useEffect(() => {
+    const fetchMapUrl = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_BASE_URL}api/maps/place/${id}`
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch map URL");
+        }
+        const data = await response.json();
+        setMapUrl(data.url);
+      } catch (error) {
+        console.error("Error fetching map URL:", error);
+      }
+    };
+
+    fetchMapUrl();
+  }, [id]);
+
+  if (!mapUrl) {
+    return <div>Loading map...</div>;
+  }
+
   return (
     <div className="w-full h-full">
       <iframe
-        src={src}
+        src={mapUrl}
         width="100%"
         height="550"
         style={{ border: 0 }}
