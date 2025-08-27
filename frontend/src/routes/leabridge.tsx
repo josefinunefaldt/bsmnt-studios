@@ -10,7 +10,7 @@ import GenericMap from "../components/genericMap";
 export const Route = createFileRoute("/leabridge")({
   component: RouteComponent,
 });
-const id = import.meta.env.VITE_LEA_ID;
+
 function RouteComponent() {
   return (
     <div>
@@ -73,7 +73,7 @@ function RouteComponent() {
           },
           {
             type: "component",
-            value: <GenericMap id={id} />,
+            value: <GenericMap id="ChIJ42powlwddkgR_0QfIJTLHRc" />,
           },
           {
             type: "image",

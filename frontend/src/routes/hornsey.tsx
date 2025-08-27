@@ -9,7 +9,7 @@ import GenericMap from "../components/genericMap";
 export const Route = createFileRoute("/hornsey")({
   component: RouteComponent,
 });
-const id = import.meta.env.VITE_HORNSEY_ID;
+
 function RouteComponent() {
   return (
     <div>
@@ -59,7 +59,12 @@ function RouteComponent() {
           { type: "image", value: "/Hornsey/Music_studio_Hornsey_02.jpg" },
           {
             type: "component",
-            value: <GenericMap id={id} />,
+            value: (
+              <GenericMap
+                id="ChIJiWS3I70bdkgRcodUrheYWr4
+"
+              />
+            ),
           },
 
           { type: "image", value: "/Hornsey/Music_studio_Hornsey_04.jpg" },

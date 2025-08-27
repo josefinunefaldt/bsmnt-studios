@@ -11,8 +11,6 @@ export const Route = createFileRoute("/finsbury")({
   component: RouteComponent,
 });
 
-const id = import.meta.env.VITE_FINSBURY_ID;
-
 function RouteComponent() {
   return (
     <div>
@@ -68,7 +66,12 @@ function RouteComponent() {
 
           {
             type: "component",
-            value: <GenericMap id={id} />,
+            value: (
+              <GenericMap
+                id="ChIJ5Sly0pkbdkgRS4uDYmmQ2dM
+"
+              />
+            ),
           },
           { type: "image", value: "/Finsbury/Music_studio_Finsbury_07.jpg" },
           {

@@ -11,7 +11,6 @@ export const Route = createFileRoute("/archway")({
   component: RouteComponent,
 });
 
-const id = import.meta.env.VITE_ARCHWAY_ID;
 function RouteComponent() {
   return (
     <div>
@@ -72,7 +71,7 @@ function RouteComponent() {
 
           {
             type: "component",
-            value: <GenericMap id={id} />,
+            value: <GenericMap id="ChIJgWVzgq4bdkgRWXKq5TLF1YU" />,
           },
 
           { type: "image", value: "/Archway/Music_studio_Archway_07.jpg" },

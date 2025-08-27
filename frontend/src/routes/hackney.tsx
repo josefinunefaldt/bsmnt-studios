@@ -11,7 +11,6 @@ export const Route = createFileRoute("/hackney")({
   component: RouteComponent,
 });
 
-const id = import.meta.env.VITE_HACKNEY_ID;
 function RouteComponent() {
   return (
     <div>
@@ -63,7 +62,12 @@ function RouteComponent() {
           { type: "image", value: "/Hackney/Music_studio_Hackney_09.jpg" },
           {
             type: "component",
-            value: <GenericMap id={id} />,
+            value: (
+              <GenericMap
+                id="ChIJ9_wM0OsddkgRck2bxHyC5Lc
+"
+              />
+            ),
           },
           { type: "image", value: "/Hackney/Music_studio_Hackney_07.jpg" },
           {
