@@ -128,7 +128,7 @@ const LocationCarousel = () => {
           to={currentLocation.path}
           className="hidden lg:flex w-full lg:w-1/4 flex-col bg-[#fef880] text-[rgb(67,67,67)] h-screen transition-all duration-500"
         >
-          <div className="flex flex-col h-full p-12 pt-48 relative">
+          <div className="flex flex-col h-full p-12 pt-64 relative">
             <div className="space-y-6 max-w-md text-left">
               <div className="text-3xl  title_loc ">{currentLocation.name}</div>
               <div className="text-sm font-libre leading-relaxed">

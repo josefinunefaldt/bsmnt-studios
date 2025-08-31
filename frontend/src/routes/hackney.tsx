@@ -43,14 +43,7 @@ function RouteComponent() {
                   studio benefits from high ceilings and plenty of natural
                   light, making them ideal for producers, programmers,
                   songwriters, and artists seeking a bright, spacious
-                  environment to personalize with their own equipment. The
-                  premises have 24/7 access and are equipped with high speed
-                  fiberoptic broadband, CCTV, fresh air circulation system,
-                  secure off street parking, a smart intercom, and a kitchen
-                  area. When residents need a break, the open green spaces of
-                  Hackney Downs are just a three minute walk away, along with a
-                  variety of coffee shops, restaurants, and bars for added
-                  convenience. See all{" "}
+                  environment to personalize with their own equipment. See all{" "}
                   <Link to="/studios">music studios available in London.</Link>
                 </p>
               </div>
@@ -63,17 +56,20 @@ function RouteComponent() {
           {
             type: "component",
             value: (
-              <GenericMap
-                id="ChIJ9_wM0OsddkgRck2bxHyC5Lc
+              <>
+                <GenericMap
+                  id="ChIJ9_wM0OsddkgRck2bxHyC5Lc
 "
-              />
+                />
+                {/* <hackneyDescription/> */}
+              </>
             ),
           },
           { type: "image", value: "/Hackney/Music_studio_Hackney_07.jpg" },
           {
             type: "text",
             value:
-              "Lorem ipsum dolor sit amet, consectetunsectetur adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor Pellentesque vehicula risus at elit dignissim, a auctor augue auctor. Mauris nec risus nec odio fringilla aliquet. Nulla facilisi. Curabitur dictum malesuada augue, id consectetur felis vulputate a. Fusce in urna a libero dapibus lacinia. Duis varius suscipit risus, nec auctor nulla tincidunt eget. Vestibulum pharetra, nisl in efficitur pharetra, elit elit vestibulum nulla, ut accumsan purus ligula nec erat. Donec non facilisis justo. Sed a magna",
+              " 24/7 access high speed fiberoptic broadband, CCTV, fresh air circulation system secure off street parking, smart intercom  kitchen area",
           },
           { type: "image", value: "/Hackney/Music_studio_Hackney_15.jpg" },
           { type: "image", value: "/Hackney/Music_studio_Hackney_16.jpg" },

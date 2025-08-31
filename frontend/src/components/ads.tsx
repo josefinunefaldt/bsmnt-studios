@@ -17,11 +17,8 @@ const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
   };
 
   return (
-    <div className="w-full mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-8 pb-2 border-b border-gray-300 text-[rgb(67,67,67)]">
-        ads
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white ">
+    <div className="w-full mx-auto p-6 bg-[rgb(67,67,67)] text-black">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-black ">
         {ads.length > 0 ? (
           ads.map((ad, index) => (
             <div

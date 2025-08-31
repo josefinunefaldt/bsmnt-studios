@@ -18,9 +18,6 @@ namespace Api.Controllers
         {
             _configuration = configuration;
         }
-
-
-
         [HttpGet("place/{id}")]
         public IActionResult GetPlaceMapUrl(string id)
         {
@@ -31,8 +28,5 @@ namespace Api.Controllers
             var url = $"https://www.google.com/maps/embed/v1/place?key={apiKey}&q=place_id:{id}";
             return Ok(new { url });
         }
-
-
-
     }
 }
