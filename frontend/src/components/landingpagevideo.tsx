@@ -9,7 +9,7 @@ export const Video = () => {
         muted
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0 hidden lg:block"
-        src="/argallvideo.mp4"
+        src="/Music_Studios_and_Creative_Offices_East_London_video.mp4"
       >
         Your browser does not support the video tag.
       </video>

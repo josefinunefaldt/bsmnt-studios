@@ -36,29 +36,27 @@ function RouteComponent() {
           {
             type: "text",
             value: (
-              <div className="flex flex-col">
+              <div className="flex flex-col text-libre">
                 <h1 className="text-2xl font-bold mb-2 mt-12">
                   {" "}
-                  <Link to="/archway">ARCHWAY</Link>
+                  <Link to="/archway">Archway</Link>
                 </h1>
 
-                <p>
+                <p className="text-left">
                   Nestled in the basement of a historic, listed building once
                   used as a World War II bomb shelter, Archway BSMNT is our very
                   first, original location. Opened in 2016, it features nine
                   purpose built, professionally soundproofed music production
-                  and programming suites. Amenities include high speed
-                  fiberoptic broadband, 24/7 access, CCTV, and a fresh air
-                  circulation system throughout the premises. The space also
-                  includes an indoor kitchen-lounge and a private outdoor
-                  terrace, perfect for breaks or informal meetups. Studios range
-                  in size from 110 to 200 square feet, accommodating a variety
-                  of creative needs. Located just off the bustling high street,
-                  Archway BSMNT is surrounded by a vibrant selection of coffee
-                  shops, restaurants, and pubs - all within a two minute walk.
-                  See all{" "}
-                  <Link to="/studios">music studios available in London</Link>
+                  and programming suites. Studios range in size from 110 to 200
+                  square feet, accommodating a variety of creative needs.{" "}
                 </p>
+                <Link
+                  to="/studios"
+                  className="font-libre block text-left mt-10"
+                >
+                  See all Music studios in London{" "}
+                  <img className="w-32 mt-4" src="/Pil.png" alt="Arrow" />
+                </Link>
               </div>
             ),
           },
@@ -77,15 +75,74 @@ function RouteComponent() {
           { type: "image", value: "/Archway/Music_studio_Archway_07.jpg" },
           {
             type: "text",
-            value:
-              "Lorem ipsum dolor sit amet, consectetunsectetur adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor Pellentesque vehicula risus at elit dignissim, a auctor augue auctor. Mauris nec risus nec odio fringilla aliquet. Nulla facilisi. Curabitur dictum malesuada augue, id consectetur felis vulputate a. Fusce in urna a libero dapibus lacinia. Duis varius suscipit risus, nec auctor nulla tincidunt eget. Vestibulum pharetra, nisl in efficitur pharetra, elit elit vestibulum nulla, ut accumsan purus ligula nec erat. Donec non facilisis justo. Sed a magna",
+            value: (
+              <div className="flex flex-col gap-1 uppercase text-black text-left">
+                <p className="text-3xl font-extrabold leading-tight">CCTV</p>
+                <p className="text-base text-xl font-bold">
+                  Fiberoptic broadband
+                </p>
+
+                <p className="text-base text-xl font-bold">
+                  Fresh air circulation system
+                </p>
+
+                <p className="text-base text-xl font-bold leading-tight">
+                  Parking
+                </p>
+
+                <p className="text-3xl font-extrabold leading-tight">
+                  24/7 access
+                </p>
+                <p className="text-base text-xl font-bold">
+                  Private outdoor terrace
+                </p>
+
+                <p className="text-base text-xl font-bold">
+                  Kitchen-lounge area
+                </p>
+              </div>
+            ),
           },
           { type: "image", value: "/Archway/Music_studio_Archway_10.jpg" },
           { type: "image", value: "/Archway/Music_studio_Archway_08.jpg" },
           {
             type: "text",
-            value:
-              "Lorem ipsum dolor sit amet, consectetunsectetur adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor Pellentesque vehicula risus at elit dignissim, a auctor augue auctor. Mauris nec risus nec odio fringilla aliquet. Nulla facilisi. Curabitur dictum malesuada augue, id consectetur felis vulputate a. Fusce in urna a libero dapibus lacinia. Duis varius suscipit risus, nec auctor nulla tincidunt eget. Vestibulum pharetra, nisl in efficitur pharetra, elit elit vestibulum nulla, ut accumsan purus ligula nec erat. Donec non facilisis justo. Sed a magna",
+            value: (
+              <div className="italic">
+                <p className="text-left">
+                  “I've been based at BSMNT Studio Archway for the past three
+                  years, and it's been an incredible experience from day one.
+                  Simona and the team have always been amazing—welcoming, kind,
+                  and super responsive to any queries or needs. The studio space
+                  itself is perfect for my setup. I have enough room for my
+                  desk, monitors, piano, drum kit, and synth rack, and still
+                  comfortably fit artists and writers during sessions. The
+                  location is ideal—just a short walk from Archway Tube Station,
+                  with the added bonus of free parking at the back for those who
+                  drive in. The whole complex is kept in great condition,
+                  cleaned weekly, and includes both a kitchen area and a lovely
+                  outdoor chill space. The community at BSMNT is genuinely
+                  friendly and collaborative—at one point I shared a space with
+                  another producer from across the hall, which worked out really
+                  well. Since moving here, my career has definitely taken a step
+                  forward. The environment has played a big part in allowing me
+                  to grow professionally and continue working with amazing
+                  artists and writers. I couldn't recommend it more highly.”
+                  <br />
+                  Warriner - Producer/Writer
+                  <br></br>
+                </p>
+                <p className="text-left">
+                  “The team at BSMNT made every aspect of working in their rooms
+                  incredibly smooth and easy. Communication was excellent, with
+                  any questions or issues solved efficiently. Communal areas
+                  were kept clean and tidy and repairs arranged speedily. I
+                  can’t recommend them enough”
+                  <br />
+                  Matt Wiggins - Mixer/Engineer/Producer
+                </p>
+              </div>
+            ),
           },
         ]}
       />

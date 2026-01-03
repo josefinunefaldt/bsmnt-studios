@@ -96,7 +96,7 @@ export const Navbar = () => {
           </button>
         </div>
 
-        <div className="navbar-center lg:navbar-start">
+        <div className="navbar-center lg:navbar-start lg:mr-16">
           <Link
             to="/"
             className="no-underline hover:bg-transparent flex items-center"
@@ -109,11 +109,11 @@ export const Navbar = () => {
         </div>
 
         <div className="navbar-center hidden lg:flex flex-1 justify-center">
-          <ul className="menu menu-horizontal flex items-center gap-12">
+          <ul className="menu menu-horizontal flex items-center gap-6">
             <li>
               <details ref={availableDetailsRef}>
                 <summary className="cursor-pointer libre-text">
-                  Available
+                  Available spaces
                 </summary>
                 <ul className="p-2 z-10 libre-text bg-white text-black rounded-b-lg rounded-t-none">
                   <li onClick={handleMenuItemClick}>

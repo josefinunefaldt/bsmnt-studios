@@ -30,28 +30,27 @@ function RouteComponent() {
           {
             type: "text",
             value: (
-              <div className="flex flex-col">
+              <div className="flex flex-col text-libre">
                 <h1 className="text-2xl font-bold mb-2">
                   {" "}
-                  <Link to="/hornsey">HORNSEY</Link>
+                  <Link to="/hornsey">Hornsey</Link>
                 </h1>
 
-                <p>
+                <p className="text-left">
                   In 2020, we were thrilled to take over a long established
                   studio complex in Hornsey. Spanning two floors, Hornsey BSMNT
                   offers 18 high spec recording studios, live rooms, and
-                  programming suites, each uniquely sized and shaped but all
-                  benefiting from natural light, air conditioning, and secure
-                  private storage. The building is equipped with fiberoptic
-                  broadband, CCTV, a smart intercom system, a monitored alarm,
-                  24/7 access along with parking and a spacious communal lounge
-                  and kitchen area. This vibrant creative community has fostered
-                  a thriving environment for collaboration and networking among
-                  residents. Situated in an excellent location with superb
-                  transport links, Hornsey BSMNT is just steps away from a
-                  variety of restaurants and bars. See all{" "}
-                  <Link to="/studios">music studios available in London.</Link>
+                  programming suites, each uniquely sized and shaped.This
+                  vibrant creative community has fostered a thriving environment
+                  for collaboration and networking among residents.
                 </p>
+                <Link
+                  to="/studios"
+                  className="font-libre block text-left mt-10"
+                >
+                  See all Music studios in London{" "}
+                  <img className="w-32 mt-4" src="/Pil.png" alt="Arrow" />
+                </Link>
               </div>
             ),
           },
@@ -71,16 +70,75 @@ function RouteComponent() {
 
           {
             type: "text",
-            value:
-              "Lo, a auctscing elit. Pellentesque Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor risus at elit dignissim, a auctor vehicula risus at elit dignissim, a auctor Pellentesque vehicula risus at elit dignissim, a auctor adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor augue auctor. Mauris nec risus nec odio fringilla aliquet. Nulla facilisi. Curabitur dictum malesuada augue, id consectetur felis vulputate a. Fusce in urna a libero dapibus lacinia. Duis varius suscipit risus, nec auctor nulla tincidunt eget. Vestibulum pharetra, nisl in efficitur pharetra, elit elit vestibulum nulla, ut accumsan purus ligula nec erat. Donec non facilisis justo. Sed a magna",
+            value: (
+              <div className="flex flex-col gap-1 uppercase text-black text-left">
+                <p className="text-3xl font-extrabold leading-tight">
+                  24/7 access
+                </p>
+
+                <p className="text-base text-xl font-bold leading-tight">
+                  Fiberoptic broadband
+                </p>
+
+                <p className="text-3xl font-extrabold leading-tight">CCTV</p>
+
+                <p className="text-base text-xl font-bold leading-tight">
+                  Smart intercom system
+                </p>
+
+                <p className="text-base text-xl font-bold leading-tight">
+                  Monitored alarm
+                </p>
+
+                <p className="text-3xl font-extrabold leading-tight">Parking</p>
+
+                <p className="text-base font-bold leading-tight">
+                  Spacious communal lounge
+                </p>
+
+                <p className="text-base text-xl font-bold leading-tight">
+                  Kitchen area
+                </p>
+
+                <p className="text-3xl font-extrabold leading-tight">
+                  Natural light
+                </p>
+
+                <p className="text-base text-xl font-bold leading-tight">
+                  Air conditioning
+                </p>
+
+                <p className="text-base text-xl font-bold leading-tight">
+                  Secure private storage
+                </p>
+              </div>
+            ),
           },
           { type: "image", value: "/Hornsey/Music_studio_Hornsey_01.jpg" },
 
           { type: "image", value: "/Hornsey/Music_studio_Hornsey_06.jpg" },
           {
             type: "text",
-            value:
-              "Lorem ipsum dolor sit amet, consectetunsectetur adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor Pellentesque vehicula risus at elit dignissim, a auctor augue auctor. Mauris nec risus nec odio fringilla aliquet. Nulla facilisi. Curabitur dictum malesuada augue, id consectetur felis vulputate a. Fusce in urna a libero dapibus lacinia. Duis varius suscipit risus, nec auctor nulla tincidunt eget. Vestibulum pharetra, nisl in efficitur pharetra, elit elit vestibulum nulla, ut accumsan purus ligula nec erat. Donec non facilisis justo. Sed a magna",
+            value: (
+              <div className="italic">
+                <p className="text-left">
+                  “BSMNT has been a home from home for several years now, the
+                  facilities and community atmosphere of bands, singers,
+                  producers and many other musical formats makes it a joy to be
+                  a part of! ”
+                  <br />
+                  Toby Davies (Gentleman's Dub Club, CrossTown Studios)
+                </p>
+                <br></br>
+                <p className="text-left">
+                  “BSMNT is the best place I’ve ever had a studio, the owners
+                  are so sound and just leave you too it, nice big room, natural
+                  light, good community, good location. Couldn’t ask for more! ”
+                  <br />
+                  Boxed Ape ltd
+                </p>
+              </div>
+            ),
           },
           { type: "image", value: "/Hornsey/Music_studio_Hornsey_03.jpg" },
         ]}

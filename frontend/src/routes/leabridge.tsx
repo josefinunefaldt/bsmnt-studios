@@ -37,33 +37,36 @@ function RouteComponent() {
           {
             type: "text",
             value: (
-              <div className="flex flex-col">
+              <div className="flex flex-col text-libre">
                 <h1 className="text-2xl font-bold mb-2">
                   {" "}
-                  <Link to="/leabridge">LEA BRIDGE</Link>
+                  <Link to="/leabridge">Lea bridge</Link>
                 </h1>
-                <p>
+                <p className="font-libre text-left text-libre">
                   In 2022, we completed a full fit-out on the ground floor of a
-                  landmark development directly across from Lea Bridge Station
-                  in East London. Lea Bridge BSMNT features 14 high-spec music
-                  production studios and workspaces, each uniquely sized and
-                  designed to capture abundant natural light, with mechanical
-                  ventilation and air conditioning throughout. The building is
-                  equipped with hyper-optic broadband, CCTV, 24/7 access and a
-                  smart intercom system. A spacious, light-filled communal area
-                  provides the ideal setting for team meetings, relaxation, and
-                  connecting with fellow creatives. Designed by an award-winning
-                  architecture firm, Lea Bridge BSMNT offers a functional,
-                  inspiring space for music makers and creatives alike. See all
-                  <Link to="/studios">
-                    music studios available in London.
-                  </Link>{" "}
-                  <Link to="/offices">music studios available in London.</Link>{" "}
-                  See all{" "}
-                  <Link to="/offices">
-                    creative offices available in London.
-                  </Link>
+                  landmark development. Lea Bridge BSMNT features 14 high-spec
+                  music production studios and workspaces, each uniquely sized
+                  and designed to capture abundant natural light. spacious,
+                  light-filled communal area provides the ideal setting for team
+                  meetings, relaxation, and connecting with fellow creatives.
+                  Designed by an award-winning architecture firm, Lea Bridge
+                  BSMNT offers a functional, inspiring space for music makers
+                  and creatives alike.
                 </p>
+                <Link
+                  to="/offices"
+                  className="font-libre block text-left mt-10"
+                >
+                  {" "}
+                  See all creative offices available in London.
+                </Link>
+                <Link
+                  to="/studios"
+                  className="font-libre block text-left mt-10"
+                >
+                  See all Music studios in London{" "}
+                  <img className="w-32 mt-4" src="/Pil.png" alt="Arrow" />
+                </Link>
               </div>
             ),
           },
@@ -81,8 +84,38 @@ function RouteComponent() {
           },
           {
             type: "text",
-            value:
-              "Lorem ipsum dolor sit amet, consectetunsectetur adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor Pellentesque vehicula risus at elit dignissim, a auctor augue auctor. Mauris nec risus nec odio fringilla aliquet. Nulla facilisi. Curabitur dictum malesuada augue, id consectetur felis vulputate a. Fusce in urna a libero dapibus lacinia. Duis varius suscipit risus, nec auctor nulla tincidunt eget. Vestibulum pharetra, nisl in efficitur pharetra, elit elit vestibulum nulla, ut accumsan purus ligula nec erat. Donec non facilisis justo. Sed a magna",
+            value: (
+              <div className="flex flex-col gap-1 uppercase text-black text-left">
+                <p className="text-3xl font-extrabold leading-tight">
+                  24/7 access
+                </p>
+                <p className="text-base text-xl font-bold leading-tight">
+                  Hyper-optic broadband
+                </p>
+
+                <p className="text-3xl font-extrabold leading-tight">CCTV</p>
+
+                <p className="text-base text-xl font-bold leading-tight">
+                  Smart intercom system
+                </p>
+
+                <p className="text-base text-xl font-bold leading-tight">
+                  Mechanical ventilation
+                </p>
+
+                <p className="text-base text-xl font-bold leading-tight">
+                  Air conditioning
+                </p>
+
+                <p className="text-3xl font-extrabold leading-tight">
+                  Natural light
+                </p>
+
+                <p className="text-base text-xl font-bold leading-tight">
+                  Communal area
+                </p>
+              </div>
+            ),
           },
           { type: "image", value: "/Lea/Music_studio_Leyton_08.jpg" },
 
@@ -92,8 +125,29 @@ function RouteComponent() {
           },
           {
             type: "text",
-            value:
-              "Lorem ipsum dolor sit amet, consectetunsectetur adipiscing elit. Pellentesque vehicula risus at elit dignissim, a auctor Pellentesque vehicula risus at elit dignissim, a auctor augue auctor. Mauris nec risus nec odio fringilla aliquet. Nulla facilisi. Curabitur dictum malesuada augue, id consectetur felis vulputate a. Fusce in urna a libero dapibus lacinia. Duis varius suscipit risus, nec auctor nulla tincidunt eget. Vestibulum pharetra, nisl in efficitur pharetra, elit elit vestibulum nulla, ut accumsan purus ligula nec erat. Donec non facilisis justo. Sed a magna",
+            value: (
+              <div className="italic">
+                <p className="text-left">
+                  “I’ve been using BSMNT Studios for nearly 5 years and haven’t
+                  looked back. The rooms are well-built, properly soundproofed,
+                  and consistently well-maintained. The management is helpful,
+                  responsive, and there whenever I need anything. They’ve
+                  created a safe, professional, and creative space where I feel
+                  confident bringing the artists I work with. I’m always happy
+                  to recommend them to other musicians and producers! ”
+                  <br />
+                  Stef Marziano - Songwriter/Record Producer
+                </p>
+                <br></br>
+                <p className="text-left">
+                  “Have been BSMNT residents in Lee ds Place since it opened in
+                  2019. Professional atmosphere and excellent soundproofing, as
+                  well as a nice community vibe and super helpful management. ”
+                  <br />
+                  Stick In The Wheel
+                </p>
+              </div>
+            ),
           },
         ]}
       />

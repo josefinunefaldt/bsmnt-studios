@@ -111,10 +111,6 @@ const WorkPlace: React.FC<{ studios: BoxData[] }> = ({ studios }) => {
 
   return (
     <div className="w-full mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-8 pb-2 border-b border-gray-300 text-[rgb(67,67,67)]">
-        London
-      </h1>
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {studios.map((studios) => (
           <div

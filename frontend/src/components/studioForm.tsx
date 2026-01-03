@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useRouter } from "@tanstack/react-router";
 import React from "react";
 import { submitData } from "../utils/advertFetch";
@@ -20,6 +20,8 @@ export default function StudioForm() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [infoOpen, setInfoOpen] = useState<boolean>(false);
+
+  const infoPanelRef = useRef<HTMLDivElement>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -83,7 +85,9 @@ export default function StudioForm() {
       setPhoto(null);
     } catch (err) {
       setError(
-        `Failed to create advert: ${err instanceof Error ? err.message : String(err)}`
+        `Failed to create advert: ${
+          err instanceof Error ? err.message : String(err)
+        }`
       );
       console.error("Error:", err);
     } finally {
@@ -91,25 +95,43 @@ export default function StudioForm() {
     }
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        infoOpen &&
+        infoPanelRef.current &&
+        !infoPanelRef.current.contains(event.target as Node)
+      ) {
+        setInfoOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [infoOpen]);
+
   return (
     <div
-      className="min-h-screen w-screen bg-cover bg-center pt-16"
+      className="min-h-screen w-full bg-cover bg-center pt-16"
       style={{ backgroundImage: "url('/music.jpg')" }}
     >
-      <div className="mb-20 max-w-3xl mx-auto px-4">
-        <h1 className="text-center title_share text-[#fef880] mt-5">
-          STUDIO SHARE IN LONDON: <br /> CONNECT WITH PROFESSIONALS
+      <div className="mb-20 w-screen mx-auto px-4">
+        <h1 className="text-center w-screen text-[#fef880] mt-5 text-base md:text-3xl font-bold leading-tight tracking-[0.1em]">
+          STUDIO SHARE IN LONDON CONNECT WITH PROFESSIONALS
         </h1>
 
         <div className="max-w-lg mx-auto w-full mt-10 relative">
-          <form onSubmit={handleSubmit} className="space-y-0">
-            <div className="bg-[#fef880] -mb-3 rounded-t-xl p-10 flex flex-col sm:flex-row text-left libre-text relative">
-              <h3 className="text-4xl font-bold sm:w-1/3 text-left mr-5">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-0 relative p-4 sm:p-6"
+          >
+            <div className="bg-[#fef880] -mb-3 rounded-t-xl p-8 sm:p-10 flex flex-col sm:flex-row text-left libre-text relative">
+              <h3 className="text-3xl md:text-3xl font-bold md:w-1/3 text-left mr-5">
                 STUDIO
                 <br />
                 SHARE
               </h3>
-              <div className="space-y-4 text-sm sm:w-2/3 ml-5">
+
+              <div className="space-y-4 text-sm sm:w-2/3 ml-0 sm:ml-5 mt-4 sm:mt-0">
                 <p className="font-semibold">What are you looking for?</p>
                 <div className="flex flex-col gap-3">
                   <label className="flex items-center gap-3 cursor-pointer">
@@ -139,16 +161,18 @@ export default function StudioForm() {
                 </div>
               </div>
 
-              <button
-                type="button"
-                className="absolute right-4 top-4 text-2xl text-black z-20"
-                onClick={() => setInfoOpen(!infoOpen)}
-              >
-                ❯
-              </button>
+              {!infoOpen && (
+                <button
+                  type="button"
+                  className="absolute right-4 top-4 text-2xl text-black z-20"
+                  onClick={() => setInfoOpen(true)}
+                >
+                  ❯
+                </button>
+              )}
             </div>
 
-            <div className="bg-white rounded-b-xl rounded-t-xl shadow-lg p-6 mt-0">
+            <div className="bg-white rounded-b-xl rounded-t-xl shadow-lg p-6 mt-0 space-y-4">
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="form-control w-full">
                   <label className="label">
@@ -176,19 +200,20 @@ export default function StudioForm() {
                     required
                   />
                 </div>
-                <div className="form-control w-full">
-                  <label className="label">
-                    <span className="label-text">Location</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="location"
-                    className="input border-2 border-black w-full bg-white"
-                    value={formData.location || ""}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
+              </div>
+
+              <div className="form-control w-full">
+                <label className="label">
+                  <span className="label-text">Location</span>
+                </label>
+                <input
+                  type="text"
+                  name="location"
+                  className="input border-2 border-black w-full bg-white"
+                  value={formData.location || ""}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <div className="form-control">
@@ -254,34 +279,29 @@ export default function StudioForm() {
                 {loading ? "Submitting..." : "Submit"}
               </button>
             </div>
-          </form>
 
-          <div
-            className={`absolute top-0 left-full ml-2 w-80 bg-[#fef880] bg-[rgb(67,67,67)]  p-6 text-white rounded-xl shadow-lg transition-transform duration-300 ${
-              infoOpen ? "translate-x-0" : "translate-x-full"
-            }`}
-          >
-            <p className="text-sm mt-10 text-center text-white mb-10">
-              Our Studio Share platform connects London's creative community.
-              Whether you have downtime in your private studio or you're looking
-              for affordable access to a professional space, this is the place
-              to connect. It’s the perfect way to make a private studio more
-              affordable and become part of a network of talented pros. If you
-              need your own private space check our long-term
-            </p>
-            <Link to="/studios">
-              <div className="font-libre text-[#fef880] mt-auto">
-                music studios in London
-              </div>
-              <div className="mt-5">
-                <img
-                  className="w-32 text-[#fef880] "
-                  src="/Pil.png"
-                  alt="Arrow"
-                />
-              </div>
-            </Link>
-          </div>
+            <div
+              ref={infoPanelRef}
+              className={`absolute top-0 right-0 sm:w-80 w-full bg-[#fef880] p-6 text-black rounded-xl shadow-lg transition-transform duration-300 transform ${
+                infoOpen
+                  ? "translate-x-0 opacity-100 pointer-events-auto"
+                  : "translate-x-full opacity-0 pointer-events-none"
+              }`}
+            >
+              <p className="text-sm mb-4">
+                Our Studio Share platform connects London's creative community.
+                Whether you have downtime in your private studio or you're
+                looking for affordable access to a professional space, this is
+                the place to connect. It’s the perfect way to make a private
+                studio more affordable and become part of a network of talented
+                pros. If you need your own private space check our long-term
+              </p>
+              <Link to="/studios" className="font-libre block mt-2">
+                Music studios in London{" "}
+                <img className="w-24 sm:w-32 mt-4" src="/Pil.png" alt="Arrow" />
+              </Link>
+            </div>
+          </form>
         </div>
       </div>
     </div>

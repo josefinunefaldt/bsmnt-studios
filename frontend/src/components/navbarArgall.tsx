@@ -71,7 +71,7 @@ export const NavbarArgall = () => {
 
   return (
     <header className="relative z-20">
-      <nav className="navbar px-4">
+      <nav className="navbar px-4 bg-transparent fixed top-0 left-0 w-full z-50">
         <div className="navbar-start lg:hidden">
           <button
             className="btn btn-ghost text-white"
@@ -98,10 +98,10 @@ export const NavbarArgall = () => {
           </button>
         </div>
 
-        <div className="navbar-center lg:navbar-start">
+        <div className="navbar-center lg:navbar-start lg:mr-16">
           <Link
             to="/"
-            className="no-underline hover:bg-transparent flex items-center ml-auto lg:ml-0"
+            className="no-underline hover:bg-transparent flex items-center"
           >
             <img src="./bsmnt.png" className="w-8" alt="BSMNT Logo" />
             <h1 className="title text-3xl ml-2 !text-white !no-underline">
@@ -110,8 +110,8 @@ export const NavbarArgall = () => {
           </Link>
         </div>
 
-        <div className="navbar-center hidden lg:flex flex-1 justify-center text-white">
-          <ul className="menu menu-horizontal flex items-center gap-12">
+        <div className="navbar-center hidden lg:flex flex-1 justify-center">
+          <ul className="menu menu-horizontal flex items-center gap-6 text-white">
             <li>
               <details ref={availableDetailsRef}>
                 <summary className="cursor-pointer libre-text">
@@ -127,6 +127,7 @@ export const NavbarArgall = () => {
                 </ul>
               </details>
             </li>
+
             <li>
               <details ref={locationsDetailsRef}>
                 <summary className="cursor-pointer libre-text">
@@ -171,10 +172,10 @@ export const NavbarArgall = () => {
         </div>
 
         <div className="navbar-end hidden lg:flex">
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 text-white">
             <a
               href="mailto:info@bsmnt.net"
-              className="text-2xl text-white hover:text-[#fef880]"
+              className="text-2xl hover:text-[#fef880]"
             >
               <MdEmail />
             </a>
@@ -182,7 +183,7 @@ export const NavbarArgall = () => {
               href="https://www.instagram.com/bsmntstudios/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xl text-white hover:text-[#fef880]"
+              className="text-2xl hover:text-[#fef880]"
             >
               <AiFillInstagram />
             </a>
@@ -263,6 +264,7 @@ export const NavbarArgall = () => {
                 </ul>
               </details>
             </li>
+
             <li onClick={handleMenuItemClick}>
               <Link to="/contact" className="text-black">
                 Contact

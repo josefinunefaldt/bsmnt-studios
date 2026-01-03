@@ -92,7 +92,7 @@ const LocationCarousel = () => {
         <div className="w-full lg:w-3/4 h-screen relative ">
           <Link
             to={currentLocation.path}
-            className="block w-full h-full relative"
+            className="block w-full h-full relative "
           >
             <img
               src={currentLocation.image}
