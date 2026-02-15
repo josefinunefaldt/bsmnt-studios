@@ -131,7 +131,7 @@ const LocationCarousel = () => {
           <div className="flex flex-col h-full p-12 pt-64 relative">
             <div className="space-y-6 max-w-md text-left">
               <div className="text-3xl  title_loc ">{currentLocation.name}</div>
-              <div className="text-sm font-libre leading-relaxed">
+              <div className="text-sm libre-text leading-relaxed">
                 {currentLocation.info}
               </div>
             </div>
@@ -151,10 +151,10 @@ const LocationCarousel = () => {
       >
         <div className="flex flex-col p-4 space-y-4 h-full">
           <div className="text-2xl  title_loc">{currentLocation.name}</div>
-          <div className="text-sm text-[rgb(67,67,67)] font-libre leading-relaxed">
+          <div className="text-sm text-[rgb(67,67,67)]libre-text leading-relaxed">
             {currentLocation.info}
           </div>
-          <div className="font-libre text-[rgb(67,67,67)] mt-auto">
+          <div className="libre-text text-[rgb(67,67,67)] mt-auto">
             Read more
           </div>
           <div className="flex justify-start">

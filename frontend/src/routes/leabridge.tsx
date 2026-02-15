@@ -40,9 +40,14 @@ function RouteComponent() {
               <div className="flex flex-col text-libre">
                 <h1 className="text-2xl font-bold mb-2">
                   {" "}
-                  <Link to="/leabridge">Lea bridge</Link>
+                  <Link
+                    className="p-4 text-3xl space-y-4 title_loc block self-start text-left"
+                    to="/leabridge"
+                  >
+                    Lea bridge
+                  </Link>
                 </h1>
-                <p className="font-libre text-left text-libre">
+                <p className="text-left libre-text p-4 space-y-4">
                   In 2022, we completed a full fit-out on the ground floor of a
                   landmark development. Lea Bridge BSMNT features 14 high-spec
                   music production studios and workspaces, each uniquely sized
@@ -55,16 +60,14 @@ function RouteComponent() {
                 </p>
                 <Link
                   to="/offices"
-                  className="font-libre block text-left mt-10"
+                  className="libre-text p-4 space-y-4 block text-left"
                 >
                   {" "}
-                  See all creative offices available in London.
+                  See all creative offices in London.
+                  <img className="w-32 mt-4" src="/Pil.png" alt="Arrow" />
                 </Link>
-                <Link
-                  to="/studios"
-                  className="font-libre block text-left mt-10"
-                >
-                  See all Music studios in London{" "}
+                <Link to="/studios" className="libre-text  p-4 block text-left">
+                  See all music studios in London{" "}
                   <img className="w-32 mt-4" src="/Pil.png" alt="Arrow" />
                 </Link>
               </div>
@@ -86,32 +89,32 @@ function RouteComponent() {
             type: "text",
             value: (
               <div className="flex flex-col gap-1 uppercase text-black text-left">
-                <p className="text-3xl font-extrabold leading-tight">
+                <p className="text-5xl font-extrabold leading-tight tracking-wide">
                   24/7 access
                 </p>
-                <p className="text-base text-xl font-bold leading-tight">
+                <p className=" text-3xl font-bold leading-tight tracking-wide">
                   Hyper-optic broadband
                 </p>
 
-                <p className="text-3xl font-extrabold leading-tight">CCTV</p>
+                <p className="text-5xl font-extrabold leading-tight tracking-wide">
+                  CCTV
+                </p>
 
-                <p className="text-base text-xl font-bold leading-tight">
+                <p className="text-3xl font-bold leading-tight tracking-wide">
                   Smart intercom system
                 </p>
 
-                <p className="text-base text-xl font-bold leading-tight">
+                <p className=" text-2xl font-bold leading-tight tracking-wide">
                   Mechanical ventilation
                 </p>
-
-                <p className="text-base text-xl font-bold leading-tight">
+                <p className="text-4xl font-extrabold leading-tight tracking-wide">
+                  Natural light
+                </p>
+                <p className="text-3xl font-bold leading-tight tracking-wide">
                   Air conditioning
                 </p>
 
-                <p className="text-3xl font-extrabold leading-tight">
-                  Natural light
-                </p>
-
-                <p className="text-base text-xl font-bold leading-tight">
+                <p className="text-3xl font-bold leading-tight tracking-wide">
                   Communal area
                 </p>
               </div>
@@ -126,11 +129,14 @@ function RouteComponent() {
           {
             type: "text",
             value: (
-              <div className="italic">
-                <p className="text-left">
+              <div className="testemonial">
+                <h1 className="text-left text-xl title_loc">
                   “I’ve been using BSMNT Studios for nearly 5 years and haven’t
-                  looked back. The rooms are well-built, properly soundproofed,
-                  and consistently well-maintained. The management is helpful,
+                  looked back”
+                </h1>
+                <p className="text-left">
+                  “ The rooms are well-built, properly soundproofed, and
+                  consistently well-maintained. The management is helpful,
                   responsive, and there whenever I need anything. They’ve
                   created a safe, professional, and creative space where I feel
                   confident bringing the artists I work with. I’m always happy
@@ -139,6 +145,9 @@ function RouteComponent() {
                   Stef Marziano - Songwriter/Record Producer
                 </p>
                 <br></br>
+                <h1 className="text-left text-xl title_loc">
+                  “Professional atmosphere and excellent soundproofing”
+                </h1>
                 <p className="text-left">
                   “Have been BSMNT residents in Lee ds Place since it opened in
                   2019. Professional atmosphere and excellent soundproofing, as

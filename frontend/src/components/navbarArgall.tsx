@@ -114,10 +114,11 @@ export const NavbarArgall = () => {
           <ul className="menu menu-horizontal flex items-center gap-6 text-white">
             <li>
               <details ref={availableDetailsRef}>
-                <summary className="cursor-pointer libre-text">
-                  Available
+                <summary className="cursor-pointer libre-text !text-white">
+                  Available spaces
                 </summary>
-                <ul className="p-2 z-10 libre-text bg-white text-black rounded-b-lg rounded-t-none">
+
+                <ul className="p-2 z-10 libre-text bg-white text-black rounded-b-lg rounded-t-none ">
                   <li onClick={handleMenuItemClick}>
                     <Link to="/offices">Offices</Link>
                   </li>
@@ -130,7 +131,7 @@ export const NavbarArgall = () => {
 
             <li>
               <details ref={locationsDetailsRef}>
-                <summary className="cursor-pointer libre-text">
+                <summary className="cursor-pointer libre-text !text-white">
                   <Link to="/locations" onClick={handleMenuItemClick}>
                     Locations
                   </Link>
@@ -162,10 +163,16 @@ export const NavbarArgall = () => {
               </details>
             </li>
 
-            <li className="libre-text" onClick={handleMenuItemClick}>
+            <li
+              className="libre-text !text-white"
+              onClick={handleMenuItemClick}
+            >
               <Link to="/share">Studio share</Link>
             </li>
-            <li className="libre-text" onClick={handleMenuItemClick}>
+            <li
+              className="libre-text !text-white"
+              onClick={handleMenuItemClick}
+            >
               <Link to="/contact">Contact</Link>
             </li>
           </ul>

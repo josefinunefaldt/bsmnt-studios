@@ -39,10 +39,15 @@ function RouteComponent() {
               <div className="flex flex-col text-libre">
                 <h1 className="text-2xl font-bold mb-2 mt-12">
                   {" "}
-                  <Link to="/archway">Archway</Link>
+                  <Link
+                    className=" p-4 space-y-4 text-3xl title_loc block self-start text-left"
+                    to="/archway"
+                  >
+                    Archway
+                  </Link>
                 </h1>
 
-                <p className="text-left">
+                <p className="text-left libre-text p-4 space-y-4 ">
                   Nestled in the basement of a historic, listed building once
                   used as a World War II bomb shelter, Archway BSMNT is our very
                   first, original location. Opened in 2016, it features nine
@@ -52,9 +57,9 @@ function RouteComponent() {
                 </p>
                 <Link
                   to="/studios"
-                  className="font-libre block text-left mt-10"
+                  className="text-left libre-text p-4 space-y-4  block text-left mt-10"
                 >
-                  See all Music studios in London{" "}
+                  See all music studios in London{" "}
                   <img className="w-32 mt-4" src="/Pil.png" alt="Arrow" />
                 </Link>
               </div>
@@ -77,27 +82,29 @@ function RouteComponent() {
             type: "text",
             value: (
               <div className="flex flex-col gap-1 uppercase text-black text-left">
-                <p className="text-3xl font-extrabold leading-tight">CCTV</p>
-                <p className="text-base text-xl font-bold">
+                <p className="text-5xl font-extrabold leading-tight tracking-wide">
+                  CCTV
+                </p>
+                <p className=" text-2xl font-bold leading-tight tracking-wide ">
                   Fiberoptic broadband
                 </p>
 
-                <p className="text-base text-xl font-bold">
+                <p className=" text-2xl font-bold leading-tight tracking-wide">
                   Fresh air circulation system
                 </p>
 
-                <p className="text-base text-xl font-bold leading-tight">
+                <p className=" text-4xl font-bold leading-tight tracking-wide">
                   Parking
                 </p>
 
-                <p className="text-3xl font-extrabold leading-tight">
+                <p className="text-5xl font-extrabold leading-tight tracking-wide">
                   24/7 access
                 </p>
-                <p className="text-base text-xl font-bold">
+                <p className="text-2xl font-bold leading-tight tracking-wide">
                   Private outdoor terrace
                 </p>
 
-                <p className="text-base text-xl font-bold">
+                <p className=" text-2xl font-bold leading-tight tracking-wide">
                   Kitchen-lounge area
                 </p>
               </div>
@@ -108,7 +115,11 @@ function RouteComponent() {
           {
             type: "text",
             value: (
-              <div className="italic">
+              <div className="testemonial">
+                <h1 className="text-left title_loc text-xl">
+                  {" "}
+                  “it's been an incredible experience from day one”
+                </h1>
                 <p className="text-left">
                   “I've been based at BSMNT Studio Archway for the past three
                   years, and it's been an incredible experience from day one.
@@ -132,6 +143,11 @@ function RouteComponent() {
                   Warriner - Producer/Writer
                   <br></br>
                 </p>
+                <br></br>
+                <h1 className="text-left title_loc text-xl">
+                  {" "}
+                  “I can’t recommend them enough”
+                </h1>
                 <p className="text-left">
                   “The team at BSMNT made every aspect of working in their rooms
                   incredibly smooth and easy. Communication was excellent, with

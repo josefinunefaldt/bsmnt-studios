@@ -96,7 +96,7 @@ export const Navbar = () => {
           </button>
         </div>
 
-        <div className="navbar-center lg:navbar-start lg:mr-16">
+        <div className="navbar-center lg:navbar-start lg:mr-16 text-white">
           <Link
             to="/"
             className="no-underline hover:bg-transparent flex items-center"
@@ -108,7 +108,7 @@ export const Navbar = () => {
           </Link>
         </div>
 
-        <div className="navbar-center hidden lg:flex flex-1 justify-center">
+        <div className="navbar-center hidden lg:flex flex-1 justify-center ">
           <ul className="menu menu-horizontal flex items-center gap-6">
             <li>
               <details ref={availableDetailsRef}>

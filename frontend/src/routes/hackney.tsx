@@ -33,10 +33,15 @@ function RouteComponent() {
               <div className="flex flex-col text-libre">
                 <h1 className="text-2xl font-bold mb-2">
                   {" "}
-                  <Link to="/hackney">Hackney</Link>
+                  <Link
+                    className="p-4 space-y-4 text-3xl title_loc block self-start text-left"
+                    to="/hackney"
+                  >
+                    Hackney
+                  </Link>
                 </h1>
 
-                <p className="text-left">
+                <p className="text-left libre-text p-4 space-y-4">
                   Hackney BSMNT opened in 2019 on the ground floor of a historic
                   textile factory, featuring 11 purpose built, high spec music
                   production suites ranging from 120 to 300 square feet. Each
@@ -47,9 +52,9 @@ function RouteComponent() {
                 </p>
                 <Link
                   to="/studios"
-                  className="font-libre block text-left mt-10"
+                  className=" block text-left libre-text p-4 space-y-4 mt-10"
                 >
-                  See all Music studios in London{" "}
+                  See all music studios in London{" "}
                   <img className="w-32 mt-4" src="/Pil.png" alt="Arrow" />
                 </Link>
               </div>
@@ -77,29 +82,31 @@ function RouteComponent() {
             value: (
               <div className="flex justify-center">
                 <div className="flex flex-col gap-1 uppercase text-black text-left max-w-sm">
-                  <p className="text-3xl font-extrabold leading-tight">
+                  <p className="text-5xl font-extrabold leading-tight tracking-wide">
                     24/7 access
                   </p>
 
-                  <p className="text-xl font-bold leading-tight">
+                  <p className="text-2xl font-bold leading-tight tracking-wide">
                     fiberoptic broadband
                   </p>
 
-                  <p className="text-3xl font-extrabold leading-tight">CCTV</p>
-
-                  <p className="text-xl font-bold leading-tight">
-                    Fresh air circulation system
+                  <p className="text-5xl font-extrabold leading-tight tracking-wide">
+                    CCTV
                   </p>
 
-                  <p className="text-xl font-bold leading-tight">
+                  <p className="text-2xl font-bold leading-tight tracking-wide">
+                    Air circulation system
+                  </p>
+                  <p className="text-4xl font-extrabold leading-tight tracking-wide">
+                    Smart intercom
+                  </p>
+                  <p className="text-2xl font-bold leading-tight tracking-wide">
                     Secure off street parking
                   </p>
 
-                  <p className="text-3xl font-extrabold leading-tight">
-                    Smart intercom
+                  <p className="text-4xl font-bold leading-tight tracking-wide">
+                    Kitchenette
                   </p>
-
-                  <p className="text-xl font-bold leading-tight">Kitchenette</p>
                 </div>
               </div>
             ),
@@ -109,19 +116,25 @@ function RouteComponent() {
           {
             type: "text",
             value: (
-              <div>
-                <p className="text-left">
-                  “Working with BSMNT has been a joy. We really appreciate the
-                  high quality of the studios, the smooth communication with
-                  management, and the community atmosphere. It’s rare to find
-                  studio space in London that offers such good value while also
-                  being so well maintained and thoughtfully managed, but Simona
-                  and her team really put in the effort. We'll definitely be
-                  recommending BSMNT to colleagues if space becomes available.”
+              <div className="testemonial">
+                <h1 className="text-left text-xl title_loc">
+                  “Working with BSMNT has been a joy”
+                </h1>
+                <p className="text-left text-libre">
+                  “We really appreciate the high quality of the studios, the
+                  smooth communication with management, and the community
+                  atmosphere. It’s rare to find studio space in London that
+                  offers such good value while also being so well maintained and
+                  thoughtfully managed, but Simona and her team really put in
+                  the effort. We'll definitely be recommending BSMNT to
+                  colleagues if space becomes available.”
                   <br />
                   JACANA PEOPLE
                 </p>
                 <br />
+                <h1 className="text-left text-xl title_loc">
+                  “ Great space, great community, great vibes!”
+                </h1>
                 <p className="text-left">
                   “We’ve been with BSMNT for 7 years now and still love coming
                   in as much as the first day we arrived. Simona & Tomas are

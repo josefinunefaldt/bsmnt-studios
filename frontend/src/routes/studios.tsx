@@ -31,8 +31,12 @@ function RouteComponent() {
       <Navbar />
 
       {/* Yellow teaser box */}
-      <div className="bg-[#fef880] p-6 m-6">
-        <h2 className=" mt-20">Logo- studios</h2>
+      <div className="bg-[#fef880] p-6 m-6 libre-text">
+        <h2 className="mt-20 title_loc flex items-center gap-2">
+          <img className="w-12 " src="/musics.png" alt="studios" />
+          <span className="title_loc text-3xl">Studios</span>
+        </h2>
+        <br></br>
         <h1>Available Music Studios for Long-Term Rent in London</h1>
         <p>
           BSMNT offers high-spec, soundproof music studios for long-term rent
@@ -71,8 +75,10 @@ function RouteComponent() {
 
             {/* Scrollable content */}
             <div className="mt-12 h-full overflow-y-auto pr-2">
-              <h2>Our Professional Studios & Flexible Options</h2>
-              <p>
+              <h2 className="title_loc text-xl">
+                Our Professional Studios & Flexible Options
+              </h2>
+              <p className="libre-text">
                 See our list of currently available studios for long-term let in
                 locations like <Link to="/archway">Archway.</Link>,{" "}
                 <Link to="/finsbury">Finsbury Park</Link>,
@@ -86,9 +92,11 @@ function RouteComponent() {
                 <Link to="/share">studio environment</Link> on a flexible
                 schedule.
               </p>
-
-              <h2>A Supportive Community, Guaranteed to Fit</h2>
-              <p>
+              <br></br>
+              <h2 className="title_loc text-xl">
+                A Supportive Community, Guaranteed to Fit
+              </h2>
+              <p className="libre-text">
                 When you join BSMNT, you become part of a vetted community of
                 talented, like-minded professionals. We foster a supportive
                 environment where you can connect with other artists and

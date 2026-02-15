@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
 
 function RouteComponent() {
   return (
-    <div className="flex flex-col libre-text">
+    <div className="flex flex-col libre-text bg">
       <HelmetProvider>
         <Helmet>
           <title>
@@ -26,7 +26,7 @@ function RouteComponent() {
         <Video />
       </section>
 
-      <section className="min-h-screen flex flex-col justify-center items-center bg-white px-6 py-20">
+      <section className="min-h-screen flex flex-col justify-center items-center  px-6 py-20 bg-[#fef880]">
         <Grid />
       </section>
     </div>

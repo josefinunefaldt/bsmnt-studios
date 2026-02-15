@@ -21,11 +21,16 @@ body {
   font-family: "Barlow Condensed", sans-serif;
   font-weight: 200;
   font-style: normal;
+  color: rgb(67, 67, 67);
 }
 .title_loc {
   font-family: "Barlow Condensed", sans-serif;
   font-weight: 700;
   font-style: normal;
+  color: rgb(67, 67, 67);
+}
+p h1 h2 h3 h4 span div {
+  color: rgb(67, 67, 67);
 }
 
 .title_share {
@@ -33,6 +38,7 @@ body {
   font-weight: 700;
   font-style: normal;
   font-size: 32px;
+  color: rgb(67, 67, 67);
 }
 
 .libre-text {
@@ -40,6 +46,17 @@ body {
   font-optical-sizing: auto;
   font-weight: 300;
   font-style: normal;
+  color: rgb(67, 67, 67);
+  font-size: 0.875rem;
+}
+.testemonial {
+  font-family: "Libre Franklin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  color: rgb(67, 67, 67);
+  font-style: italic;
+  font-size: 0.875rem;
 }
 
 video {

@@ -115,24 +115,26 @@ export default function StudioForm() {
       style={{ backgroundImage: "url('/music.jpg')" }}
     >
       <div className="mb-20 w-screen mx-auto px-4">
-        <h1 className="text-center w-screen text-[#fef880] mt-5 text-base md:text-3xl font-bold leading-tight tracking-[0.1em]">
+        <h1 className="text-center w-screen !text-[#fef880] mt-5 title_loc md:text-4xl font-bold leading-tight tracking-[0.1em]">
           STUDIO SHARE IN LONDON CONNECT WITH PROFESSIONALS
         </h1>
 
-        <div className="max-w-lg mx-auto w-full mt-10 relative">
+        <div className="max-w-lg mx-auto w-full mt-10 relative libre-text">
           <form
             onSubmit={handleSubmit}
             className="space-y-0 relative p-4 sm:p-6"
           >
             <div className="bg-[#fef880] -mb-3 rounded-t-xl p-8 sm:p-10 flex flex-col sm:flex-row text-left libre-text relative">
-              <h3 className="text-3xl md:text-3xl font-bold md:w-1/3 text-left mr-5">
+              <h3 className="text-5xl md:text-5xl title_loc font-bold md:w-1/3 text-left mr-5">
                 STUDIO
                 <br />
                 SHARE
               </h3>
 
               <div className="space-y-4 text-sm sm:w-2/3 ml-0 sm:ml-5 mt-4 sm:mt-0">
-                <p className="font-semibold">What are you looking for?</p>
+                <p className="!font-semibold libre-text">
+                  What are you looking for?
+                </p>
                 <div className="flex flex-col gap-3">
                   <label className="flex items-center gap-3 cursor-pointer">
                     <input
@@ -172,7 +174,7 @@ export default function StudioForm() {
               )}
             </div>
 
-            <div className="bg-white rounded-b-xl rounded-t-xl shadow-lg p-6 mt-0 space-y-4">
+            <div className="bg-white rounded-b-xl rounded-t-xl shadow-lg p-6 mt-0 space-y-4 libre-text">
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="form-control w-full">
                   <label className="label">
@@ -189,7 +191,7 @@ export default function StudioForm() {
                 </div>
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Email</span>
+                    <span className="label-text libre-text">Email</span>
                   </label>
                   <input
                     type="email"
@@ -254,7 +256,7 @@ export default function StudioForm() {
               </div>
 
               {photo && (
-                <div className="mt-4">
+                <div className="mt-4 libre-text">
                   <h3 className="text-xl font-bold">Selected Photo:</h3>
                   <div className="flex items-center justify-between">
                     <span>{photo.name}</span>
@@ -269,7 +271,9 @@ export default function StudioForm() {
                 </div>
               )}
 
-              {error && <p className="text-red-500 text-center">{error}</p>}
+              {error && (
+                <p className="!text-red-500 text-center libre-text">{error}</p>
+              )}
 
               <button
                 type="submit"
@@ -282,7 +286,7 @@ export default function StudioForm() {
 
             <div
               ref={infoPanelRef}
-              className={`absolute top-0 right-0 sm:w-80 w-full bg-[#fef880] p-6 text-black rounded-xl shadow-lg transition-transform duration-300 transform ${
+              className={`absolute top-0 right-0 sm:w-80 w-full libre-text bg-[#fef880] p-6 text-black rounded-xl shadow-lg transition-transform duration-300 transform ${
                 infoOpen
                   ? "translate-x-0 opacity-100 pointer-events-auto"
                   : "translate-x-full opacity-0 pointer-events-none"

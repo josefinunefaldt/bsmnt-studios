@@ -31,9 +31,15 @@ function RouteComponent() {
 
       <Navbar />
       <div className="bg-[#fef880] p-6 m-6 ">
-        <h2 className="mt-20">logo - OFFICES</h2>
-        <h1>Light-Filled Creative Offices to Rent in East London (E10)</h1>
-        <p>
+        <h2 className="mt-20  flex items-center gap-2">
+          <img className="w-12 " src="/workplaces.png" alt="office" />
+          <span className="title_loc text-3xl">Offices</span>
+        </h2>
+        <br></br>
+        <h1 className="libre-text">
+          Light-Filled Creative Offices to Rent in East London (E10)
+        </h1>
+        <p className="libre-text">
           How about a workspace designed to enhance your creativity and
           productivity. BSMNT offers secure, light-filled{" "}
           <Link to="/leabridge">
@@ -48,8 +54,8 @@ function RouteComponent() {
           onClick={() => setInfoOpen(true)}
           className="mt-4 flex flex-col items-start "
         >
-          <span className="font-libre text-[rgb(67,67,67)]">Read more</span>
-          <img className="w-26 mt-1" src="/Pil.png" alt="Arrow" />
+          <span className="libre-text text-[rgb(67,67,67)]">Read more</span>
+          <img className="w-24 mt-1" src="/Pil.png" alt="Arrow" />
         </button>
       </div>
 
@@ -73,17 +79,22 @@ function RouteComponent() {
             </button>
 
             {/* Scrollable content */}
-            <div className="mt-12 h-full overflow-y-auto pr-2">
-              <h2>Designed for Modern Creative Professionals</h2>
-              <p>
+            <div className="mt-12 h-full overflow-y-auto pr-2 ">
+              <h2 className="title_loc text-xl">
+                Designed for Modern Creative Professionals
+              </h2>
+
+              <p className="libre-text">
                 Our offices feature high-speed internet and abundant natural
                 light, providing an ideal environment to focus and get a job
                 done. Every workspace is purpose-built for the modern creative,
                 offering 24/7 access within a secure, CCTV-monitored facility.
               </p>
-
-              <h2>A Secure Workspace in a Vibrant Creative Hub</h2>
-              <p>
+              <br></br>
+              <h2 className="title_loc text-xl">
+                A Secure Workspace in a Vibrant Creative Hub
+              </h2>
+              <p className="libre-text">
                 When you rent an office with us, you also join a vetted
                 community of talented, like-minded professionals, placing you in
                 a thriving creative hub. Benefit from a supportive,

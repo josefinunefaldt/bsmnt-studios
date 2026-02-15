@@ -33,10 +33,15 @@ function RouteComponent() {
               <div className="flex flex-col text-libre">
                 <h1 className="text-2xl font-bold mb-2">
                   {" "}
-                  <Link to="/hornsey">Hornsey</Link>
+                  <Link
+                    className="p-4 text-3xl space-y-4 title_loc block self-start text-left"
+                    to="/hornsey"
+                  >
+                    Hornsey
+                  </Link>
                 </h1>
 
-                <p className="text-left">
+                <p className="text-left libre-text p-4 space-y-4 ">
                   In 2020, we were thrilled to take over a long established
                   studio complex in Hornsey. Spanning two floors, Hornsey BSMNT
                   offers 18 high spec recording studios, live rooms, and
@@ -46,9 +51,9 @@ function RouteComponent() {
                 </p>
                 <Link
                   to="/studios"
-                  className="font-libre block text-left mt-10"
+                  className="text-left libre-text p-4 space-y-4  block text-left mt-10"
                 >
-                  See all Music studios in London{" "}
+                  See all music studios in London{" "}
                   <img className="w-32 mt-4" src="/Pil.png" alt="Arrow" />
                 </Link>
               </div>
@@ -72,43 +77,47 @@ function RouteComponent() {
             type: "text",
             value: (
               <div className="flex flex-col gap-1 uppercase text-black text-left">
-                <p className="text-3xl font-extrabold leading-tight">
+                <p className="text-5xl font-extrabold leading-tight tracking-wide">
                   24/7 access
                 </p>
 
-                <p className="text-base text-xl font-bold leading-tight">
+                <p className="text-base text-xl font-bold leading-tight tracking-wide">
                   Fiberoptic broadband
                 </p>
 
-                <p className="text-3xl font-extrabold leading-tight">CCTV</p>
+                <p className="text-3xl font-extrabold leading-tight tracking-wide">
+                  CCTV
+                </p>
 
-                <p className="text-base text-xl font-bold leading-tight">
+                <p className="text-base text-xl font-bold leading-tight tracking-wide">
                   Smart intercom system
                 </p>
 
-                <p className="text-base text-xl font-bold leading-tight">
+                <p className="text-base text-xl font-bold leading-tight tracking-wide">
                   Monitored alarm
                 </p>
 
-                <p className="text-3xl font-extrabold leading-tight">Parking</p>
+                <p className="text-3xl font-extrabold leading-tight tracking-wide">
+                  Parking
+                </p>
 
-                <p className="text-base font-bold leading-tight">
+                <p className=" text-2xl font-bold leading-tight tracking-wide">
                   Spacious communal lounge
                 </p>
 
-                <p className="text-base text-xl font-bold leading-tight">
+                <p className=" text-2xl font-bold leading-tight tracking-wide">
                   Kitchen area
                 </p>
 
-                <p className="text-3xl font-extrabold leading-tight">
+                <p className="text-5xl font-extrabold leading-tight tracking-wide">
                   Natural light
                 </p>
 
-                <p className="text-base text-xl font-bold leading-tight">
+                <p className=" text-2xl font-bold leading-tight tracking-wide">
                   Air conditioning
                 </p>
 
-                <p className="text-base text-xl font-bold leading-tight">
+                <p className="text-2xl font-bold leading-tight tracking-wide">
                   Secure private storage
                 </p>
               </div>
@@ -120,7 +129,10 @@ function RouteComponent() {
           {
             type: "text",
             value: (
-              <div className="italic">
+              <div className="testemonial">
+                <h1 className="text-left text-xl title_loc">
+                  “BSMNT has been a home from home for several years now”
+                </h1>
                 <p className="text-left">
                   “BSMNT has been a home from home for several years now, the
                   facilities and community atmosphere of bands, singers,
@@ -130,10 +142,13 @@ function RouteComponent() {
                   Toby Davies (Gentleman's Dub Club, CrossTown Studios)
                 </p>
                 <br></br>
+                <h1 className="text-left text-xl title_loc">
+                  “BSMNT is the best place I’ve ever had a studio”
+                </h1>
                 <p className="text-left">
-                  “BSMNT is the best place I’ve ever had a studio, the owners
-                  are so sound and just leave you too it, nice big room, natural
-                  light, good community, good location. Couldn’t ask for more! ”
+                  “the owners are so sound and just leave you too it, nice big
+                  room, natural light, good community, good location. Couldn’t
+                  ask for more! ”
                   <br />
                   Boxed Ape ltd
                 </p>

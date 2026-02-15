@@ -71,17 +71,17 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="w-full pt-20 pb-20 overflow-x-hidden">
+    <div className="w-full pt-20 pb-20 overflow-x-hidden libre-text">
       <div className="max-w-7xl mx-auto p-6 flex flex-col text-center text-[rgb(67,67,67)] mt-5">
         {/* Yellow Header */}
         <div className="max-w-lg mx-auto w-full bg-[#fef880] -mb-3 rounded-t-xl p-4 sm:p-10 flex flex-col sm:flex-row text-left libre-text">
-          <h3 className="text-3xl sm:text-4xl font-bold sm:w-1/3 text-left">
+          <h3 className="text-4xl sm:text-5xl title_loc font-bold sm:w-1/3 text-left">
             GET IN
             <br />
             TOUCH
           </h3>
 
-          <div className="space-y-2 text-sm sm:w-2/3 ml-0 sm:ml-5 mt-4 sm:mt-0">
+          <div className="space-y-2 text-sm sm:w-2/3 ml-0 sm:ml-5 mt-4 sm:mt-0 libre-text">
             <p>
               <span className="font-semibold">availability: </span>
               <a
@@ -136,7 +136,7 @@ export default function ContactForm() {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-3 libre/text">
               <div className="flex flex-col sm:flex-row gap-3">
                 <div className="form-control w-full">
                   <label className="label text-sm">First Name</label>

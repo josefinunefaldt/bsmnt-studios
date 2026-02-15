@@ -110,7 +110,7 @@ const WorkPlace: React.FC<{ studios: BoxData[] }> = ({ studios }) => {
   };
 
   return (
-    <div className="w-full mx-auto p-6">
+    <div className="w-full mx-auto p-6 libre-text">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {studios.map((studios) => (
           <div
@@ -118,7 +118,7 @@ const WorkPlace: React.FC<{ studios: BoxData[] }> = ({ studios }) => {
             className="flex flex-col cursor-pointer mb-8"
             onClick={() => openModal(studios)}
           >
-            <div className="text-sm text-[rgb(67,67,67)] mb-2">
+            <div className="text-xl title_loc text-[rgb(67,67,67)] mb-2">
               North London
             </div>
 
@@ -136,7 +136,7 @@ const WorkPlace: React.FC<{ studios: BoxData[] }> = ({ studios }) => {
             </div>
 
             <div className="mt-2">
-              <h3 className="font-bold text-lg text-[rgb(67,67,67)]">
+              <h3 className="font-bold title_loc text-lg text-[rgb(67,67,67)]">
                 {studios.title}
               </h3>
               <p className="text-sm text-[rgb(67,67,67)]">Workplace</p>

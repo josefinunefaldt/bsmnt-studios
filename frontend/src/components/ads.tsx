@@ -17,8 +17,8 @@ const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
   };
 
   return (
-    <div className="w-full mx-auto p-6 bg-white text-black">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-black">
+    <div className="w-full mx-auto p-6 bg-white text-black libre-text">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
         {ads.length > 0 ? (
           ads.map((ad, index) => (
             <div
@@ -44,7 +44,7 @@ const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
               </div>
 
               <div className="mt-2">
-                <h3 className="font-bold text-lg">
+                <h3 className="font-bold text-lg title_loc">
                   {ad.offering ? "Offering a studio" : "Looking for a studio"}
                 </h3>
                 <p className="text-sm">Location: {ad.location}</p>
@@ -65,7 +65,7 @@ const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
 
       {selectedAd && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-2 sm:p-6"
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-2 sm:p-6 text-libre"
           onClick={closeModal}
         >
           <div
@@ -92,16 +92,16 @@ const Ads: FC<{ ads: components["schemas"]["AdvertResponse"][] }> = ({
             )}
 
             {/* Text Content */}
-            <div className="p-4 sm:p-6 overflow-y-auto flex-1">
-              <h2 className="text-lg font-bold text-[rgb(67,67,67)] mb-2">
-                {selectedAd.offering
-                  ? "Offering a studio"
-                  : "Looking for a studio"}
-              </h2>
+            <div className="p-4 sm:p-6 overflow-y-auto flex-1 text-libre">
               <p className="text-xs text-gray-600 mb-4">
                 Posted on:{" "}
                 {new Date(selectedAd.dateCreated!).toLocaleDateString()}
               </p>
+              <h2 className="text-lg font-bold text-[rgb(67,67,67)] mb-2 title_loc">
+                {selectedAd.offering
+                  ? "Offering a studio"
+                  : "Looking for a studio"}
+              </h2>
 
               <div className="flex flex-col md:flex-row gap-6 text-sm text-[rgb(67,67,67)]">
                 {/* Left Section */}
