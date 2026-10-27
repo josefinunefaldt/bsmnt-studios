@@ -87,12 +87,12 @@ const LocationCarousel = () => {
   const currentLocation = locations[currentIndex];
 
   return (
-    <div className="w-full mx-auto relative bg-white text-[rgb(67,67,67)] ">
-      <div className="flex flex-col lg:flex-row h-screen ">
-        <div className="w-full lg:w-3/4 h-screen relative ">
+    <div className="w-full mx-auto bg-white text-[rgb(67,67,67)]">
+      <div className="flex flex-col lg:flex-row min-h-screen lg:h-screen lg:overflow-hidden">
+        <div className="w-full lg:w-3/4 h-[55vh] sm:h-[60vh] lg:h-screen relative shrink-0">
           <Link
             to={currentLocation.path}
-            className="block w-full h-full relative "
+            className="block w-full h-full relative"
           >
             <img
               src={currentLocation.image}
@@ -102,47 +102,47 @@ const LocationCarousel = () => {
           </Link>
 
           <button
-            onClick={(e) => {
-              e.preventDefault();
-              prevSlide();
-            }}
-            className="absolute inset-y-0 left-0 flex items-center p-4 z-10"
+            onClick={prevSlide}
+            className="absolute inset-y-0 left-0 flex items-center p-2 sm:p-4 z-10"
             aria-label="Previous slide"
           >
-            <div className="bg-black/50 hover:bg-black/70 rounded-full p-2 transition">
-              <MdKeyboardArrowLeft className="text-3xl text-white" />
+            <div className="bg-black/50 hover:bg-black/70 rounded-full p-1.5 sm:p-2 transition">
+              <MdKeyboardArrowLeft className="text-2xl sm:text-3xl text-white" />
             </div>
           </button>
 
           <button
-            onClick={(e) => {
-              e.preventDefault();
-              nextSlide();
-            }}
-            className="absolute inset-y-0 right-0 flex items-center p-4 z-10"
+            onClick={nextSlide}
+            className="absolute inset-y-0 right-0 flex items-center p-2 sm:p-4 z-10"
             aria-label="Next slide"
           >
-            <div className="bg-black/50 hover:bg-black/70 rounded-full p-2 transition">
-              <MdKeyboardArrowRight className="text-3xl text-white" />
+            <div className="bg-black/50 hover:bg-black/70 rounded-full p-1.5 sm:p-2 transition">
+              <MdKeyboardArrowRight className="text-2xl sm:text-3xl text-white" />
             </div>
           </button>
         </div>
-
         <Link
           to={currentLocation.path}
-          className="hidden lg:flex w-full lg:w-1/4 flex-col bg-[#fef880] text-[rgb(67,67,67)] h-screen transition-all duration-500"
+          className="hidden lg:flex lg:w-1/4 flex-col bg-[#fef880] text-[rgb(67,67,67)] lg:h-screen"
         >
-          <div className="flex flex-col h-full p-12 pt-64 relative">
-            <div className="space-y-6 max-w-md text-left">
-              <div className="text-3xl  title_loc ">{currentLocation.name}</div>
+          <div className="flex flex-col flex-1 min-h-0 p-6 xl:p-10 2xl:p-12 relative">
+            <div className="space-y-6 max-w-md text-left mt-[clamp(2rem,20vh,16rem)]">
+              <div className="text-2xl xl:text-3xl title_loc">
+                {currentLocation.name}
+              </div>
+
               <div className="text-sm libre-text leading-relaxed">
                 {currentLocation.info}
               </div>
             </div>
-            <div className="absolute bottom-36 left-12">
+            <div className="mt-auto pt-8">
               <div className="font-libre text-[rgb(67,67,67)]">Read more</div>
               <div className="flex justify-start mt-2">
-                <img className="w-32" src="/Pil.png" alt="Arrow" />
+                <img
+                  className="w-24 xl:w-32 max-w-full h-auto"
+                  src="/Pil.png"
+                  alt="Arrow"
+                />
               </div>
             </div>
           </div>
@@ -151,18 +151,26 @@ const LocationCarousel = () => {
 
       <Link
         to={currentLocation.path}
-        className="block lg:hidden w-full bg-[#fef880] text-[rgb(67,67,67)] transition-all duration-500 min-h-screen"
+        className="flex lg:hidden w-full bg-[#fef880] text-[rgb(67,67,67)]"
       >
-        <div className="flex flex-col p-4 space-y-4 h-full">
-          <div className="text-2xl  title_loc">{currentLocation.name}</div>
-          <div className="text-sm text-[rgb(67,67,67)]libre-text leading-relaxed">
+        <div className="flex flex-col w-full p-5 sm:p-8 space-y-4">
+          <div className="text-2xl sm:text-3xl title_loc">
+            {currentLocation.name}
+          </div>
+
+          <div className="text-sm sm:text-base libre-text leading-relaxed">
             {currentLocation.info}
           </div>
-          <div className="libre-text text-[rgb(67,67,67)] mt-auto">
-            Read more
-          </div>
-          <div className="flex justify-start">
-            <img className="w-32" src="/Pil.png" alt="Arrow" />
+
+          <div className="pt-4">
+            <div className="font-libre text-[rgb(67,67,67)]">Read more</div>
+            <div className="flex justify-start mt-2">
+              <img
+                className="w-24 sm:w-32 max-w-full h-auto"
+                src="/Pil.png"
+                alt="Arrow"
+              />
+            </div>
           </div>
         </div>
       </Link>
