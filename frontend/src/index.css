@@ -29,6 +29,11 @@ body {
   font-style: normal;
   color: rgb(67, 67, 67);
 }
+.title_loc1 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 400;
+  color: rgb(67, 67, 67);
+}
 p h1 h2 h3 h4 span div {
   color: rgb(67, 67, 67);
 }

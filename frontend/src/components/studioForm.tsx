@@ -24,7 +24,7 @@ export default function StudioForm() {
   const infoPanelRef = useRef<HTMLDivElement>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     if (["name", "email", "about"].includes(name)) {
@@ -87,7 +87,7 @@ export default function StudioForm() {
       setError(
         `Failed to create advert: ${
           err instanceof Error ? err.message : String(err)
-        }`
+        }`,
       );
       console.error("Error:", err);
     } finally {
@@ -115,11 +115,11 @@ export default function StudioForm() {
       style={{ backgroundImage: "url('/music.jpg')" }}
     >
       <div className="mb-20 w-screen mx-auto px-4">
-        <h1 className="text-center w-screen !text-[#fef880] mt-5 title_loc md:text-4xl font-bold leading-tight tracking-[0.1em]">
-          STUDIO SHARE IN LONDON CONNECT WITH PROFESSIONALS
+        <h1 className="text-center w-screen !text-[#fef880] mt-11 title_loc md:text-4xl font-bold leading-tight tracking-[0.1em]">
+          Studio share in London - connect with professionals{" "}
         </h1>
 
-        <div className="max-w-lg mx-auto w-full mt-10 relative libre-text">
+        <div className="max-w-lg mx-auto w-full mt-5 relative libre-text">
           <form
             onSubmit={handleSubmit}
             className="space-y-0 relative p-4 sm:p-6"

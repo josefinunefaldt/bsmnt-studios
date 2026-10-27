@@ -63,7 +63,7 @@ function RouteComponent() {
                   className="libre-text block text-left mt-10 p-4 space-y-4 "
                 >
                   {" "}
-                  See all music studios in London{" "}
+                  See all available spaces{" "}
                   <img className="w-32 mt-4" src="/Pil.png" alt="Arrow" />{" "}
                 </Link>{" "}
               </div>

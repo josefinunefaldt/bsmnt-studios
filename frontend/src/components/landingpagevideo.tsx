@@ -1,4 +1,4 @@
-import { NavbarArgall } from "./navbarArgall";
+import { Navbar } from "../components/navbar";
 
 export const Video = () => {
   return (
@@ -26,7 +26,7 @@ export const Video = () => {
       </video>
 
       <div className="relative z-10 w-full">
-        <NavbarArgall />
+        <Navbar />
       </div>
     </div>
   );

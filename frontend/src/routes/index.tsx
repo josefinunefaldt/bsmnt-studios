@@ -26,7 +26,7 @@ function RouteComponent() {
         <Video />
       </section>
 
-      <section className="min-h-screen flex flex-col justify-center items-center  px-6 py-20 bg-[#fef880]">
+      <section className="min-h-screen flex flex-col justify-center items-center  px-6 py-2 bg-[#fef880]">
         <Grid />
       </section>
     </div>

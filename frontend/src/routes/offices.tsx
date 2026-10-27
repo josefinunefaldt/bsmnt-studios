@@ -30,10 +30,10 @@ function RouteComponent() {
       </HelmetProvider>
 
       <Navbar />
-      <div className="bg-[#fef880] p-6 m-6 ">
+      <div className="bg-[#fef880] p-10 m-6 ">
         <h2 className="mt-20  flex items-center gap-2">
-          <img className="w-12 " src="/workplaces.png" alt="office" />
-          <span className="title_loc text-3xl">Offices</span>
+          <img className="w-24 " src="/workplaces.png" alt="office" />
+          <span className="title_loc1 text-2xl ">Offices</span>
         </h2>
         <br></br>
         <h1 className="libre-text">
@@ -52,7 +52,7 @@ function RouteComponent() {
         <button
           type="button"
           onClick={() => setInfoOpen(true)}
-          className="mt-4 flex flex-col items-start "
+          className="mt-12 flex flex-col items-start "
         >
           <span className="libre-text text-[rgb(67,67,67)]">Read more</span>
           <img className="w-24 mt-1" src="/Pil.png" alt="Arrow" />

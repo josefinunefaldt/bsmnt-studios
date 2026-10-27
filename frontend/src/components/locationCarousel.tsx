@@ -24,7 +24,7 @@ const LocationCarousel = () => {
       path: "/argall",
       location: "East London",
       info: "Located in a landmark building by Lea Bridge Station, provides offices filled with natural light, spacious, inviting communal areas, and high-spec music studios with floor-to-ceiling windows for East London's creative professionals.",
-      image: "./Argl.JPG",
+      image: "./Argall/argall_bsmnt_music_studio4.JPG",
     },
     {
       name: "Hornsey",
@@ -78,7 +78,7 @@ const LocationCarousel = () => {
     if (!isTransitioning) {
       setIsTransitioning(true);
       setCurrentIndex((prevIndex) =>
-        prevIndex === 0 ? locations.length - 1 : prevIndex - 1
+        prevIndex === 0 ? locations.length - 1 : prevIndex - 1,
       );
       setTimeout(() => setIsTransitioning(false), 500);
     }
@@ -109,7 +109,9 @@ const LocationCarousel = () => {
             className="absolute inset-y-0 left-0 flex items-center p-4 z-10"
             aria-label="Previous slide"
           >
-            <MdKeyboardArrowLeft className="text-4xl text-white" />
+            <div className="bg-black/50 hover:bg-black/70 rounded-full p-2 transition">
+              <MdKeyboardArrowLeft className="text-3xl text-white" />
+            </div>
           </button>
 
           <button
@@ -120,7 +122,9 @@ const LocationCarousel = () => {
             className="absolute inset-y-0 right-0 flex items-center p-4 z-10"
             aria-label="Next slide"
           >
-            <MdKeyboardArrowRight className="text-4xl text-white" />
+            <div className="bg-black/50 hover:bg-black/70 rounded-full p-2 transition">
+              <MdKeyboardArrowRight className="text-3xl text-white" />
+            </div>
           </button>
         </div>
 

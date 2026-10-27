@@ -31,10 +31,10 @@ function RouteComponent() {
       <Navbar />
 
       {/* Yellow teaser box */}
-      <div className="bg-[#fef880] p-6 m-6 libre-text">
+      <div className="bg-[#fef880] p-10 m-6 libre-text">
         <h2 className="mt-20 title_loc flex items-center gap-2">
-          <img className="w-12 " src="/musics.png" alt="studios" />
-          <span className="title_loc text-3xl">Studios</span>
+          <img className="w-24 " src="/musics.png" alt="studios" />
+          <span className="title_loc1 text-2xl">Studios</span>
         </h2>
         <br></br>
         <h1>Available Music Studios for Long-Term Rent in London</h1>
@@ -47,7 +47,7 @@ function RouteComponent() {
         <button
           type="button"
           onClick={() => setInfoOpen(true)}
-          className="mt-4 flex flex-col items-start "
+          className="mt-12 flex flex-col items-start "
         >
           <span className="font-libre text-[rgb(67,67,67)]">Read more</span>
           <img className="w-26 mt-1" src="/Pil.png" alt="Arrow" />
